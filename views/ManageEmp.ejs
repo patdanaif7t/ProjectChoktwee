@@ -12,9 +12,11 @@
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 </head>
 
 <body class="app sidebar-mini rtl">
+
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.html">ASAP</a>
         <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
@@ -137,7 +139,8 @@
                                                 style="font-size: 15px;">ลบ</button></a>
                                         <button type="submit" class="btn btn-outline-warning btn-block"
                                             style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
-                                            data-target=".AddModalCenter">แก้ไข</button>
+                                            data-target=".EditModalCenter">แก้ไข</button>
+
                                     </td>
                                 </tr>
                                 <% } %>
@@ -147,7 +150,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Modal เพิ่ม -->
         <div class="modal fade AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="AddModalCenter"
             aria-hidden="true">
@@ -287,17 +289,159 @@
                 </form>
             </div>
         </div>
-        <!-- Modal แก้ไข -->
-       
-<div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            ...
-          </div>
-        </div>
-      </div>
+
+
         <!-- End Modal -->
     </main>
+
+     <!-- Modal  แก้ไข -->
+    <div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="EditModalCenter"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <form action="mangeemployee/create" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="AddModalCenter">
+                            แก้ไขข้อมูลเจ้าหน้าที่</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+                            </div>
+                            <input type="text" name="addID_MST_employeeId" id="id" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ชื่อผู้ใช้งาน</span>
+                            </div>
+                            <input type="text" name="addusername" id="username" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสผ่าน</span>
+                            </div>
+                            <input type="text" name="addpassword" id="password" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
+                            </div>
+                            <input type="text" name="addemployee_first_name" id="firstname" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
+                            </div>
+                            <input type="text" name="addemployee_last_name" id="lastname" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
+                            </div>
+                            <input type="text" name="addemployee_citizen_id" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
+                            </div>
+                            <input type="text" name="addemployee_telephone" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="status">เพศ</label>
+                            </div>
+                            <select class="custom-select" name="addemployee_gender" id="status">
+                                <option selected>โปรดเลือก...</option>
+                                <option value="ชาย">ชาย</option>
+                                <option value="หญิง">หญิง</option>
+
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">เงินเดือน</span>
+                            </div>
+                            <input type="text" name="employee_salary" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">วันเกิด</span>
+                            </div>
+                            <input type="text" name="employee_birthday" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสที่อยู่</span>
+                            </div>
+                            <input type="text" name="address_id" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
+                            </div>
+                            <input type="text" name="bloc" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                            </div>
+                            <input type="text" name="district" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                            </div>
+                            <input type="text" name="sub_district" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                            </div>
+                            <input type="text" name="province" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                            </div>
+                            <input type="text" name="postcode" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
