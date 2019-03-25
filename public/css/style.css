@@ -1,0 +1,501 @@
+.welcome{
+    width: 1000px;
+    height: 400px;
+    margin: auto;
+    font-size: xx-large;
+    margin-top: 100px
+}
+/* <header> */
+header {
+    width: auto;
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+/* ส่วน header ที่จะชิดซ้าย */
+#header-left {
+    float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+/* ส่วน header ที่จะชิดขวา */
+#header-right {
+    float: right;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+/* _____________________________________________ */
+
+/*<nav> แถบเมนู navigation bar */
+nav {
+    width: auto;
+    height: auto;
+    margin-right: 0%;
+    margin-left: 0%;
+}
+
+/* id แถบเมนู <ul> ส่วนของ row มีแถวเดียว*/
+#navbar {
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+    overflow: hidden;
+    background-color: #6bc79b;
+    border-collapse: collapse;
+
+}
+
+/* class แถบเมนู <li> ส่วนของ column มี 7 คอลัมน์ */
+.navbar-item {
+    float: left;
+    border-collapse: collapse;
+    font-size: large;
+    border: 0.25px solid rgb(10, 146, 105);
+
+}
+
+/* ตัวอักษรในเมนู navbar  */
+.navbar-item a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 15px 59.9px;
+    text-decoration: none;
+}
+
+/* สีเวลาถูกเมาส์ชี้  */
+.navbar-item a:hover {
+    background-color: #bbb;
+}
+
+/* สีเมื่อเลือกเมนูนั้น */
+.active {
+    background: #ccc;
+}
+
+/* _____________________________________________ */
+
+
+/* "พื้นหลัง Popup" The Modal (background ส่วนพื้นหลัง) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 1%;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* The Close Button มุมขวา */
+.close {
+    color: #bbb;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* เปลี่ยนสีเวลาเอาเมาส์ไปชี่ที่ Close Button มุมขวา  */
+.close:hover,
+.close:focus {
+    color: #6bc79b;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ตัวPopup ส่วนสำหรับใส่เนื้อหา (Modal Content)  */
+.modal-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 2%;
+    padding-left: 5%;
+    border: 1px solid #888;
+    width: 30%;
+    /* border: 1px solid red; */
+
+}
+
+/* ช่องกรอกข้อมูล */
+.modal-input {
+    width: 86%;
+    height: 25px;
+    margin: auto;
+    padding-left: 2%;
+    background: rgba(240, 247, 244, 0.397);
+    border: 1px solid #b6e0cc;
+}
+
+/* _____________________________________________ */
+
+/* ส่วนเนื้อหา container */
+#container {
+    max-width: 1200px;
+    width: auto;
+    height: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5%;
+    margin-bottom: 1%;
+    /* border: 1px solid red; */
+}
+
+/* row แถวช่องค้นหา ปุ่มเพิ่ม และ ตาราง */
+.row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* border: 1px solid red;  */
+}
+
+/* แถวของช่อง ค้นหา + ปุ่มเพิ่ม */
+.form-group {
+    width: 100%;
+    height: auto;
+    display: flow-root;
+    /* border: 1px solid red;  */
+}
+
+/* ช่องค้นหาทั้งหมด รวมicon */
+.form-input-icon {
+    padding: 1px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 88%;
+    height: auto;
+    display: inline-flex;
+    border: 1px solid #6bc79b
+}
+
+/* ช่องค้นหา ไม่รวมicon */
+.form-group input {
+    width: 95%;
+    padding: 10px;
+    border: none;
+    /* border: 1px solid red;  */
+}
+
+/* รูป icon  */
+.search-icon {
+    margin: 5px 10px 0 10px;
+    width: 25px;
+    height: 25px;
+    background-image: url(https://cdn0.iconfinder.com/data/icons/30-hardware-line-icons/64/Search-512.png);
+    background-size: cover;
+    background-position: left center;
+    /* border: 1px solid red;  */
+}
+
+
+/* _____________________________________________ */
+
+/* ตาราง <table> ไม่รวม Scrollit */
+.table {
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    /* border: 5px solid red; */
+}
+
+/* หัวตาราง */
+.table-bordered thead tr th {
+    text-align: center !important;
+    font-style: normal;
+    /* font-size: large; */
+    padding: 15px;
+    text-align: left;
+    border: 1px solid rgb(10, 146, 105);
+    background-color: #6bc79b;
+}
+
+/* เนื้อหาตาราง */
+.table-bordered tbody tr th,
+.table-bordered tbody tr td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgb(10, 146, 105);
+    background: rgba(240, 247, 244, 0.397);
+
+}
+#th4{
+    width: 300px;
+}
+.td-center {
+    text-align : center !important;
+}
+
+/* พื้นที่ตาราง และ แถบ Scroll bar ของตาราง */
+.scrollit {
+    overflow-y: scroll;
+    height: 430px;
+    /* border: 1px solid red; */
+}
+
+/* สีปุ่ม link <a> */
+a {
+    color: rgb(10, 146, 105)
+}
+
+/* ขอบตาราง */
+/* table,th,td {
+    border:1px solid black;
+    text-align: center;
+} */
+/* _____________________________________________ */
+
+/* button */
+.btn {
+    padding: 6.6px;
+    font-size: medium;
+    /* background: #6bc79b; */
+
+}
+
+/* ปุ่มเพิ่มรายการ ข้างช่องค้นหา */
+.btn-add {
+    width: 10%;
+    border: 1px solid #bbb;
+    /* border: 1px solid rgb(10, 146, 105) ; */
+}
+
+/* ปุ่ม ตกลง */
+.btn-submit {
+    margin-top: 20px;
+    margin-left: 7%;
+    width: 25%;
+    font-size: medium;
+    border: 1px solid #bbb;
+    /* border: 1px solid rgb(10, 146, 105) ; */
+}
+
+/* ปุ่ม ยกเลิก */
+.btn-cancel {
+    margin-top: 20px;
+    margin-left: 20%;
+    font-size: medium;
+    width: 24%;
+    border: 1px solid #bbb;
+    /* border: 1px solid rgb(10, 146, 105) ; */
+}
+
+.btn-cancelbynew {
+    margin-top: 20px;
+    margin-left: 10%;
+    font-size: medium;
+    width: 24%;
+    border: 1px solid #bbb;
+}
+
+/* _____________________________________________ */
+
+/* footer */
+footer {
+    background-color: #6bc79b;
+    width: auto;
+    height: 200px;
+    /* border: 10px solid rgb(10, 146, 105)b ; */
+    margin-top: 15px;
+}
+
+
+/* .btn a {
+    color: #000;
+    text-decoration: none;
+} */
+/* .btn-white:hover {
+    background-color: rgb(247, 247, 247);
+} */
+/* .date{
+    width:86%;
+} */
+
+/* .form-group input:focus {
+    border: none;
+} */
+/* _____________________________________________ */
+
+.modal-login {
+    display: block;
+    /* show by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 12%;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.forgot-psw {
+    margin-top: 5%;
+    text-align: right;
+}
+
+.containers {
+    max-width: 1200px;
+    width: auto;
+    height: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5%;
+    margin-bottom: 1%;
+    /* border: 1px solid red; */
+}
+
+.btn-login {
+    margin-left: 35%;
+    margin-top: 3%;
+    font-size: medium;
+    width: 24%;
+    border: 1px solid #bbb;
+    /* border: 1px solid rgb(10, 146, 105) ; */
+}
+
+h1 {
+    text-align: center;
+    font-size: 200%;
+}
+
+/* _____________________________________________ */
+
+/* sellreport nontapong */
+.btn-report {
+    background-color: #4caf50;
+    width: 124px;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 0px 0px 14px;
+    cursor: pointer;
+}
+
+.btn-black {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.row-right {
+    text-align: right;
+}
+
+.input-large {
+    height: 60px;
+}
+
+
+/* ของตูน */
+/* modal มีหน้า next */
+#content-2 {
+    display: none;
+}
+
+.btn-submit1 {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 25%;
+    font-size: medium;
+    border: 1px solid #bbb;
+    /* border: 1px solid rgb(10, 146, 105) ; */
+}
+
+.close1 {
+    color: #bbb;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* ของแนน + Dropdown*/
+
+
+.form-input-icon1 {
+    padding: 1px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 99.5%;
+    height: auto;
+    display: inline-flex;
+    border: 1px solid #6bc79b
+}
+
+/* ช่องกรอกข้อมูลที่อยู่ */
+.modal-input1 {
+    width: 86%;
+    height: 50px;
+    margin: auto;
+    padding-left: 2%;
+    background: rgba(240, 247, 244, 0.397);
+    border: 1px solid #b6e0cc;
+}
+
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: large;
+    border: 0.25px solid rgb(10, 146, 105);
+    outline: none;
+    padding: 15px 16px;
+    background-color: inherit;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
