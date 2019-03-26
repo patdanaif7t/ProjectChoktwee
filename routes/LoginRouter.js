@@ -5,25 +5,24 @@ const Emp = require('../models/Emp.model');
 
 
 LoginRouter.route('/').get(function (req, res) {
-  Emp.find(function (err, emps) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.render('login', { emps: emps });
-    }
-  });
+  res.render('login');
 });
 
-LoginRouter.route('/welcome').get(function (req, res) {
-  Emp.find(function (err, emps) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.render('ManageCar', { emps: emps });
-    }
-  });
-});
+LoginRouter.route('/').post((req, res) => {  
+  console.log(req.body.email);
+  console.log(req.body.pass);
+  if(req.body.email && req.body.pass) {
+    Emp.findOne({username: req.body.email}).then(emps => {
+      if (emps.password === req.body.pass) {
+        res.redirect('/mangeemployee')
+      } else {
+        res.redirect('/login')
+      }
+  }).catch(err => {
+   
+    res.redirect('/login')
+  })
+  }
+})
 
 module.exports = LoginRouter;
