@@ -1,150 +1,258 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>รายงาน</title>
-    <link rel="shortcut icon" type="image/png" href="http://www.bhwelder.com.my/img/hotproduct.png" />
-    <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!-- Font-icon css-->
-    <link rel="stylesheet" type="text/css"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-</head>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="http://www.bhwelder.com.my/img/hotproduct.png"
+    />
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <!-- Font-icon css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body class="app sidebar-mini rtl">
-    <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html">ASAP</a>
-        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
-            aria-label="Hide Sidebar"></a>
-        <!-- Navbar Right Menu-->
-        <ul class="app-nav">
-            <li class="app-search">
-                <input class="app-search__input" type="search" placeholder="Search">
-                <button class="app-search__button"><i class="fa fa-search"></i></button>
-            </li>
+  <body class="app sidebar-mini rtl">
+    <!-- Navbar -->
+    <header class="app-header">
+      <a class="app-header__logo" href="index.html">ASAP</a>
+      <!-- Sidebar toggle button
+      --><a
+        class="app-sidebar__toggle"
+        href="#"
+        data-toggle="sidebar"
+        aria-label="Hide Sidebar"
+      ></a>
+      <!-- Navbar Right Menu -->
+      <ul class="app-nav">
+        <li class="app-search">
+          <input class="app-search__input" type="search" placeholder="Search" />
+          <button class="app-search__button">
+            <i class="fa fa-search"></i>
+          </button>
+        </li>
 
-            <!-- User Menu-->
-            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
-                    aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
-                <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-                    <li><a class="dropdown-item" href="login"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
-                    </li>
-                </ul>
+        <!-- User Menu -->
+        <li class="dropdown">
+          <a
+            class="app-nav__item"
+            href="#"
+            data-toggle="dropdown"
+            aria-label="Open Profile Menu"
+            ><i class="fa fa-user fa-lg"></i
+          ></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fa fa-cog fa-lg"></i> Settings</a
+              >
             </li>
-        </ul>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fa fa-user fa-lg"></i> Profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="login"
+                ><i class="fa fa-sign-out fa-lg"></i> Logout</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
     </header>
-    <!-- Sidebar menu-->
+    <!-- Sidebar menu -->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar"
-                src="https://www.img.in.th/images/907a16df723b68dd9b01785c32ef6a28.jpg" alt="User Image" height="48px"
-                width="48">
-            <div>
-                <p class="app-sidebar__user-name">ภัทรดนัย ช่างเหลา</p>
-                <p class="app-sidebar__user-designation">สถานะ : Admin</p>
-            </div>
+      <div class="app-sidebar__user">
+        <img
+          class="app-sidebar__user-avatar"
+          src="https://www.img.in.th/images/907a16df723b68dd9b01785c32ef6a28.jpg"
+          alt="User Image"
+          height="48px"
+          width="48"
+        />
+        <div>
+          <p class="app-sidebar__user-name">ภัทรดนัย ช่างเหลา</p>
+          <p class="app-sidebar__user-designation">สถานะ : Admin</p>
         </div>
-        <ul class="app-menu">
-            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                        class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
-                        class="treeview-indicator fa fa-angle-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
-                            สต็อครถ</a></li>
-                    <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
-                            ซื้อรถเข้า</a></li>
-                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
-                </ul>
+      </div>
+      <ul class="app-menu">
+        <li class="treeview">
+          <a class="app-menu__item" href="#" data-toggle="treeview"
+            ><i class="app-menu__icon fa fa-laptop"></i
+            ><span class="app-menu__label">จัดการสต็อครถ</span
+            ><i class="treeview-indicator fa fa-angle-right"></i
+          ></a>
+          <ul class="treeview-menu">
+            <li>
+              <a class="treeview-item" href="/mangecar"
+                ><i class="icon fa fa-circle-o"></i> สต็อครถ</a
+              >
             </li>
-            <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">จัดการซ่อม</span></a></li>
-            <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
-            <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
-            <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">ดูรายงาน</span></a></li>
-            <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">จัดการพนักงาน</span></a></li>
-        </ul>
+            <li>
+              <a class="treeview-item" href="/buycar" rel="noopener"
+                ><i class="icon fa fa-circle-o"></i> ซื้อรถเข้า</a
+              >
+            </li>
+            <li>
+              <a class="treeview-item" href="/sellcar"
+                ><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="app-menu__item" href="/manage-repair"
+            ><i class="app-menu__icon fa fa-dashboard"></i
+            ><span class="app-menu__label">จัดการซ่อม</span></a
+          >
+        </li>
+        <li>
+          <a class="app-menu__item" href="/renewlicense"
+            ><i class="app-menu__icon fa fa-dashboard"></i
+            ><span class="app-menu__label">จัดการเดินทะเบียน</span></a
+          >
+        </li>
+        <li>
+          <a class="app-menu__item" href="/customer"
+            ><i class="app-menu__icon fa fa-pie-chart"></i
+            ><span class="app-menu__label">ดูข้อมูลลูกค้า</span></a
+          >
+        </li>
+        <li>
+          <a class="app-menu__item" href="/report"
+            ><i class="app-menu__icon fa fa-pie-chart"></i
+            ><span class="app-menu__label">ดูรายงาน</span></a
+          >
+        </li>
+        <li>
+          <a class="app-menu__item" href="/mangeemployee"
+            ><i class="app-menu__icon fa fa-pie-chart"></i
+            ><span class="app-menu__label">จัดการพนักงาน</span></a
+          >
+        </li>
+      </ul>
     </aside>
     <main class="app-content">
-        <div class="app-title">
-            <div>
-                <h1><i class="fa fa-th-list"></i> ดูรายงาน</h1>
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-th-list"></i>  ดูรายงาน</h1>
 
-                <p>ดูข้อมูลรายได้</p>
-            </div>
-            <ul class="app-breadcrumb breadcrumb side">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item">Tables</li>
-                <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
-
-            </ul>
+          <p>ดูข้อมูลรายได้ขาย ซ่อม เดินทะเบียน</p>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="tile">
-                    <div class="tile-body">
-                        <table class="table table-hover table-bordered" id="sampleTable">
-                            <thead>
-                                <tr align="center">
-                                    <th>วันที่ขาย</th>
-                                    <th>รายการ</th>
-                                    <th>รายรับ</th>
-                                    <th>ออกเอกสาร</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% for(var i=0; i < license.length; i++) { %>
-                                <tr>
-                                    <td>
-                                        <%= license[i].renew_license_date%>
-                                    </td>
-                                    <td>
-                                        <%= license[i].ID_TRN_renew_license %>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Report</li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+              <table class="table table-hover table-bordered" id="sampleTable">
+                <thead>
+                  <tr align="center">
+                    <th>วันที่</th>
+                    <th>รายการ</th>
+                    <th>รายรับ</th>
+                    <th style="width:200px;">ออกเอกสาร</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < license.length; i++) { %>
+                  <tr>
+                    <td><%= license[i].renew_license_date%></td>
+                    <td><%= license[i].ID_TRN_renew_license %></td>
+                    <td><%= license[i].renew_license_price %></td>
 
-                                    </td>
-                                    <td>
-                                        <%= license[i].renew_license_price %>
-                                    </td>
+                    <td>
+                      <div align="center">
+                        <button
+                          type="submit"
+                          class="btn btn-outline-success btn-block"
+                          style="font-size: 15px; width: 45%"
+                        >
+                          ออกเอกสาร
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <% } %> <% for(var i=0; i < sells.length; i++) { %>
+                  <tr>
+                    <td><%= sells[i].sell_car_date%></td>
+                    <td><%= sells[i].ID_TRN_sellCar %></td>
+                    <td><%= sells[i].sell_car_price %></td>
 
-                                    <td>
-                                        <div align="center">
-                                            <button type="submit" class="btn btn-outline-primary btn-block"
-                                                style="font-size: 15px; width: 40%">ออกเอกสาร</button>
-                                        </div>
-
-                                    </td>
-
-                                </tr>
-                                <% } %>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                    <td>
+                      <div align="center">
+                        <button
+                          type="submit"
+                          class="btn btn-outline-success btn-block"
+                          style="font-size: 15px; width: 45%"
+                        >
+                          ออกเอกสาร
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <% } %> <% for(var i=0; i < repairs.length; i++) { %>
+                    <tr>
+                      <td><%= repairs[i].repair_return_date%></td>
+                      <td><%= repairs[i].ID_TRN_repair_car %></td>
+                      <td><%= repairs[i].repair_car_price %></td>
+  
+                      <td>
+                        <div align="center">
+                          <button
+                            type="submit"
+                            class="btn btn-outline-success btn-block"
+                            style="font-size: 15px; width: 45%"
+                          >
+                            ออกเอกสาร
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+              </table>
             </div>
+          </div>
         </div>
+      </div>
     </main>
-    <!-- Essential javascripts for application to work-->
+    <!-- Essential javascripts for application to work -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
+    <!-- The javascript plugin to display page loading on top -->
     <script src="js/plugins/pace.min.js"></script>
-    <!-- Page specific javascripts-->
-    <!-- Data table plugin-->
-    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+    <!-- Page specific javascripts -->
+    <!-- Data table plugin -->
+    <script
+      type="text/javascript"
+      src="js/plugins/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="js/plugins/dataTables.bootstrap.min.js"
+    ></script>
     <script type="text/javascript">
-        $('#sampleTable').DataTable();
+      $("#sampleTable").DataTable();
     </script>
-</body>
-
+  </body>
 </html>
