@@ -26,6 +26,19 @@ MangeRepairRouter.post('/create', (req, res, next) => {
     })
 })
 
+MangeRepairRouter.get('/get/:_id', (req, res, next) => {
+  Repair.findById(req.params._id,
+    (err, repair) => {
+      if (err) {
+        return res.status(500).send(err.message)
+      }
+      res.json({
+        success: true,
+        repair
+      })
+    })
+})
+
 MangeRepairRouter.get('/delete/:_id', (req, res, next) => {
   Repair.findByIdAndRemove(req.params._id,
     (err, emps) => {
@@ -37,13 +50,13 @@ MangeRepairRouter.get('/delete/:_id', (req, res, next) => {
     })
 })
 
-MangeRepairRouter.post('/update/:_id', (req, res, next) => {
-  Emp.findByIdAndUpdate(req.params._id , req.body , (err, emps) => {
+MangeRepairRouter.post('/update', (req, res, next) => {
+  Repair.findByIdAndUpdate(req.body.edit_id , req.body , (err, emps) => {
       if (err) {
         return res.status(500).send(err.message)
       }
-      // res.redirect('/mangeemployee')
-      res.status(200).send({success : {message : "Update Employee succesfully."}})
+      res.redirect('/manage-repair')
+      // res.status(200).send({success : {message : "Update Repair succesfully."}})
     })
 })
 
