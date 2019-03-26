@@ -35,3 +35,12 @@ function isInputNumber(evt) {
 		evt.preventDefault();
 	}
 }
+
+function isInputAZ(evt) {
+
+	var ch = String.fromCharCode(evt.which);
+
+	if (!(/[a-zA-Z]/.test(ch))) {
+		evt.preventDefault();
+	}
+}

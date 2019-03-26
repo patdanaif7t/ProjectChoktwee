@@ -19,27 +19,27 @@
   </section>
   <section class="login-content">
     <div class="logo">
-      <h1>ระบบหลังบ้าน ASAP</h1>
+      <h1>โชคทวีออโต้เซลส์</h1>
     </div>
     <div class="login-box">
       <form class="login-form" action="/login" method="post">
-        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
+        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>เข้าสู่ระบบ</h3>
         <div class="form-group">
-          <label class="control-label">USERNAME</label>
-          <input type="input" id="email" name="email" class="form-control" type="text" placeholder="Email" autofocus>
+          <label class="control-label">ชื่อผู้ใช้งาน</label>
+          <input type="input" id="username" name="username" class="form-control" type="text" placeholder="ชื่อผู้ใช้งาน" autofocus>
         </div>
         <div class="form-group">
-          <label class="control-label">PASSWORD</label>
-          <input type="password" id="pass" name="pass" class="form-control" placeholder="Password">
+          <label class="control-label">รหัสผ่าน</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="รหัสผ่าน">
         </div>
         <div class="form-group">
           <div class="utility">
             <div class="animated-checkbox">
-              <label>
+              <!-- <label>
                 <input type="checkbox"><span class="label-text">Stay Signed in</span>
-              </label>
+              </label> -->
             </div>
-            <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Forgot Password ?</a></p>
+            <p class="semibold-text mb-2"><a href="#" data-toggle="flip">ลืมรหัสผ่าน ?</a></p>
           </div>
         </div>
         <div class="form-group btn-container">
@@ -66,7 +66,7 @@
           <input type="text" id="password" name="password" class="form-control" placeholder="รหัสผ่าน">
         </div>
         <div class="form-group mt-3">
-          <button class="btn btn-primary btn-block""><i class=" fa fa-unlock fa-lg fa-fw"></i>เข้าสู่ระบบ</button>
+          <a href="/login"><button class="btn btn-primary btn-block""><i class=" fa fa-unlock fa-lg fa-fw"></i>เข้าสู่ระบบ</button></a> 
         </div>
       </div>
     </div>

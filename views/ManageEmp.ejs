@@ -188,14 +188,14 @@
                                     <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
                                 </div>
                                 <input type="text" name="employee_first_name" id="firstname" class="form-control"
-                                    aria-label="Sizing example input" maxlength="20">
+                                    aria-label="Sizing example input" maxlength="20" onkeypress="isInputAZ(evt)">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
                                 </div>
                                 <input type="text" name="employee_last_name" id="lastname" class="form-control"
-                                    aria-label="Sizing example input" maxlength="20">
+                                    aria-label="Sizing example input" maxlength="20" onkeypress="isInputAZ(evt)">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -233,7 +233,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">วันเกิด</span>
                                 </div>
-                                <input type="text" name="employee_birthday" id="email" class="form-control"
+                                <input type="date" name="employee_birthday" id="email" class="form-control"
                                     aria-label="Sizing example input">
                             </div>
                             <div class="input-group mb-3">
@@ -248,28 +248,28 @@
                                     <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
                                 </div>
                                 <input type="text" name="bloc" id="email" class="form-control"
-                                    aria-label="Sizing example input">
+                                    aria-label="Sizing example input" maxlength="15">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
                                 </div>
                                 <input type="text" name="district" id="email" class="form-control"
-                                    aria-label="Sizing example input">
+                                    aria-label="Sizing example input" maxlength="15">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
                                 </div>
                                 <input type="text" name="sub_district" id="email" class="form-control"
-                                    aria-label="Sizing example input">
+                                    aria-label="Sizing example input" maxlength="15">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
                                 </div>
                                 <input type="text" name="province" id="email" class="form-control"
-                                    aria-label="Sizing example input">
+                                    aria-label="Sizing example input" maxlength="15">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
