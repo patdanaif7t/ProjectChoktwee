@@ -46,20 +46,29 @@
           <button href="#" type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
         </div>
       </form>
-      <form class="forget-form" action="index.html">
-        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Forgot Password ?</h3>
+      <div class="forget-form">
+        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>ลืมรหัสผ่าน ?</h3>
         <div class="form-group">
-          <label class="control-label">EMAIL</label>
-          <input class="form-control" type="text" placeholder="Email">
+          <label class="control-label">หมายเลขประจำตัวประชาชน</label>
+          <input type="input" name="employee_citizen_id" id="citizen" class="form-control" type="text"
+            placeholder="หมายเลขประจำตัวประชาชน">
+
+          <label style="margin-top: 4.99px" class="control-label">ชื่อผู้ใช้งาน</label>
+          <input type="input" id="username" name="username" class="form-control" type="text"
+            placeholder="ชื่อผู้ใช้งาน">
         </div>
         <div class="form-group btn-container">
-          <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>RESET</button>
+          <button class="btn btn-primary btn-block" onclick="resetPassword()"><i
+              class="fa fa-unlock fa-lg fa-fw"></i>ค้นหา</button>
+        </div>
+        <div class="form-group">
+          <label class="control-label">รหัสผ่านของคุณ</label>
+          <input type="text" id="password" name="password" class="form-control" placeholder="รหัสผ่าน">
         </div>
         <div class="form-group mt-3">
-          <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Back to
-              Login</a></p>
+          <button class="btn btn-primary btn-block""><i class=" fa fa-unlock fa-lg fa-fw"></i>เข้าสู่ระบบ</button>
         </div>
-      </form>
+      </div>
     </div>
   </section>
 
@@ -69,6 +78,8 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+  <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
   <!-- The javascript plugin to display page loading on top-->
   <!-- <script src="js/plugins/pace.min.js"></script> -->
   <script type="text/javascript">
@@ -76,6 +87,21 @@
       $('.login-box').toggleClass('flipped');
       return false;
     });
+
+    function resetPassword() {
+      $.ajax({
+        type: "post",
+        url: "http://localhost:4000/login/reset",
+        data: {
+          employee_citizen_id: $('#citizen').val(),
+          username: $('#username').val()
+        },
+        dataType: "json",
+        success: (res) => {
+          $('#password').val(res.password)
+        }
+      })
+    }
   </script>
 </body>
 

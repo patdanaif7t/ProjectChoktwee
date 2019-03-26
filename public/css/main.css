@@ -14955,7 +14955,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .login-content .login-box.flipped {
-  min-height: 300px;
+  min-height: 450px;
 }
 
 .login-content .login-box.flipped .login-form {

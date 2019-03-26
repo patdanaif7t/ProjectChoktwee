@@ -75,8 +75,7 @@ reNewLicense.post('/insert' , (req , res) => {
 })
 
 
-reNewLicense.get('/delete/:id', (req, res, next) => {
-    
+reNewLicense.get('/delete/:id', (req, res, next) => {  
     License.findByIdAndRemove(req.params.id,
       (err, emps) => {
         if (err) {

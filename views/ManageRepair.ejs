@@ -58,7 +58,7 @@
                     <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
                 </ul>
             </li>
-            <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-dashboard"></i><span
+            <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
                         class="app-menu__label">จัดการซ่อม</span></a></li>
             <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-dashboard"></i><span
                         class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
@@ -118,10 +118,10 @@
                                         <%= repair[i].repair_received_date %>
                                     </td>
                                     <td>
-                                        รายละเอียดการซ่อม
+                                        <a href="#" style="text-decoration: underline">รายละเอียดการซ่อม</a>
                                     </td>
                                     <td>
-                                        ออกบิล
+                                        <a href="#" style="text-decoration: underline">ออกบิล</a>
                                     </td>
                                     <td>
                                         <a href="manage-repair/delete/<%= repair[i]._id %>"><button type="submit"
@@ -143,12 +143,12 @@
         <!-- Modal เพิ่ม -->
         <div class="modal fade AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="AddModalCenter"
             aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-dialog modal-s" role="document">
                 <form action="manage-repair/create" method="post">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="AddModalCenter">
-                                เพิ่มข้อมูลเจ้าหน้าที่</h5>
+                                เพิ่มข้อมูลการซ่อม</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -206,12 +206,12 @@
      <!-- Modal  แก้ไข -->
     <div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="EditModalCenter"
         aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-dialog modal-s" role="document">
             <form action="mangeemployee/update/" method="post">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="AddModalCenter">
-                            แก้ไขข้อมูลเจ้าหน้าที่</h5>
+                            แก้ไขข้อมูลการซ่อม</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

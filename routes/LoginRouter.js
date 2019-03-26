@@ -25,4 +25,26 @@ LoginRouter.route('/').post((req, res) => {
   }
 })
 
+
+LoginRouter.route('/reset').post((req, res) => {  
+  if(req.body.employee_citizen_id && req.body.username) {
+    Emp.findOne({employee_citizen_id: req.body.employee_citizen_id}).then(emps => {
+      if (emps.username === req.body.username) {
+        res.json({
+          success: true,
+          password: emps.password
+        })
+      } 
+      else {
+        res.redirect('/login')
+      }
+  }).catch(err => {
+   
+    res.redirect('/login')
+  })
+  }
+})
+
+
+
 module.exports = LoginRouter;
