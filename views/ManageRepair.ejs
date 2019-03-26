@@ -97,6 +97,7 @@
                                     <th>รหัสรถ</th>
                                     <th>สถานะ</th>
                                     <th>วันที่รับเรื่อง</th>
+                                    <th>กำหนดคืน</th>
                                     <th>รายละเอียดการซ่อม</th>
                                     <th>ออกบิล</th>
                                     <th>แก้ไข/ลบ</th>
@@ -118,6 +119,9 @@
                                         <%= repair[i].repair_received_date %>
                                     </td>
                                     <td>
+                                        <%= repair[i].repair_return_date %>
+                                    </td>
+                                    <td>
                                         <a href="#" style="text-decoration: underline">รายละเอียดการซ่อม</a>
                                     </td>
                                     <td>
@@ -127,9 +131,9 @@
                                         <a href="manage-repair/delete/<%= repair[i]._id %>"><button type="submit"
                                                 class="btn btn-outline-danger btn-block"
                                                 style="font-size: 15px;">ลบ</button></a>
-                                        <button type="submit" class="btn btn-outline-warning btn-block"
+                                        <button id="<%= i %>" type="submit" class="btn btn-outline-warning btn-block edit-btn"
                                             style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
-                                            data-target=".EditModalCenter">แก้ไข</button>
+                                            data-target=".EditModalCenter" onclick="edit('<%= repair[i]._id %>')">แก้ไข</button>
 
                                     </td>
                                 </tr>
@@ -154,41 +158,43 @@
                             </button>
                         </div>
                         <div class="modal-body">
-
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">รหัสการซ่อม</span>
                                 </div>
                                 <input type="text" name="ID_TRN_repair_car" id="ID_TRN_repair_car" class="form-control"
-                                    aria-label="Sizing example input">
+                                    aria-label="Sizing example input" required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">รหัสรถ</span>
                                 </div>
                                 <input type="text" name="car_license" id="car_license" class="form-control"
-                                    aria-label="Sizing example input">
+                                    aria-label="Sizing example input" required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">สถานะ</span>
+                                    <label class="input-group-text" for="status">สถานะ</label>
                                 </div>
-                                <input type="text" name="repair_status" id="repair_status" class="form-control"
-                                    aria-label="Sizing example input">
+                                <select class="custom-select" name="repair_status" id="repair_status">
+                                    <option selected value="รับเรื่อง">รับเรื่อง</option>
+                                    <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                    <option value="เสร็จสิ้น">เสร็จสิ้น</option>
+                                </select>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">กำหนดคืน</span>
                                 </div>
-                                <input type="text" name="repair_return_date" id="repair_return_date" class="form-control"
-                                    aria-label="Sizing example input">
+                                <input type="date" name="repair_return_date" id="repair_return_date" class="form-control"
+                                    aria-label="Sizing example input" required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">พนักงานที่รับเรื่อง</span>
                                 </div>
                                 <input type="text" name="ID_MST_employeeId" id="ID_MST_employeeId" class="form-control"
-                                    aria-label="Sizing example input">
+                                    aria-label="Sizing example input" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -207,7 +213,7 @@
     <div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="EditModalCenter"
         aria-hidden="true">
         <div class="modal-dialog modal-s" role="document">
-            <form action="mangeemployee/update/" method="post">
+            <form action="manage-repair/update" method="post">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="AddModalCenter">
@@ -217,121 +223,43 @@
                         </button>
                     </div>
                     <div class="modal-body">
-
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+                                <input type="text" style="display: none" name="edit_id" id="edit_id">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสการซ่อม</span>
                             </div>
-                            <input type="text" name="addID_MST_employeeId" id="id" class="form-control"
+                            <input type="text" name="ID_TRN_repair_car" id="edit_ID_TRN_repair_car" class="form-control"
+                                aria-label="Sizing example input" value="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสรถ</span>
+                            </div>
+                            <input type="text" name="car_license" id="edit_car_license" class="form-control"
                                 aria-label="Sizing example input">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ชื่อผู้ใช้งาน</span>
+                                <label class="input-group-text" for="status">สถานะ</label>
                             </div>
-                            <input type="text" name="addusername" id="username" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสผ่าน</span>
-                            </div>
-                            <input type="text" name="addpassword" id="password" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
-                            </div>
-                            <input type="text" name="addemployee_first_name" id="firstname" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
-                            </div>
-                            <input type="text" name="addemployee_last_name" id="lastname" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
-                            </div>
-                            <input type="text" name="addemployee_citizen_id" id="email" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
-                            </div>
-                            <input type="text" name="addemployee_telephone" id="email" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="status">เพศ</label>
-                            </div>
-                            <select class="custom-select" name="addemployee_gender" id="status">
-                                <option selected>โปรดเลือก...</option>
-                                <option value="ชาย">ชาย</option>
-                                <option value="หญิง">หญิง</option>
-
+                            <select class="custom-select" name="repair_status" id="edit_repair_status">
+                                <option selected value="รับเรื่อง">รับเรื่อง</option>
+                                <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                                <option value="เสร็จสิ้น">เสร็จสิ้น</option>
                             </select>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">เงินเดือน</span>
+                                <span class="input-group-text" id="inputGroup-sizing-default">กำหนดคืน</span>
                             </div>
-                            <input type="text" name="employee_salary" id="email" class="form-control"
+                            <input type="date" name="repair_return_date" id="edit_repair_return_date" class="form-control"
                                 aria-label="Sizing example input">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">วันเกิด</span>
+                                <span class="input-group-text" id="inputGroup-sizing-default">พนักงานที่รับเรื่อง</span>
                             </div>
-                            <input type="text" name="employee_birthday" id="email" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสที่อยู่</span>
-                            </div>
-                            <input type="text" name="address_id" id="email" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
-                            </div>
-                            <input type="text" name="bloc" id="email" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
-                            </div>
-                            <input type="text" name="district" id="email" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
-                            </div>
-                            <input type="text" name="sub_district" id="email" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
-                            </div>
-                            <input type="text" name="province" id="email" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
-                            </div>
-                            <input type="text" name="postcode" id="email" class="form-control"
+                            <input type="text" name="ID_MST_employeeId" id="edit_ID_MST_employeeId" class="form-control"
                                 aria-label="Sizing example input">
                         </div>
                     </div>
@@ -355,6 +283,23 @@
   <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
   <script type="text/javascript">
       $('#sampleTable').DataTable();
+
+      let edit = (i) => {
+        $.ajax({
+            type: "get",
+            url: `http://localhost:4000/manage-repair/get/${i}`,
+            success: res => {
+                console.log("this");
+                console.log(res);
+                $('#edit_id').val(res.repair._id)
+                $('#edit_ID_TRN_repair_car').val(res.repair.ID_TRN_repair_car)
+                $('#edit_car_license').val(res.repair.car_license)
+                $('#edit_repair_status').val(res.repair.repair_status)
+                $('#edit_repair_return_date').val(res.repair.repair_return_date)
+                $('#edit_ID_MST_employeeId').val(res.repair.ID_MST_employeeId)
+            }
+        })
+      }
   </script>
 </body>
 
