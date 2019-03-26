@@ -9,11 +9,11 @@ LoginRouter.route('/').get(function (req, res) {
 });
 
 LoginRouter.route('/').post((req, res) => {  
-  console.log(req.body.email);
-  console.log(req.body.pass);
-  if(req.body.email && req.body.pass) {
-    Emp.findOne({username: req.body.email}).then(emps => {
-      if (emps.password === req.body.pass) {
+  // console.log(req.body.username);
+  // console.log(req.body.password);
+  if(req.body.username && req.body.password) {
+    Emp.findOne({username: req.body.username}).then(emps => {
+      if (emps.password === req.body.password) {
         res.redirect('/mangeemployee')
       } else {
         res.redirect('/login')
@@ -24,6 +24,21 @@ LoginRouter.route('/').post((req, res) => {
   })
   }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 LoginRouter.route('/reset').post((req, res) => {  
