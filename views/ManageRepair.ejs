@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>จัดการการซ่อม</title>
+    <link rel="shortcut icon" type="image/png" href="http://www.bhwelder.com.my/img/hotproduct.png" />
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+</head>
+
+<body class="app sidebar-mini rtl">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="index.html">ASAP</a>
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+        <!-- Navbar Right Menu-->
+        <ul class="app-nav">
+            <li class="app-search">
+                <input class="app-search__input" type="search" placeholder="Search">
+                <button class="app-search__button"><i class="fa fa-search"></i></button>
+            </li>
+
+            <!-- User Menu-->
+            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
+                        class="fa fa-user fa-lg"></i></a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="login"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://www.img.in.th/images/907a16df723b68dd9b01785c32ef6a28.jpg"
+                alt="User Image" height="48px" width="48">
+            <div>
+                <p class="app-sidebar__user-name">ภัทรดนัย ช่างเหลา</p>
+                <p class="app-sidebar__user-designation">สถานะ : Admin</p>
+            </div>
+        </div>
+        <ul class="app-menu">
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+                        class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
+                            สต็อครถ</a></li>
+                    <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
+                            ซื้อรถเข้า</a></li>
+                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
+                </ul>
+            </li>
+            <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">จัดการซ่อม</span></a></li>
+            <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+            <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+            <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                        class="app-menu__label">ดูรายงาน</span></a></li>
+            <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+        </ul>
+    </aside>
+    <main class="app-content">
+        <div class="app-title">
+            <div>
+                <h1><i class="fa fa-th-list"></i> จัดการการซ่อม</h1>
+
+                <p>เพิ่ม ลบ แก้ไข การซ่อม</p>
+            </div>
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item">manage-repair</li>
+
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+                        <button type="button" class="btn btn-outline-success btn-block"
+                            style="font-size: 15px; width: 5%; float: right;" data-toggle="modal" data-toggle="modal"
+                            data-target=".AddModalCenter">เพิ่ม</button>
+                        <table class="table table-hover table-bordered" id="sampleTable">
+                            <thead>
+                                <tr align="center">
+                                    <th>รหัสการซ่อม</th>
+                                    <th>รหัสรถ</th>
+                                    <th>สถานะ</th>
+                                    <th>วันที่รับเรื่อง</th>
+                                    <th>รายละเอียดการซ่อม</th>
+                                    <th>ออกบิล</th>
+                                    <th>แก้ไข/ลบ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i= 0; i < repair.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <%= repair[i].ID_TRN_repair_car %>
+                                    </td>
+                                    <td>
+                                        <%= repair[i].car_license %>
+                                    </td>
+                                    <td>
+                                        <%= repair[i].repair_status %>
+                                    </td>
+                                    <td>
+                                        <%= repair[i].repair_received_date %>
+                                    </td>
+                                    <td>
+                                        รายละเอียดการซ่อม
+                                    </td>
+                                    <td>
+                                        ออกบิล
+                                    </td>
+                                    <td>
+                                        <a href="manage-repair/delete/<%= repair[i]._id %>"><button type="submit"
+                                                class="btn btn-outline-danger btn-block"
+                                                style="font-size: 15px;">ลบ</button></a>
+                                        <button type="submit" class="btn btn-outline-warning btn-block"
+                                            style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
+                                            data-target=".EditModalCenter">แก้ไข</button>
+
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal เพิ่ม -->
+        <div class="modal fade AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="AddModalCenter"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <form action="manage-repair/create" method="post">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="AddModalCenter">
+                                เพิ่มข้อมูลเจ้าหน้าที่</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสการซ่อม</span>
+                                </div>
+                                <input type="text" name="ID_TRN_repair_car" id="ID_TRN_repair_car" class="form-control"
+                                    aria-label="Sizing example input">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสรถ</span>
+                                </div>
+                                <input type="text" name="car_license" id="car_license" class="form-control"
+                                    aria-label="Sizing example input">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">สถานะ</span>
+                                </div>
+                                <input type="text" name="repair_status" id="repair_status" class="form-control"
+                                    aria-label="Sizing example input">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">กำหนดคืน</span>
+                                </div>
+                                <input type="text" name="repair_return_date" id="repair_return_date" class="form-control"
+                                    aria-label="Sizing example input">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">พนักงานที่รับเรื่อง</span>
+                                </div>
+                                <input type="text" name="ID_MST_employeeId" id="ID_MST_employeeId" class="form-control"
+                                    aria-label="Sizing example input">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- End Modal -->
+    </main>
+
+     <!-- Modal  แก้ไข -->
+    <div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="EditModalCenter"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <form action="mangeemployee/update/" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="AddModalCenter">
+                            แก้ไขข้อมูลเจ้าหน้าที่</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+                            </div>
+                            <input type="text" name="addID_MST_employeeId" id="id" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ชื่อผู้ใช้งาน</span>
+                            </div>
+                            <input type="text" name="addusername" id="username" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสผ่าน</span>
+                            </div>
+                            <input type="text" name="addpassword" id="password" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
+                            </div>
+                            <input type="text" name="addemployee_first_name" id="firstname" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
+                            </div>
+                            <input type="text" name="addemployee_last_name" id="lastname" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
+                            </div>
+                            <input type="text" name="addemployee_citizen_id" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
+                            </div>
+                            <input type="text" name="addemployee_telephone" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="status">เพศ</label>
+                            </div>
+                            <select class="custom-select" name="addemployee_gender" id="status">
+                                <option selected>โปรดเลือก...</option>
+                                <option value="ชาย">ชาย</option>
+                                <option value="หญิง">หญิง</option>
+
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">เงินเดือน</span>
+                            </div>
+                            <input type="text" name="employee_salary" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">วันเกิด</span>
+                            </div>
+                            <input type="text" name="employee_birthday" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสที่อยู่</span>
+                            </div>
+                            <input type="text" name="address_id" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
+                            </div>
+                            <input type="text" name="bloc" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                            </div>
+                            <input type="text" name="district" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                            </div>
+                            <input type="text" name="sub_district" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                            </div>
+                            <input type="text" name="province" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                            </div>
+                            <input type="text" name="postcode" id="email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+  <!-- Essential javascripts for application to work-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- The javascript plugin to display page loading on top-->
+  <script src="js/plugins/pace.min.js"></script>
+  <!-- Page specific javascripts-->
+  <!-- Data table plugin-->
+  <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript">
+      $('#sampleTable').DataTable();
+  </script>
+</body>
+
+</html>

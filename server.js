@@ -16,6 +16,7 @@ const MangeSellCarRouter = require ('./routes/MangeSellCarRouter');
 const MangeBuyCarRouter = require ('./routes/MangeBuyCarRouter');
 const MangereNewLicense = require ('./routes/ManageReNewLicenseRouter')
 const ReportRouter = require ('./routes/ReportRouter')
+const RepairRouter = require('./routes/ManageRepairRouter')
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -31,6 +32,7 @@ app.use ('/sellcar', MangeSellCarRouter)
 app.use ('/buycar', MangeBuyCarRouter)
 app.use ('/renewlicense', MangereNewLicense)
 app.use ('/report', ReportRouter)
+app.use('/manage-repair', RepairRouter)
 
 app.get('/', function (req, res) {
    res.sendFile(path.join(__dirname,'public', 'index.html'));
