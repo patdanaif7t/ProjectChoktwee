@@ -8,7 +8,7 @@ MangeEmpRouter.route('/').get(function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      // res.send(emps)
+     // res.send(emps)
       // console.log(emps[3].address.address_id);
       res.render('ManageEmp', {
         emps: emps
@@ -43,9 +43,9 @@ MangeEmpRouter.post('/update/:_id', (req, res, next) => {
   Emp.findByIdAndUpdate(req.params._id , req.body , (err, emps) => {
       if (err) {
         return res.status(500).send(err.message)
-      }ß
-      res.redirect('/mangeemployee')
-      // res.status(200).send({success : {message : "Update Employee succesfully."}})
+      }
+      // res.redirect('/mangeemployee')
+      res.status(200).send({success : {message : "Update Employee succesfully."}})
     })
 })
 

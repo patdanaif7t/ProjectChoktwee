@@ -21,17 +21,17 @@
             aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
-            <li class="app-search">
+            <!-- <li class="app-search">
                 <input class="app-search__input" type="search" placeholder="Search">
                 <button class="app-search__button"><i class="fa fa-search"></i></button>
-            </li>
+            </li> -->
 
             <!-- User Menu-->
             <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
                     aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+                    <!-- <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li> -->
                     <li><a class="dropdown-item" href="login"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
                     </li>
                 </ul>
@@ -88,7 +88,7 @@
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                                 <tr>
-                                    <th>รหัสลูกค้า</th>
+                                    <!-- <th>รหัสลูกค้า</th> -->
                                     <th>เลขบัตรประชาชน</th>
                                     <th>ชื่อ-นามสกุล</th>
                                     <th>เบอร์โทรศัพท์</th>
@@ -98,7 +98,7 @@
                             <tbody>
                                 <% for(var i=0; i < cus.length; i++) { %>
                                 <tr>
-                                    <td><%= cus[i].ID_MST_customer %></td>
+                               
                                     <td><%= cus[i].customer_citizen_id %></td>
                                     <td><%= cus[i].customer_first_name + ' ' + cus[i].customer_last_name %></td>
                                     <td><%= cus[i].customer_telephone %></td>
