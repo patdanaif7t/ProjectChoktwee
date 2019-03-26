@@ -28,6 +28,21 @@ LoginRouter.route('/').post((req, res) => {
 })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 LoginRouter.route('/reset').post((req, res) => {  
   if(req.body.employee_citizen_id && req.body.username) {
     Emp.findOne({employee_citizen_id: req.body.employee_citizen_id}).then(emps => {
