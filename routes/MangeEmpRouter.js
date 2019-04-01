@@ -39,15 +39,27 @@ MangeEmpRouter.post('/create', (req, res, next) => {
   })
 })
 
-MangeEmpRouter.post('/update/:_id', (req, res, next) => {
-  Emp.findByIdAndUpdate(req.params._id , req.body , (err, emps) => {
+MangeEmpRouter.get('/get/:_id', (req, res, next) => {
+  Emp.findById(req.params._id,
+    (err, emp) => {
       if (err) {
         return res.status(500).send(err.message)
       }
-      // res.redirect('/mangeemployee')
-      res.status(200).send({success : {message : "Update Employee succesfully."}})
+      res.json({
+        success: true,
+        emp
+      })
     })
 })
 
+MangeEmpRouter.post('/update', (req, res, next) => {
+  Emp.findByIdAndUpdate(req.body._id, req.body, (err, data) => {
+
+    if (err) {
+      return res.status(500).send(err.message)
+    }
+    res.redirect('/mangeemployee')
+  })
+})
 
 module.exports = MangeEmpRouter;

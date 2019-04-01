@@ -93,6 +93,14 @@
       return false;
     });
 
+    if('<%= error %>' === 'ไม่ถูก'){
+      alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง')
+    }else if('<%= error %>' === 'ไม่กรอกไอดี'){
+      alert('กรุณากรอกชื่อผู้ใช้งาน')
+    }else if('<%= error %>' === 'ไม่กรอกพาส'){
+      alert('กรุณากรอกรหัสผ่าน')
+    }
+
     function resetPassword() {
       $.ajax({
         type: "post",
