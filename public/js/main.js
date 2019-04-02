@@ -44,3 +44,8 @@ function isInputAZ(evt) {
 		evt.preventDefault();
 	}
 }
+
+var feedName = (name) => {
+	localStorage.setItem("name", name)
+	// localStorage.setItem("status", status)
+}

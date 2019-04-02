@@ -5,7 +5,14 @@ const Emp = require('../models/Emp.model');
 
 
 LoginRouter.route('/').get(function (req, res) {
-  res.render('login',{ error: 'ถูก' });
+  Emp.find(function (err, emps) {
+    if (err) {
+      console.log(err);
+    } else {
+      // res.send(emps)
+      res.render('login', { error: 'ถูก', emps,emps });
+    }
+  });
 });
 
 
@@ -36,19 +43,10 @@ LoginRouter.route('/').post((req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 LoginRouter.route('/reset').post((req, res) => {  
+  console.log(req.body.employee_citizen_id );
+  console.log(req.body.username);
+  
   if(req.body.employee_citizen_id && req.body.username) {
     Emp.findOne({employee_citizen_id: req.body.employee_citizen_id}).then(emps => {
       if (emps.username === req.body.username) {

@@ -41,11 +41,9 @@
  <!-- Sidebar menu-->
  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
  <aside class="app-sidebar">
-     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://www.img.in.th/images/907a16df723b68dd9b01785c32ef6a28.jpg"
-             alt="User Image" height="48px" width="48">
-         <div>
-             <p class="app-sidebar__user-name">ภัทรดนัย ช่างเหลา</p>
-             <p class="app-sidebar__user-designation">สถานะ : Admin</p>
+     <div class="app-sidebar__user">
+             <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
+            
          </div>
      </div>
      <ul class="app-menu">
@@ -128,7 +126,10 @@
     <!-- Data table plugin-->
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script type="text/javascript">
+    $('#sampleTable').DataTable();
+    $('#profilename').text("ยินดีต้อนรับคุณ : "+localStorage.getItem("name"));
+    </script>
 </body>
 
 </html>

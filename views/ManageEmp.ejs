@@ -36,12 +36,13 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar"
+        <div class="app-sidebar__user">
+            <!-- <img class="app-sidebar__user-avatar"
                 src="https://www.img.in.th/images/907a16df723b68dd9b01785c32ef6a28.jpg" alt="User Image" height="48px"
-                width="48">
+                width="48"> -->
             <div>
-                <p class="app-sidebar__user-name">ภัทรดนัย ช่างเหลา</p>
-                <p class="app-sidebar__user-designation">สถานะ : Admin</p>
+                <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
+                <!-- <p class="app-sidebar__user-designation" id="profilestatus">สถานะ : Admin</p> -->
             </div>
         </div>
         <ul class="app-menu">
@@ -467,8 +468,10 @@
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
+
         $('#sampleTable').DataTable();
-        $('#sampleTable').DataTable();
+        $('#profilename').text("User : "+localStorage.getItem("name"));
+        
 
         var feedEmp = (_id, ID_MST_employeeId, employee_type, employee_first_name, employee_last_name,
             employee_citizen_id, employee_birthday, employee_gender, employee_telephone, employee_salary, username,

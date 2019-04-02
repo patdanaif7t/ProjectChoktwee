@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="form-group btn-container">
-          <button href="#" type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
+          <button href="#" type="submit" class="btn btn-primary btn-block" onclick="setname_status()">เข้าสู่ระบบ</button>
         </div>
       </form>
 
@@ -59,8 +59,8 @@
             placeholder="หมายเลขประจำตัวประชาชน">
 
           <label style="margin-top: 4.99px" class="control-label">ชื่อผู้ใช้งาน</label>
-          <input type="input" id="username" name="username" class="form-control" type="text"
-            placeholder="ชื่อผู้ใช้งาน">
+          <input type="input" name="username" id="resetusername" class="form-control" type="text"
+          placeholder="ชื่อผู้ใช้งาน">
         </div>
         <div class="form-group btn-container">
           <button class="btn btn-primary btn-block" onclick="resetPassword()"><i
@@ -68,7 +68,7 @@
         </div>
         <div class="form-group">
           <label class="control-label">รหัสผ่านของคุณ</label>
-          <input type="text" id="password" name="password" class="form-control" placeholder="รหัสผ่าน">
+          <input type="text" id="resetpassword" name="password" class="form-control" placeholder="รหัสผ่าน">
         </div>
         <div class="form-group mt-3">
           <a href="/login"><button class="btn btn-primary btn-block""><i class=" fa fa-unlock fa-lg fa-fw"></i>เข้าสู่ระบบ</button></a> 
@@ -92,7 +92,7 @@
       $('.login-box').toggleClass('flipped');
       return false;
     });
-
+    
     if('<%= error %>' === 'ไม่ถูก'){
       alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง')
     }else if('<%= error %>' === 'ไม่กรอกไอดี'){
@@ -102,18 +102,29 @@
     }
 
     function resetPassword() {
+      console.log('this');
+      
       $.ajax({
         type: "post",
         url: "http://localhost:4000/login/reset",
         data: {
-          employee_citizen_id: $('#citizen').val(),
-          username: $('#username').val()
+          username: $('#resetusername').val(),
+          employee_citizen_id: $('#citizen').val()
+          
         },
         dataType: "json",
         success: (res) => {
-          $('#password').val(res.password)
+          console.log(res.password);
+          $('#resetpassword').val(res.password)
         }
       })
+    }
+
+    var setname_status = () => {
+      var username = document.getElementById("username")
+      console.log(username.value);
+      
+      feedName(username.value);
     }
   </script>
 </body>
