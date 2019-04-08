@@ -6,7 +6,14 @@ var MST_customer_Schema = mongoose.Schema({
     customer_citizen_id : String,
     customer_first_name : String,
     customer_last_name : String,
-    address : String,
+    address : {
+        address_id : String,
+        bloc : String,
+        district : String,
+        sub_district : String,
+        province : String,
+        postcode : String 
+    },
     customer_telephone : String,
     customer_email : String
 }, {

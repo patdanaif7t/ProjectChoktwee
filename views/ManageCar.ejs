@@ -8,15 +8,17 @@
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.html">ASAP</a>
-        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+            aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
             <li class="app-search">
@@ -25,8 +27,8 @@
             </li>
 
             <!-- User Menu-->
-            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                        class="fa fa-user fa-lg"></i></a>
+            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
+                    aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
                     <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
                     <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
@@ -40,7 +42,9 @@
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
         <div class="app-sidebar__user">
-                <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
+            <div>
+                    <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
+            </div>
         </div>
         <ul class="app-menu">
             <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
@@ -94,6 +98,7 @@
                                     <th>สี</th>
                                     <th>ราคาขาย</th>
                                     <th>ขาย</th>
+                                    <th>แก้ไข</th>
 
                                 </tr>
                             </thead>
@@ -119,9 +124,21 @@
                                         <%= cars[i].car_price_sell %>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-danger btn-block" style="font-size: 15px;">ขาย</button>
+                                        <button type="button" class="btn btn-outline-danger btn-block"
+                                            style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
+                                            data-target=".AddModalCenter"
+                                            onclick="feedcar('<%= cars[i]._id  %>','<%= cars[i].car_price_sell  %>','<%= cars[i].car_ID_MST_car %>')">ขาย</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-warning btn-block"
+                                            style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
+                                            data-target=".EditModalCenter" onclick="feedcarToEdit('<%= cars[i]._id %>','<%= cars[i].ID_MST_car %>','<%= cars[i].car_company %>',
+                                            '<%= cars[i].car_model %>','<%= cars[i].car_year %>','<%= cars[i].car_color %>',
+                                            '<%= cars[i].car_license %>','<%= cars[i].car_repair_cost %>','<%= cars[i].car_status %>',
+                                            '<%= cars[i].car_cost %>','<%= cars[i].car_price_sell %>')">แก้ไข</button>
                                     </td>
                                 </tr>
+
                                 <% } %>
                             </tbody>
                         </table>
@@ -129,7 +146,255 @@
                 </div>
             </div>
         </div>
+        <!-- Modal ขายรถ -->
+        <div class="modal fade AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="AddModalCenter"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <form action="mangecar/create" method="post">
+                    <!--อันนี้แก้ managecar-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="AddModalCenter">
+                                ขายรถ</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>รายละเอียดรถ</h5>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสการขาย</span>
+                                </div>
+                                <input type="text" name="ID_TRN_sellCar" id="ID_TRN_sellCar" class="form-control"
+                                    aria-label="Sizing example input" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสรถ</span>
+                                </div>
+                                <input readonly type="text" name="ID_MST_car" id="ID_MST_car" class="form-control"
+                                    aria-label="Sizing example input" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">ราคาขาย</span>
+                                </div>
+                                <input onkeypress="isInputNumber(event)" readonly type="text" name="car_price_sell" id="car_price_sell"
+                                    class="form-control" aria-label="Sizing example input" required>
+                            </div>
+                            <hr>
+                            <h5>รายละเอียดลูกค้า</h5>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">ประเภทลูกค้า</span>
+                                </div>
+                                <input type="text" value="ซื้อ" readonly maxlength="13" name="customer_type"
+                                    id="customer_type" class="form-control" aria-label="Sizing example input" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"
+                                        id="inputGroup-sizing-default">หมายเลขประจำตัวผู้เสียภาษี</span>
+                                </div>
+                                <input onkeypress="isInputNumber(event)" type="text" maxlength="13"
+                                    name="customer_citizen_id" id="customer_citizen_id" class="form-control"
+                                    aria-label="Sizing example input" required onkeypress="isInputNumber(event)"> 
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">ชื่อลูกค้า</span>
+                                </div>
+                                <input type="text" name="customer_first_name" id="customer_first_name"
+                                    class="form-control" aria-label="Sizing example input" required>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
+                                </div>
+                                <input type="text" name="customer_last_name" id="customer_last_name"
+                                    class="form-control" aria-label="Sizing example input" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">หมายเลขโทรศัพท์</span>
+                                </div>
+                                <input onkeypress="isInputNumber(event)" type="text" maxlength="10"
+                                    name="customer_telephone" id="customer_telephone" class="form-control"
+                                    aria-label="Sizing example input" required onkeypress="isInputNumber(event)">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">อีเมล</span>
+                                </div>
+                                <input type="text" name="customer_email" id="customer_email" class="form-control"
+                                    aria-label="Sizing example input" required>
+                            </div>
+                            <hr>
+                            <h5>รายละเอียดที่อยู่ลูกค้า</h5>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">บ้านเลขที่</span>
+                                </div>
+                                <input type="text" name="address_id" id="address_id" class="form-control"
+                                    aria-label="Sizing example input" required>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">ล็อค/ซอย</span>
+                                </div>
+                                <input type="text" name="bloc" id="bloc" class="form-control"
+                                    aria-label="Sizing example input" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                                </div>
+                                <input type="text" name="district" id="district" class="form-control"
+                                    aria-label="Sizing example input" required>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                                </div>
+                                <input type="text" name="sub_district" id="sub_district" class="form-control"
+                                    aria-label="Sizing example input" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                                </div>
+                                <input type="text" name="province" id="province" class="form-control"
+                                    aria-label="Sizing example input" required>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                                </div>
+                                <input onkeypress="isInputNumber(event)" type="text" maxlength="5" name="postcode"
+                                    id="postcode" class="form-control" aria-label="Sizing example input" required>
+                            </div>
+                            <hr>
+                            <h5>รายละเอียดการขาย</h5>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">หมายเลขบิล</span>
+                                </div>
+                                <input type="text" name="ID_TRN_bill" id="ID_TRN_bill" class="form-control"
+                                    aria-label="Sizing example input" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">วันที่ขาย</span>
+                                </div>
+                                <input type="date" name="sell_car_date" id="sell_car_date" class="form-control"
+                                    aria-label="Sizing example input" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสพนักงาน</span>
+                                </div>
+                                <input type="text" name="ID_MST_employeeId" id="ID_MST_employeeId" class="form-control"
+                                    aria-label="Sizing example input" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+
     </main>
+    <!-- Modal แก้ไข -->
+    <div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="EditModalCenter"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <form action="mangecar/update" method="post">
+                <!--อันนี้แก้ managecar-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="EditModalCenter">
+                            แก้ไขข้อมูลรถ</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>รายละเอียดรถ</h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสรถ</span>
+                            </div>
+                            <input type="text" name="_id" id="editid" style="display: none">
+                            <input type="text" name="ID_MST_car" id="editID_MST_car" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ยี่ห้อ</span>
+                            </div>
+                            <input type="text" name="car_company" id="editcar_company" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รุ่น</span>
+                            </div>
+                            <input type="text" name="car_model" id="editcar_model" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ปี</span>
+                            </div>
+                            <input type="text" name="car_year" id="editcar_year" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">สี</span>
+                            </div>
+                            <input type="text" name="car_color" id="editcar_color" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ทะเบียน</span>
+                            </div>
+                            <input type="text" name="car_license" id="editcar_license" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ค่าซ่อมรถ</span>
+                            </div>
+                            <input type="text" name="car_repair_cost" id="editcar_repair_cost" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">สถานะ</span>
+                            </div>
+                            <input type="text" name="car_status" id="editcar_status" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ราคาต้นทุน</span>
+                            </div>
+                            <input type="text" name="car_cost" id="editcar_cost" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ราคาขาย</span>
+                            </div>
+                            <input type="text" name="car_price_sell" id="editcar_price_sell" class="form-control"
+                                aria-label="Sizing example input" required>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                    </div>
+            </form>
+        </div>
+    </div>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -143,6 +408,39 @@
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
         $('#sampleTable').DataTable();
+        $('#profilename').text("User : " + localStorage.getItem("name"));
+        var feedcar = (_id, car_price_sell, car_ID_MST_car) => {
+            $.ajax({
+                type: "get",
+                url: `mangecar/get/${_id}`,
+                dataType: "json",
+                success: res => {
+                    console.log(res);
+
+                    $('#car_price_sell').val(res.car.car_price_sell)
+                    $('#ID_MST_car').val(res.car.ID_MST_car)
+                }
+
+            })
+        }
+        var feedcarToEdit = (_id, ID_MST_car, car_company,
+            car_model, car_year, car_color,
+            car_license, car_repair_cost, car_status,
+            car_cost, car_price_sell) => {
+            // console.log(ID_MST_car);
+            
+            _id: $('#editid').val(_id)
+            ID_MST_car: $('#editID_MST_car').val(ID_MST_car)
+            car_company: $('#editcar_company').val(car_company)
+            car_model: $('#editcar_model').val(car_model)
+            car_year: $('#editcar_year').val(car_year)
+            car_color: $('#editcar_color').val(car_color)
+            car_license: $('#editcar_license').val(car_license)
+            car_repair_cost: $('#editcar_repair_cost').val(car_repair_cost)
+            car_status: $('#editcar_status').val(car_status)
+            car_cost: $('#editcar_cost').val(car_cost)
+            car_price_sell: $('#editcar_price_sell').val(car_price_sell)
+        }
     </script>
 </body>
 

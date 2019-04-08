@@ -8,25 +8,40 @@
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <script>
+        function printContent(el) {
+            var printcontent = document.getElementById(el).innerHTML;
+            document.body.innerHTML = printcontent;
+            document.getElementById('buttonprint').style.display = 'none';
+            window.print();
+            location.reload();
+        }
+
+        function printContent2(el) {
+            var printcontent = document.getElementById(el).innerHTML;
+            document.body.innerHTML = printcontent;
+            document.getElementById('buttonprint').style.display = 'none';
+            window.print();
+            location.reload();
+        }
+    </script>
 </head>
 
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.html">ASAP</a>
-        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+            aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
-            <li class="app-search">
-                <input class="app-search__input" type="search" placeholder="Search">
-                <button class="app-search__button"><i class="fa fa-search"></i></button>
-            </li>
-
             <!-- User Menu-->
-            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                        class="fa fa-user fa-lg"></i></a>
+            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
+                    aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
                     <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
                     <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
@@ -40,9 +55,9 @@
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
         <div class="app-sidebar__user">
-                <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
-                
-            </div>
+            <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
+
+        </div>
         </div>
         <ul class="app-menu">
             <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
@@ -71,14 +86,13 @@
     <main class="app-content">
         <div class="app-title">
             <div>
-                <h1><i class="fa fa-th-list"></i> ดูการขายรถ</h1>
+                <h1><i class="fa fa-th-list"></i> จัดการซื้อรถ</h1>
 
-                <p>ดูข้อมูลประวัติการขายรถ</p>
+                <p>จัดการซื้อรถเข้า และออกเอกสารต่างๆ </p>
             </div>
             <ul class="app-breadcrumb breadcrumb side">
                 <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item">Tables</li>
-                <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
+                <li class="breadcrumb-item">ซื้อรถเข้า</li>
 
             </ul>
         </div>
@@ -87,53 +101,543 @@
                 <div class="tile">
                     <div class="tile-body">
                         <button type="button" class="btn btn-outline-success btn-block"
-                            style="font-size: 15px; width: 5%; float: right;" data-toggle="modal" data-toggle="modal"
-                            data-target=".AddModalCenter">เพิ่ม</button>
+                            style="font-size: 15px; width: 10%; float: right;" data-toggle="modal"
+                            data-target="#BuyModal">ซื้อรถเข้า</button>
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                                 <tr align="center">
                                     <th>รหัสรถ</th>
                                     <th>ทะเบียนรถ</th>
-                                    <th>รุ้น</th>
+                                    <th>รุ่น</th>
                                     <th>ราคาขาย</th>
-                                    <th>วันที่ซื้อ</th>
-                                    <th>เเก้ไข</th>
-                                    <th>ลบ</th>
+                                    <th>สถานะ</th>
+                                    <th>ออกใบกำกับภาษี</th>
+                                    <th>ออกใบเสร็จ</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <% for(var i=0; i < cars.length; i++) { %>
-                                    <tr>
-                                        <td>
-                                            <%= cars[i].ID_MST_car %>
-                                        </td>
-                                        <td>
-                                            <%= cars[i].car_license %>
-                                        </td>
-                                        <td>
-                                            <%= cars[i].car_model %>
-                                        </td>
-                                        <td>
-                                            <%= cars[i].car_price_sell %>
-                                        </td>
-                                        <td>
-                                            <%= cars[i].car_price_sell %>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-danger btn-block" style="font-size: 15px;">เเก้ไช</button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-danger btn-block" style="font-size: 15px;">ลบ</button>
-                                        </td>
-                                    </tr>
-                                    <% } %>
-                                </tbody>
+                                <tr>
+                                    <td>
+                                        <%= cars[i].ID_MST_car %>
+                                    </td>
+                                    <td>
+                                        <%= cars[i].car_license %>
+                                    </td>
+                                    <td>
+                                        <%= cars[i].car_model %>
+                                    </td>
+                                    <td>
+                                        <%= cars[i].car_price_sell %>
+                                    </td>
+                                    <td>
+                                        <%= cars[i].car_status %>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-warning btn-block"
+                                            style="font-size: 15px;" data-toggle="modal"
+                                            data-target="#exampleModalCenter"
+                                            onclick="feedInvoice('<%= cus[i].customer_first_name %>',
+                                            '<%= cus[i].customer_last_name %>','<%= cus[i].address.address_id %>',
+                                            '<%= cus[i].address.bloc %>','<%= cus[i].address.district %>',
+                                            '<%= cus[i].address.sub_district %>','<%= cus[i].address.province %>',
+                                            '<%= cus[i].address.postcode %>','<%= cars[i].ID_MST_car %>',
+                                            '<%= cars[i].car_company %>','<%= cars[i].car_model %>'
+                                            ,'<%= cars[i].car_year %>' ,'<%= cars[i].car_color %>'
+                                            ,'<%= cars[i].car_license %>','<%= cars[i].car_cost %>')">ออกใบเสร็จ</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-block"
+                                            style="font-size: 15px;" data-toggle="modal"
+                                            data-target="#invoiceModal"
+                                            onclick="feedInvoice2('<%= cus[i].customer_first_name %>',
+                                            '<%= cus[i].customer_last_name %>','<%= cus[i].address.address_id %>',
+                                            '<%= cus[i].address.bloc %>','<%= cus[i].address.district %>',
+                                            '<%= cus[i].address.sub_district %>','<%= cus[i].address.province %>',
+                                            '<%= cus[i].address.postcode %>','<%= cars[i].ID_MST_car %>',
+                                            '<%= cars[i].car_company %>','<%= cars[i].car_model %>'
+                                            ,'<%= cars[i].car_year %>' ,'<%= cars[i].car_color %>'
+                                            ,'<%= cars[i].car_license %>','<%= cars[i].car_cost %>')">ออกใบกำกับภาษี</button>
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+
+    <!-- Modal ซื้อรถเข้า -->
+    <div class="modal fade" id="BuyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <form action="buycar/create" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ซื้อรถเข้า</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">รหัสรถ</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="ID_MST_car" name="ID_MST_car">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ยี่ห้อ</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="car_company" name="car_company">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">รุ่น</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="car_model" name="car_model">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">ราคาซื้อ</span>
+                                        </div>
+                                        <input type="text" onkeypress="isInputNumber(event)" class="form-control"
+                                            id="car_cost" name="car_cost">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ปี</span>
+                                        </div>
+                                        <input type="text" onkeypress="isInputNumber(event)" class="form-control"
+                                            id="car_year" name="car_year">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">สี</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="car_color" name="car_color">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ทะเบียน</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="car_license" name="car_license">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">ราคาซ่อม</span>
+                                        </div>
+                                        <input type="text" onkeypress="isInputNumber(event)" class="form-control"
+                                            id="car_repair_cost" name="car_repair_cost">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">สถานะ</span>
+                                        </div>
+                                        <select class="custom-select" id="car_status" name="car_status">
+                                            <option selected value="มีในสต็อค">มีในสต็อค</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ราคาขาย</span>
+                                        </div>
+                                        <input type="text" onkeypress="isInputNumber(event)" class="form-control"
+                                            id="car_price_sell" name="car_price_sell">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">วันที่ซื้อ</span>
+                                        </div>
+                                        <input type="date" class="form-control" id="purchase_date" name="purchase_date">
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">รหัสลูกค้า</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="ID_MST_customer"
+                                            name="ID_MST_customer">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">ชื่อผู้ขาย</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="customer_first_name"
+                                            name="customer_first_name">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">นามสกุลผู้ขาย</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="customer_last_name"
+                                            name="customer_last_name">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="customer_citizen_id"
+                                            name="customer_citizen_id" maxlength="13" onkeypress="isInputNumber(event)">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">รหัสที่อยู่</span>
+                                        </div>
+                                        <input type="text" name="address.address_id" id="address_id"
+                                            class="form-control" aria-label="Sizing example input" maxlength="7">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
+                                        </div>
+                                        <input type="text" name="address.bloc" id="bloc" class="form-control"
+                                            aria-label="Sizing example input" maxlength="15">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                                        </div>
+                                        <input type="text" name="address.district" id="district" class="form-control"
+                                            aria-label="Sizing example input" maxlength="15">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                                        </div>
+                                        <input type="text" name="address.sub_district" id="sub_district"
+                                            class="form-control" aria-label="Sizing example input" maxlength="15">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                                        </div>
+                                        <input type="text" name="address.province" id="province" class="form-control"
+                                            aria-label="Sizing example input" maxlength="15">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                                        </div>
+                                        <input type="text" name="address.postcode" id="postcode" class="form-control"
+                                            aria-label="Sizing example input" maxlength="5">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">อีเมลล์</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="customer_email"
+                                            id="customer_email">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="customer_telephone"
+                                            id="customer_telephone" maxlength="10" onkeypress="isInputNumber(event)">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">พนักงานซื้อ</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="ID_MST_employeeId"
+                                            name="ID_MST_employeeId">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ออกใบเสร็จ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="card" id="invoice">
+                            <br>
+                            <h1 class="text-center">ใบเสร็จรับเงิน</h1>
+                            <br>
+                            <div class="card-header">
+                                Invoice
+                                <strong id="date">วันที่</strong>
+                                <span class="float-right">
+                                    <button type="button" class="btn btn-primary" onclick="printContent('invoice')"
+                                        id="buttonprint">Print</button>
+                                </span>
+
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-sm-6">
+                                        <h6 class="mb-3">From:</h6>
+                                        <div>
+                                            <strong>โชคทวีออโต้เซลส์</strong>
+                                        </div>
+                                        <div>Email: choktwee@gmail.com</div>
+                                        <div>โทร : 028749177</div>
+                                        <div>
+                                            <p id="date2">วันที่ออกใบเสร็จ</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h6 class="mb-3">To:</h6>
+                                        <div>
+                                            <strong id="invcusname">Webz Poland</strong>
+                                        </div>
+                                        <div id="invcusadd">ที่อยู่ลูกค้า</div>
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="table-responsive-sm">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th class="center">ลำดับ</th>
+                                                <th>สินค้า</th>
+                                                <th>รายละเอียด</th>
+
+                                                <th class="right">จำนวน</th>
+                                                <th class="center">ราคาสินค้า</th>
+                                                <th class="right">จำนวนเงิน</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="center">1</td>
+                                                <td class="left strong">รถยนต์</td>
+                                                <td class="left" id="cardetail">Extended License</td>
+
+                                                <td class="right">1</td>
+                                                <td class="center" id="carcost">1</td>
+                                                <td class="right" id="cartotal">$999,00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-5">
+
+                                    </div>
+
+                                    <div class="col-lg-4 col-sm-5 ml-auto">
+                                        <table class="table table-clear">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left">
+                                                        <strong>ราคารวม</strong>
+                                                    </td>
+                                                    <td class="right" id="invcost">ราคารวม</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left">
+                                                        <strong>ภาษีมูลค่าเพิ่ม (7%)</strong>
+                                                    </td>
+                                                    <td class="right" id="invvat">ภาษีมูลค่าเพิ่ม</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left">
+                                                        <strong>ราคารวมสุทธิ</strong>
+                                                    </td>
+                                                    <td class="right">
+                                                        <strong id="invtotal">ราคารวมสุทธิ</strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ออกใบกำกับภาษี</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="card" id="einvoice">
+                            <br>
+                            <h1 class="text-center">ใบกำกับภาษี</h1>
+                            <br>
+                            <div class="card-header">
+                                Invoice
+                                <strong id="edate">วันที่</strong>
+                                <span class="float-right">
+                                    <button type="button" class="btn btn-primary" onclick="printContent2('einvoice')"
+                                        id="buttonprint">Print</button>
+                                </span>
+
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-sm-6">
+                                        <h6 class="mb-3">From:</h6>
+                                        <div>
+                                            <strong>โชคทวีออโต้เซลส์</strong>
+                                        </div>
+                                        <div>Email: choktwee@gmail.com</div>
+                                        <div>โทร : 028749177</div>
+                                        <div>
+                                            <p id="edate2">วันที่ออกใบเสร็จ</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h6 class="mb-3">To:</h6>
+                                        <div>
+                                            <strong id="einvcusname">Webz Poland</strong>
+                                        </div>
+                                        <div id="einvcusadd">ที่อยู่ลูกค้า</div>
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="table-responsive-sm">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th class="center">ลำดับ</th>
+                                                <th>สินค้า</th>
+                                                <th>รายละเอียด</th>
+
+                                                <th class="right">จำนวน</th>
+                                                <th class="center">ราคาสินค้า</th>
+                                                <th class="right">จำนวนเงิน</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="center">1</td>
+                                                <td class="left strong">รถยนต์</td>
+                                                <td class="left" id="ecardetail">Extended License</td>
+
+                                                <td class="right">1</td>
+                                                <td class="center" id="ecarcost">1</td>
+                                                <td class="right" id="ecartotal">$999,00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-5">
+
+                                    </div>
+
+                                    <div class="col-lg-4 col-sm-5 ml-auto">
+                                        <table class="table table-clear">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left">
+                                                        <strong>ราคารวม</strong>
+                                                    </td>
+                                                    <td class="right" id="einvcost">ราคารวม</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left">
+                                                        <strong>ภาษีมูลค่าเพิ่ม (7%)</strong>
+                                                    </td>
+                                                    <td class="right" id="einvvat">ภาษีมูลค่าเพิ่ม</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left">
+                                                        <strong>ราคารวมสุทธิ</strong>
+                                                    </td>
+                                                    <td class="right">
+                                                        <strong id="einvtotal">ราคารวมสุทธิ</strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="row">                    
+                                        <div class="col">                                         
+                                            <p>ผู้มีอำนาจลงนาม</p>
+                                            <img src="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/pages/signature-scan.png"
+                                                alt="signature" width="100px" height="100px" />                   
+                                            <h6>นายโชคทวี รักชาติไทย</h6>
+                                            <p class="text-muted">CEO บริษัทโชคทวีออโต้เซลส์</p>
+                                            <p class="text-muted">บริษัทโชคทวีออโต้เซลส์ บริษัทเช่ารถอันดับ 1
+                                                    แห่งประเทศไทย
+                                                    ครบวงจร</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -145,8 +649,57 @@
     <!-- Data table plugin-->
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">
+    <script language="javascript" type="text/javascript">
         $('#sampleTable').DataTable();
+        $('#profilename').text("User : " + localStorage.getItem("name"));
+
+        var m = new Date();
+        var dateString =
+            m.getUTCFullYear() + "/" +
+            ("0" + (m.getUTCMonth() + 1)).slice(-2) + "/" +
+            ("0" + m.getUTCDate()).slice(-2) + " "
+
+        var feedInvoice = (cusname, cuslname, cusaddid, bloc, district, sub_district, province, postcode, ID_MST_car,
+            car_company, car_model, car_year, car_color,
+            car_license, car_cost) => {
+            console.log(cusname);
+            var vat = car_cost * 0.07
+            var total = parseInt(car_cost) + parseInt(vat)
+            $('#invcusname').text(cusname + " " + cuslname)
+            $('#invcusadd').text(cusaddid + " " + bloc + " " + district + " " + sub_district + " " + province +
+                " " + postcode)
+            $('#date2').text("วันที่ออกใบเสร็จ : " + dateString)
+            $('#date').text(ID_MST_car + dateString)
+            $('#carcost').text(car_cost)
+            $('#cartotal').text(car_cost)
+            $('#invcost').text(car_cost)
+            $('#invvat').text(vat.toFixed(2))
+            $('#invtotal').text(total.toFixed(2))
+            $('#cardetail').text(car_company + " " + car_model + " ปี " + car_year + " สี " + car_color +
+                " เลขทะเบียนรถ " + car_license)
+
+        }
+
+        var feedInvoice2 = (cusname, cuslname, cusaddid, bloc, district, sub_district, province, postcode, ID_MST_car,
+            car_company, car_model, car_year, car_color,
+            car_license, car_cost) => {
+            console.log(cusname);
+            var vat = car_cost * 0.07
+            var total = parseInt(car_cost) + parseInt(vat)
+            $('#einvcusname').text(cusname + " " + cuslname)
+            $('#einvcusadd').text(cusaddid + " " + bloc + " " + district + " " + sub_district + " " + province +
+                " " + postcode)
+            $('#edate2').text("วันที่ออกใบเสร็จ : " + dateString)
+            $('#edate').text(ID_MST_car + dateString)
+            $('#ecarcost').text(car_cost)
+            $('#ecartotal').text(car_cost)
+            $('#einvcost').text(car_cost)
+            $('#einvvat').text(vat.toFixed(2))
+            $('#einvtotal').text(total.toFixed(2))
+            $('#ecardetail').text(car_company + " " + car_model + " ปี " + car_year + " สี " + car_color +
+                " เลขทะเบียนรถ " + car_license)
+
+        }
     </script>
 </body>
 
