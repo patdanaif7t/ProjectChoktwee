@@ -35,8 +35,13 @@ app.use ('/report', ReportRouter)
 app.use('/manage-repair', RepairRouter)
 
 app.get('/', function (req, res) {
-   res.sendFile(path.join(__dirname,'public', 'index.html'));
+  res.sendFile(path.join(__dirname,'public', 'index.html'));
 });
+
+app.get('*', function(req, res){
+  res.sendFile(path.join(__dirname,'public', '404.html'));
+});
+
 
 app.listen(port, function(){
   console.log('เริ่มการทำงาน', port);

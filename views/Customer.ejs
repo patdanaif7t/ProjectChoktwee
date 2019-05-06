@@ -38,38 +38,38 @@
             </li>
         </ul>
     </header>
- <!-- Sidebar menu-->
- <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
- <aside class="app-sidebar">
-     <div class="app-sidebar__user">
-             <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
-            
-         </div>
-     </div>
-     <ul class="app-menu">
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
-                    class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
-                        สต็อครถ</a></li>
-                <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
-                        ซื้อรถเข้า</a></li>
-                <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
-            </ul>
-        </li>
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-dashboard"></i><span
-                    class="app-menu__label">จัดการซ่อม</span></a></li>
-        <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-dashboard"></i><span
-                    class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
-        <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                    class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
-        <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                    class="app-menu__label">ดูรายงาน</span></a></li>
-        <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                    class="app-menu__label">จัดการพนักงาน</span></a></li>
-    </ul>
- </aside>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user">
+            <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
+
+        </div>
+        </div>
+        <ul class="app-menu">
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+                        class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
+                            สต็อครถ</a></li>
+                    <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
+                            ซื้อรถเข้า</a></li>
+                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
+                </ul>
+            </li>
+            <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">จัดการซ่อม</span></a></li>
+            <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+            <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+            <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                        class="app-menu__label">ดูรายงาน</span></a></li>
+            <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+        </ul>
+    </aside>
     <main class="app-content">
         <div class="app-title">
             <div>
@@ -94,18 +94,24 @@
                                     <!-- <th>รหัสลูกค้า</th> -->
                                     <th>เลขบัตรประชาชน</th>
                                     <th>ชื่อ-นามสกุล</th>
+                                    <th>ที่อยู่</th>
                                     <th>เบอร์โทรศัพท์</th>
                                     <th>อีเมลล์</th>
+                                    <th>แก้ไข</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <% for(var i=0; i < cus.length; i++) { %>
                                 <tr>
-                               
                                     <td><%= cus[i].customer_citizen_id %></td>
                                     <td><%= cus[i].customer_first_name + ' ' + cus[i].customer_last_name %></td>
+                                    <td><%= cus[i].address.address_id + ' ' + cus[i].address.bloc + ' ' + cus[i].address.district + ' ' + cus[i].address.sub_district
+                                        + ' ' + cus[i].address.province  + ' ' + cus[i].address.postcode %></td>
                                     <td><%= cus[i].customer_telephone %></td>
                                     <td><%= cus[i].customer_email %></td>
+                                    <td><button type="button" class="btn btn-outline-warning"
+                                        data-toggle="modal" data-toggle="modal"
+                                            data-target=".EditModalCenter">แก้ไข</button></td>
                                 </tr>
                                 <% } %>
                             </tbody>
@@ -115,6 +121,169 @@
             </div>
         </div>
     </main>
+
+    <!-- Modal  แก้ไข -->
+    <div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="EditModalCenter"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <form action="mangeemployee/update/" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="EditModalCenter">
+                            แก้ไขข้อมูลลูกค้า</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <h1>รายละเอียดลูกค้า</h1>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+                                    </div>
+                                    <input type="text" name="_id" id="editid" style="display: none">
+                                    <input type="text" name="addID_MST_employeeId" id="edit_id" class="form-control"
+                                        aria-label="Sizing example input" maxlength="5">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text">ประเภทพนักงาน</label>
+                                    </div>
+                                    <select class="custom-select" id="editemployee_type">
+                                        <option selected>โปรดเลือก...</option>
+                                        <option value="พนักงานขาย">พนักงานขาย</option>
+                                        <option value="หนักงานเช่า">หนักงานเช่า</option>
+                                        <option value="หนักงานเดินทะเบียน">หนักงานเดินทะเบียน</option>
+
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">ชื่อผู้ใช้งาน</span>
+                                    </div>
+                                    <input type="text" name="username" id="editusername" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">รหัสผ่าน</span>
+                                    </div>
+                                    <input type="text" name="password" id="editpassword" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
+                                    </div>
+                                    <input type="text" name="employee_first_name" id="editfirstname"
+                                        class="form-control" aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
+                                    </div>
+                                    <input type="text" name="employee_last_name" id="editlastname" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
+                                    </div>
+                                    <input type="text" name="employee_citizen_id" id="editcitizen_id"
+                                        class="form-control" aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
+                                    </div>
+                                    <input type="text" name="employee_telephone" id="edittelephone" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="status">เพศ</label>
+                                    </div>
+                                    <select class="custom-select" name="employee_gender" id="editgender">
+                                        <option selected>โปรดเลือก...</option>
+                                        <option value="ชาย">ชาย</option>
+                                        <option value="หญิง">หญิง</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">เงินเดือน</span>
+                                    </div>
+                                    <input type="text" name="employee_salary" id="editsalary" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">วันเกิด</span>
+                                    </div>
+                                    <input type="date" name="employee_birthday" id="editbirthday" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">รหัสที่อยู่</span>
+                                    </div>
+                                    <input type="text" name="address.address_id" id="editaddress_id"
+                                        class="form-control" aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
+                                    </div>
+                                    <input type="text" name="address.bloc" id="editbloc" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                                    </div>
+                                    <input type="text" name="address.district" id="editdistrict" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                                    </div>
+                                    <input type="text" name="address.sub_district" id="editsub_district"
+                                        class="form-control" aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                                    </div>
+                                    <input type="text" name="address.province" id="editprovince" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                                    </div>
+                                    <input type="text" name="address.postcode" id="editpostcode" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                    </div>
+            </form>
+        </div>
+    </div>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -127,8 +296,8 @@
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
-    $('#sampleTable').DataTable();
-    $('#profilename').text("ยินดีต้อนรับคุณ : "+localStorage.getItem("name"));
+        $('#sampleTable').DataTable();
+        $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
     </script>
 </body>
 

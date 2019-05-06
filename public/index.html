@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login - ระบบหลังบ้าน ASAP</title>
   </head>
-  <body>
+  <body onclick="reload()">
     <section class="material-half-bg">
       <div class="cover"></div>
     </section>
@@ -71,6 +71,11 @@
       	$('.login-box').toggleClass('flipped');
       	return false;
       });
+
+
+      var reload = () => {
+        window.location.href = "http://localhost:4000/login";
+      }
     </script>
   </body>
 </html>

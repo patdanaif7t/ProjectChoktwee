@@ -155,7 +155,7 @@
         <!-- Modal เพิ่ม -->
         <div class="modal fade AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="AddModalCenter"
             aria-hidden="true">
-            <div class="modal-dialog modal-s" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <form action="mangeemployee/create" method="post">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -166,132 +166,152 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+                                        </div>
+                                        <input type="text" name="ID_MST_employeeId" id="id" class="form-control"
+                                            aria-label="Sizing example input" maxlength="10">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">ประเภทพนักงาน</span>
+                                        </div>
+                                        <input type="text" name="employee_type" id="employee_type" class="form-control"
+                                            aria-label="Sizing example input">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">ชื่อผู้ใช้งาน</span>
+                                        </div>
+                                        <input type="text" name="username" id="username" class="form-control"
+                                            aria-label="Sizing example input">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">รหัสผ่าน</span>
+                                        </div>
+                                        <input type="text" name="password" id="password" class="form-control"
+                                            aria-label="Sizing example input" minlength="8">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
+                                        </div>
+                                        <input type="text" name="employee_first_name" id="firstname"
+                                            class="form-control" aria-label="Sizing example input" maxlength="20"
+                                            onkeypress="isInputAZ(evt)">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
+                                        </div>
+                                        <input type="text" name="employee_last_name" id="lastname" class="form-control"
+                                            aria-label="Sizing example input" maxlength="20"
+                                            onkeypress="isInputAZ(evt)">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
+                                        </div>
+                                        <input type="text" name="employee_citizen_id" id="email" class="form-control"
+                                            aria-label="Sizing example input" maxlength="13" minlength="13"
+                                            onkeypress="isInputNumber(event)">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
+                                        </div>
+                                        <input type="text" name="employee_telephone" id="email" class="form-control"
+                                            aria-label="Sizing example input" maxlength="10"
+                                            onkeypress="isInputNumber(event)">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="status">เพศ</label>
+                                        </div>
+                                        <select class="custom-select" name="employee_gender" id="status">
+                                            <option selected>โปรดเลือก...</option>
+                                            <option value="ชาย">ชาย</option>
+                                            <option value="หญิง">หญิง</option>
 
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+                                        </select>
+                                    </div>
                                 </div>
-                                <input type="text" name="ID_MST_employeeId" id="id" class="form-control"
-                                    aria-label="Sizing example input" maxlength="7">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">ประเภทพนักงาน</span>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">เงินเดือน</span>
+                                        </div>
+                                        <input type="text" name="employee_salary" id="email" class="form-control"
+                                            aria-label="Sizing example input" maxlength="6"
+                                            onkeypress="isInputNumber(event)">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">วันเกิด</span>
+                                        </div>
+                                        <input type="date" name="employee_birthday" id="email" class="form-control"
+                                            aria-label="Sizing example input">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">รหัสที่อยู่</span>
+                                        </div>
+                                        <input type="text" name="address.address_id" id="email" class="form-control"
+                                            aria-label="Sizing example input" maxlength="7">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
+                                        </div>
+                                        <input type="text" name="address.bloc" id="email" class="form-control"
+                                            aria-label="Sizing example input" maxlength="15">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                                        </div>
+                                        <input type="text" name="address.district" id="email" class="form-control"
+                                            aria-label="Sizing example input" maxlength="15">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                                        </div>
+                                        <input type="text" name="address.sub_district" id="email" class="form-control"
+                                            aria-label="Sizing example input" maxlength="15">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                                        </div>
+                                        <input type="text" name="address.province" id="email" class="form-control"
+                                            aria-label="Sizing example input" maxlength="15">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                                        </div>
+                                        <input type="text" name="address.postcode" id="email" class="form-control"
+                                            aria-label="Sizing example input" maxlength="5"
+                                            onkeypress="isInputNumber(event)">
+                                    </div>
                                 </div>
-                                <input type="text" name="employee_type" id="employee_type" class="form-control"
-                                    aria-label="Sizing example input">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">ชื่อผู้ใช้งาน</span>
-                                </div>
-                                <input type="text" name="username" id="username" class="form-control"
-                                    aria-label="Sizing example input">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสผ่าน</span>
-                                </div>
-                                <input type="text" name="password" id="password" class="form-control"
-                                    aria-label="Sizing example input" minlength="8">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
-                                </div>
-                                <input type="text" name="employee_first_name" id="firstname" class="form-control"
-                                    aria-label="Sizing example input" maxlength="20" onkeypress="isInputAZ(evt)">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
-                                </div>
-                                <input type="text" name="employee_last_name" id="lastname" class="form-control"
-                                    aria-label="Sizing example input" maxlength="20" onkeypress="isInputAZ(evt)">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
-                                </div>
-                                <input type="text" name="employee_citizen_id" id="email" class="form-control"
-                                    aria-label="Sizing example input" maxlength="13" minlength="13"
-                                    onkeypress="isInputNumber(event)">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
-                                </div>
-                                <input type="text" name="employee_telephone" id="email" class="form-control"
-                                    aria-label="Sizing example input" maxlength="10" onkeypress="isInputNumber(event)">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="status">เพศ</label>
-                                </div>
-                                <select class="custom-select" name="employee_gender" id="status">
-                                    <option selected>โปรดเลือก...</option>
-                                    <option value="ชาย">ชาย</option>
-                                    <option value="หญิง">หญิง</option>
-
-                                </select>
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">เงินเดือน</span>
-                                </div>
-                                <input type="text" name="employee_salary" id="email" class="form-control"
-                                    aria-label="Sizing example input" maxlength="6" onkeypress="isInputNumber(event)">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">วันเกิด</span>
-                                </div>
-                                <input type="date" name="employee_birthday" id="email" class="form-control"
-                                    aria-label="Sizing example input">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสที่อยู่</span>
-                                </div>
-                                <input type="text" name="address.address_id" id="email" class="form-control"
-                                    aria-label="Sizing example input" maxlength="7">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
-                                </div>
-                                <input type="text" name="address.bloc" id="email" class="form-control"
-                                    aria-label="Sizing example input" maxlength="15">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
-                                </div>
-                                <input type="text" name="address.district" id="email" class="form-control"
-                                    aria-label="Sizing example input" maxlength="15">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
-                                </div>
-                                <input type="text" name="address.sub_district" id="email" class="form-control"
-                                    aria-label="Sizing example input" maxlength="15">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
-                                </div>
-                                <input type="text" name="address.province" id="email" class="form-control"
-                                    aria-label="Sizing example input" maxlength="15">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
-                                </div>
-                                <input type="text" name="address.postcode" id="email" class="form-control"
-                                    aria-label="Sizing example input" maxlength="5" onkeypress="isInputNumber(event)">
                             </div>
                         </div>
+
+
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
                             <button type="submit" class="btn btn-primary">ยืนยัน</button>
@@ -307,7 +327,7 @@
     <!-- Modal  แก้ไข -->
     <div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="EditModalCenter"
         aria-hidden="true">
-        <div class="modal-dialog modal-m" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <form action="mangeemployee/update/" method="post">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -318,135 +338,144 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+                                    </div>
+                                    <input type="text" name="_id" id="editid" style="display: none">
+                                    <input type="text" name="addID_MST_employeeId" id="edit_id" class="form-control"
+                                        aria-label="Sizing example input" maxlength="5">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text">ประเภทพนักงาน</label>
+                                    </div>
+                                    <select class="custom-select" id="editemployee_type">
+                                        <option selected>โปรดเลือก...</option>
+                                        <option value="พนักงานขาย">พนักงานขาย</option>
+                                        <option value="หนักงานเช่า">หนักงานเช่า</option>
+                                        <option value="หนักงานเดินทะเบียน">หนักงานเดินทะเบียน</option>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                            </div>
-                            <input type="text" name="_id" id="editid" style="display: none">
-                            <input type="text" name="addID_MST_employeeId" id="edit_id" class="form-control"
-                                aria-label="Sizing example input" maxlength="5">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text">ประเภทพนักงาน</label>
-                            </div>
-                            <select class="custom-select" id="editemployee_type">
-                                <option selected>โปรดเลือก...</option>
-                                <option value="พนักงานขาย">พนักงานขาย</option>
-                                <option value="หนักงานเช่า">หนักงานเช่า</option>
-                                <option value="หนักงานเดินทะเบียน">หนักงานเดินทะเบียน</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">ชื่อผู้ใช้งาน</span>
+                                    </div>
+                                    <input type="text" name="username" id="editusername" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">รหัสผ่าน</span>
+                                    </div>
+                                    <input type="text" name="password" id="editpassword" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
+                                    </div>
+                                    <input type="text" name="employee_first_name" id="editfirstname"
+                                        class="form-control" aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
+                                    </div>
+                                    <input type="text" name="employee_last_name" id="editlastname" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
+                                    </div>
+                                    <input type="text" name="employee_citizen_id" id="editcitizen_id"
+                                        class="form-control" aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
+                                    </div>
+                                    <input type="text" name="employee_telephone" id="edittelephone" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="status">เพศ</label>
+                                    </div>
+                                    <select class="custom-select" name="employee_gender" id="editgender">
+                                        <option selected>โปรดเลือก...</option>
+                                        <option value="ชาย">ชาย</option>
+                                        <option value="หญิง">หญิง</option>
 
-                            </select>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ชื่อผู้ใช้งาน</span>
+                                    </select>
+                                </div>
                             </div>
-                            <input type="text" name="username" id="editusername" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสผ่าน</span>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">เงินเดือน</span>
+                                    </div>
+                                    <input type="text" name="employee_salary" id="editsalary" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">วันเกิด</span>
+                                    </div>
+                                    <input type="date" name="employee_birthday" id="editbirthday" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">รหัสที่อยู่</span>
+                                    </div>
+                                    <input type="text" name="address.address_id" id="editaddress_id"
+                                        class="form-control" aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
+                                    </div>
+                                    <input type="text" name="address.bloc" id="editbloc" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                                    </div>
+                                    <input type="text" name="address.district" id="editdistrict" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                                    </div>
+                                    <input type="text" name="address.sub_district" id="editsub_district"
+                                        class="form-control" aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                                    </div>
+                                    <input type="text" name="address.province" id="editprovince" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                                    </div>
+                                    <input type="text" name="address.postcode" id="editpostcode" class="form-control"
+                                        aria-label="Sizing example input">
+                                </div>
                             </div>
-                            <input type="text" name="password" id="editpassword" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
-                            </div>
-                            <input type="text" name="employee_first_name" id="editfirstname" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
-                            </div>
-                            <input type="text" name="employee_last_name" id="editlastname" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
-                            </div>
-                            <input type="text" name="employee_citizen_id" id="editcitizen_id" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
-                            </div>
-                            <input type="text" name="employee_telephone" id="edittelephone" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="status">เพศ</label>
-                            </div>
-                            <select class="custom-select" name="employee_gender" id="editgender">
-                                <option selected>โปรดเลือก...</option>
-                                <option value="ชาย">ชาย</option>
-                                <option value="หญิง">หญิง</option>
-
-                            </select>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">เงินเดือน</span>
-                            </div>
-                            <input type="text" name="employee_salary" id="editsalary" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">วันเกิด</span>
-                            </div>
-                            <input type="text" name="employee_birthday" id="editbirthday" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสที่อยู่</span>
-                            </div>
-                            <input type="text" name="address.address_id" id="editaddress_id" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
-                            </div>
-                            <input type="text" name="address.bloc" id="editbloc" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
-                            </div>
-                            <input type="text" name="address.district" id="editdistrict" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
-                            </div>
-                            <input type="text" name="address.sub_district" id="editsub_district" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
-                            </div>
-                            <input type="text" name="address.province" id="editprovince" class="form-control"
-                                aria-label="Sizing example input">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
-                            </div>
-                            <input type="text" name="address.postcode" id="editpostcode" class="form-control"
-                                aria-label="Sizing example input">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -468,10 +497,9 @@
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
-
         $('#sampleTable').DataTable();
-        $('#profilename').text("User : "+localStorage.getItem("name"));
-        
+        $('#profilename').text("User : " + localStorage.getItem("name"));
+
 
         var feedEmp = (_id, ID_MST_employeeId, employee_type, employee_first_name, employee_last_name,
             employee_citizen_id, employee_birthday, employee_gender, employee_telephone, employee_salary, username,

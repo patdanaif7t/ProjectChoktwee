@@ -108,11 +108,12 @@
                                 <tr align="center">
                                     <th>รหัสรถ</th>
                                     <th>ทะเบียนรถ</th>
+                                    <th>ยี่ห้อ</th>
                                     <th>รุ่น</th>
                                     <th>ราคาขาย</th>
                                     <th>สถานะ</th>
-                                    <th>ออกใบกำกับภาษี</th>
                                     <th>ออกใบเสร็จ</th>
+                                    <th>ออกใบกำกับภาษี</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -125,6 +126,9 @@
                                         <%= cars[i].car_license %>
                                     </td>
                                     <td>
+                                        <%= cars[i].car_company %>
+                                    </td>
+                                    <td>
                                         <%= cars[i].car_model %>
                                     </td>
                                     <td>
@@ -134,7 +138,7 @@
                                         <%= cars[i].car_status %>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-warning btn-block"
+                                        <button type="button" class="btn btn-outline-info btn-block"
                                             style="font-size: 15px;" data-toggle="modal"
                                             data-target="#exampleModalCenter"
                                             onclick="feedInvoice('<%= cus[i].customer_first_name %>',
@@ -147,9 +151,8 @@
                                             ,'<%= cars[i].car_license %>','<%= cars[i].car_cost %>')">ออกใบเสร็จ</button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-info btn-block"
-                                            style="font-size: 15px;" data-toggle="modal"
-                                            data-target="#invoiceModal"
+                                        <button type="button" class="btn btn-outline-danger btn-block"
+                                            style="font-size: 15px;" data-toggle="modal" data-target="#invoiceModal"
                                             onclick="feedInvoice2('<%= cus[i].customer_first_name %>',
                                             '<%= cus[i].customer_last_name %>','<%= cus[i].address.address_id %>',
                                             '<%= cus[i].address.bloc %>','<%= cus[i].address.district %>',
@@ -267,14 +270,14 @@
 
                                 </div>
                                 <div class="col">
-                                    <div class="input-group mb-3">
+                                    <!-- <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">รหัสลูกค้า</span>
                                         </div>
                                         <input type="text" class="form-control" id="ID_MST_customer"
-                                            name="ID_MST_customer">
-                                    </div>
+                                            name="ID_MST_customer" placeholder="">
+                                    </div> -->
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"
@@ -388,7 +391,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ออกใบเสร็จ</h5>
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -396,9 +399,17 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="card" id="invoice">
-                            <br>
-                            <h1 class="text-center">ใบเสร็จรับเงิน</h1>
-                            <br>
+                                <div class="row">
+                                        <div class="col">
+                                            <img class="text-left"
+                                                src="http://www.logospng.com/images/60/dragon-logo-png-clipart-best-60424.png"
+                                                width="150px" height="150px">
+                                        </div>
+                                        <div class="col">
+                                            <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบเสร็จรับเงิน</h1>
+                                            <h2 class="text-right" style="margin-top: 3px;margin-right: 15px">Invoice</h2>
+                                        </div>
+                                    </div>
                             <div class="card-header">
                                 Invoice
                                 <strong id="date">วันที่</strong>
@@ -510,7 +521,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ออกใบกำกับภาษี</h5>
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -518,9 +529,18 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="card" id="einvoice">
-                            <br>
-                            <h1 class="text-center">ใบกำกับภาษี</h1>
-                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <img class="text-left"
+                                        src="http://www.logospng.com/images/60/dragon-logo-png-clipart-best-60424.png"
+                                        width="150px" height="150px">
+                                </div>
+                                <div class="col">
+                                    <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบกำกับภาษี</h1>
+                                    <h2 class="text-right" style="margin-top: 3px;margin-right: 15px">TAX Invoice</h2>
+                                </div>
+                            </div>
+
                             <div class="card-header">
                                 Invoice
                                 <strong id="edate">วันที่</strong>
@@ -540,6 +560,7 @@
                                         </div>
                                         <div>Email: choktwee@gmail.com</div>
                                         <div>โทร : 028749177</div>
+                                        <div>เลขประจำตัวผู้เสียภาษีอากร : 1653472936510</div>
                                         <div>
                                             <p id="edate2">วันที่ออกใบเสร็จ</p>
                                         </div>
@@ -616,16 +637,17 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <div class="row">                    
-                                        <div class="col">                                         
+                                    <div class="row">
+                                        <div class="col">
                                             <p>ผู้มีอำนาจลงนาม</p>
-                                            <img src="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/pages/signature-scan.png"
-                                                alt="signature" width="100px" height="100px" />                   
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/%E0%B8%A5%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B9%8C_%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%AD%E0%B8%8A%E0%B8%B2_%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B8%AD%E0%B8%B1%E0%B8%87%E0%B8%81%E0%B8%A4%E0%B8%A9.png"
+                                                alt="signature" width="250px" height="100px" />
+                                                <br>
                                             <h6>นายโชคทวี รักชาติไทย</h6>
                                             <p class="text-muted">CEO บริษัทโชคทวีออโต้เซลส์</p>
                                             <p class="text-muted">บริษัทโชคทวีออโต้เซลส์ บริษัทเช่ารถอันดับ 1
-                                                    แห่งประเทศไทย
-                                                    ครบวงจร</p>
+                                                แห่งประเทศไทย
+                                                ครบวงจร</p>
                                         </div>
                                     </div>
                                 </div>
@@ -651,7 +673,7 @@
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script language="javascript" type="text/javascript">
         $('#sampleTable').DataTable();
-        $('#profilename').text("User : " + localStorage.getItem("name"));
+        $('#profilename').text("ยินดีต้อนรับ User : " + localStorage.getItem("name"));
 
         var m = new Date();
         var dateString =
@@ -665,16 +687,18 @@
             console.log(cusname);
             var vat = car_cost * 0.07
             var total = parseInt(car_cost) + parseInt(vat)
+            var cacost = parseInt(car_cost)
+
             $('#invcusname').text(cusname + " " + cuslname)
             $('#invcusadd').text(cusaddid + " " + bloc + " " + district + " " + sub_district + " " + province +
                 " " + postcode)
             $('#date2').text("วันที่ออกใบเสร็จ : " + dateString)
             $('#date').text(ID_MST_car + dateString)
-            $('#carcost').text(car_cost)
-            $('#cartotal').text(car_cost)
-            $('#invcost').text(car_cost)
-            $('#invvat').text(vat.toFixed(2))
-            $('#invtotal').text(total.toFixed(2))
+            $('#carcost').text(cacost.toLocaleString()+ ".00")
+            $('#cartotal').text(cacost.toLocaleString()+ ".00")
+            $('#invcost').text(cacost.toLocaleString()+ ".00")
+            $('#invvat').text(vat.toLocaleString()+ ".00")
+            $('#invtotal').text(total.toLocaleString()+ ".00")
             $('#cardetail').text(car_company + " " + car_model + " ปี " + car_year + " สี " + car_color +
                 " เลขทะเบียนรถ " + car_license)
 
@@ -686,16 +710,17 @@
             console.log(cusname);
             var vat = car_cost * 0.07
             var total = parseInt(car_cost) + parseInt(vat)
+            var cacost = parseInt(car_cost)
             $('#einvcusname').text(cusname + " " + cuslname)
             $('#einvcusadd').text(cusaddid + " " + bloc + " " + district + " " + sub_district + " " + province +
                 " " + postcode)
             $('#edate2').text("วันที่ออกใบเสร็จ : " + dateString)
             $('#edate').text(ID_MST_car + dateString)
-            $('#ecarcost').text(car_cost)
-            $('#ecartotal').text(car_cost)
-            $('#einvcost').text(car_cost)
-            $('#einvvat').text(vat.toFixed(2))
-            $('#einvtotal').text(total.toFixed(2))
+            $('#ecarcost').text(cacost.toLocaleString()+ ".00")
+            $('#ecartotal').text(cacost.toLocaleString()+ ".00")
+            $('#einvcost').text(cacost.toLocaleString()+ ".00")
+            $('#einvvat').text(vat.toLocaleString()+ ".00")
+            $('#einvtotal').text(total.toLocaleString()+ ".00")
             $('#ecardetail').text(car_company + " " + car_model + " ปี " + car_year + " สี " + car_color +
                 " เลขทะเบียนรถ " + car_license)
 
