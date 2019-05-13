@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ออกใบกำกับภาษี</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</head>
+
+<script>
+    function prints() {
+        console.log('ei')
+        document.getElementById('buttonprint').style.display = 'none';
+        window.print()
+        location.href = '/renewlicense'
+    }
+</script>
+
+<body>
+
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+    </button>
+
+    <div class="container">
+        <div class="card" id="invoice">
+            <div class="card" id="invoice">
+                <div class="row">
+                    <div class="col">
+                        <img class="text-left"
+                            src="http://www.logospng.com/images/60/dragon-logo-png-clipart-best-60424.png" width="150px"
+                            height="150px">
+                    </div>
+                    <div class="col">
+                        <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบกำกับภาษี
+                        </h1>
+                        <h2 class="text-right" style="margin-top: 3px;margin-right: 15px">Invoice</h2>
+                    </div>
+                </div>
+                <div class="card-header">
+                    Invoice <%= license.ID_TRN_renew_license %>
+                    <strong id="date">วันที่ <%= license.renew_license_date %> </strong>
+                    <span class="float-right">
+                        <button type="button" class="btn btn-primary" onclick="prints()" id="buttonprint">Print</button>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-sm-6">
+                            <h6 class="mb-3">From:</h6>
+                            <div>
+                                <strong>โชคทวีออโต้เซลส์</strong>
+                            </div>
+                            <div>Email: choktwee@gmail.com</div>
+                            <div>โทร : 028749177</div>
+                            <div>
+                                <p id="date2">วันที่ออกใบเสร็จ : <%= license.renew_license_date %></p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="mb-3">To:</h6>
+                            <div>
+                                <strong id="invcusname">Webz Poland</strong>
+                            </div>
+                            <div id="invcusadd">ที่อยู่ลูกค้า</div>
+                            เลขที่ : <%= customer.address.address_id %> <br>
+                            หมู่ : <%= customer.address.bloc %> <br>
+                            อำเภอ : <%= customer.address.district %> <br>
+                            ตำบล : <%= customer.address.sub_district %> <br>
+                            จังหวัด : <%= customer.address.province %> <br>
+                            รหัสไปรษณีย์ : <%= customer.address.postcode %>
+
+
+                        </div>
+                    </div>
+                    <div class="table-responsive-sm">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="center">ลำดับ</th>
+                                    <th>สินค้า</th>
+                                    <th>รายละเอียด</th>
+                                    <th class="right">จำนวน</th>
+                                    <th class="center">ราคาสินค้า</th>
+                                    <th class="right">จำนวนเงิน</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="center">1</td>
+                                    <td class="left strong">ต่อทะเบียน</td>
+                                    <td class="left" id="cardetail">เลขทะเบียน <%= license.car_license %></td>
+
+                                    <td class="right">1</td>
+                                    <td class="center" id="carcost">1</td>
+                                    <td class="right" id="cartotal"> <%= license.renew_license_price %> บาท</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-5">
+
+                        </div>
+
+                        <div class="col-lg-4 col-sm-5 ml-auto">
+                            <table class="table table-clear">
+                                <tbody>
+                                    <tr>
+                                        <td class="left">
+                                            <strong>ราคารวม</strong>
+                                        </td>
+                                        <td class="right" id="invcost"><%= license.renew_license_price %> บาท</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">
+                                            <strong>ภาษีมูลค่าเพิ่ม (7%)</strong>
+                                        </td>
+                                        <td class="right" id="invvat"><%= license.renew_license_price * 0.07 %> บาท</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">
+                                            <strong>ราคารวมสุทธิ</strong>
+                                        </td>
+                                        <td class="right">
+                                            <strong
+                                                id="invtotal"><%= license.renew_license_price + (license.renew_license_price * 0.07) %>
+                                                บาท</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-right">
+                        <div class="row">
+                            <div class="col">
+                                <p>ผู้มีอำนาจลงนาม</p>
+                                <img src="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/images/pages/signature-scan.png"
+                                    alt="signature" width="100px" height="100px">
+                                <h6>นายโชคทวี รักชาติไทย</h6>
+                                <p class="text-muted">CEO บริษัทโชคทวีออโต้เซลส์</p>
+                                <p class="text-muted">บริษัทโชคทวีออโต้เซลส์ บริษัทเช่ารถอันดับ 1
+                                    แห่งประเทศไทย
+                                    ครบวงจร</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+</body>
+
+</html>

@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var TRN_repair_car_Schema = mongoose.Schema({
     ID_TRN_repair_car : {type: String},
     repair_detail : {type: String},
-    repair_received_date : {type: Date, default:Date.now()}, 
+    repair_received_date : {type: String, default:Date.now()}, 
     repair_return_date : {type: String}, 
     repair_status : {type: String}, 
     car_license : {type: String}, 

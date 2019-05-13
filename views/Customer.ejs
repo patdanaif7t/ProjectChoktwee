@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>จัดการพนักงาน</title>
+    <title>ดูข้อมูลลูกค้า</title>
     <link rel="shortcut icon" type="image/png" href="http://www.bhwelder.com.my/img/hotproduct.png" />
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -45,8 +45,9 @@
             <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
 
         </div>
-        </div>
         <ul class="app-menu">
+            <li><a class="app-menu__item" href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">แดชบอร์ด</span></a></li>
             <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
                         class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
                         class="treeview-indicator fa fa-angle-right"></i></a>
@@ -58,7 +59,7 @@
                     <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
                 </ul>
             </li>
-            <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-dashboard"></i><span
+            <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
                         class="app-menu__label">จัดการซ่อม</span></a></li>
             <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-dashboard"></i><span
                         class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
@@ -97,7 +98,7 @@
                                     <th>ที่อยู่</th>
                                     <th>เบอร์โทรศัพท์</th>
                                     <th>อีเมลล์</th>
-                                    <th>แก้ไข</th>
+                                    <!-- <th>แก้ไข</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -109,9 +110,8 @@
                                         + ' ' + cus[i].address.province  + ' ' + cus[i].address.postcode %></td>
                                     <td><%= cus[i].customer_telephone %></td>
                                     <td><%= cus[i].customer_email %></td>
-                                    <td><button type="button" class="btn btn-outline-warning"
-                                        data-toggle="modal" data-toggle="modal"
-                                            data-target=".EditModalCenter">แก้ไข</button></td>
+                                    <!-- <td><button type="button" class="btn btn-outline-warning" data-toggle="modal"
+                                            data-toggle="modal" data-target=".EditModalCenter">แก้ไข</button></td> -->
                                 </tr>
                                 <% } %>
                             </tbody>

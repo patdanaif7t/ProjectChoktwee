@@ -11,7 +11,13 @@ reNewLicense.get('/' , (req , res , next) => {
             console.log(err)
         }else {
            // console.log(license)
-            res.render('ManageReNewLicense' , { license : license})
+           Customer.find( (err , customer) =>{
+             if(err){
+               console.log(err)
+             }else {
+              res.render('ManageReNewLicense' , { license : license , customer : customer})
+             }
+           })
         }
     }) 
 })
@@ -36,16 +42,17 @@ reNewLicense.post('/insert' , (req , res) => {
     license.renew_license_count = 1
     license.renew_license_price = 500
     license.car_license = req.body.car_license
-    license.ID_MST_customer = req.body.customer_citizen_id
+    license.customer_citizen_id = req.body.customer_citizen_id
     license.ID_MST_employeeId = req.body.ID_MST_employeeId
 
-    console.log(license)
+   //console.log(license)
 
     customer.customer_type = req.body.customer_type
     customer.customer_citizen_id = req.body.customer_citizen_id
     customer.customer_first_name = req.body.customer_first_name
     customer.customer_last_name = req.body.customer_last_name
 
+    customer.address.bloc = req.body.bloc
     customer.address.address_id = req.body.address_id
     customer.address.district = req.body.district
     customer.address.sub_district = req.body.sub_district
@@ -65,28 +72,55 @@ reNewLicense.post('/insert' , (req , res) => {
         if(err)
         return res.send(err.message)
     })
-
-  
-
     console.log(customer)
-
-  
-
+    res.redirect('/renewlicense')
 })
 
 
-reNewLicense.get('/delete/:id', (req, res, next) => {  
+reNewLicense.get('/delete/:id', (req, res, next) => {
+
     License.findByIdAndRemove(req.params.id,
       (err, emps) => {
         if (err) {
           return res.status(500).send(err.message + "ei")
         }
-        res.redirect('/ManageReNewLicense')
+        res.redirect('/renewlicense')
         // res.status(200).send({success : {message : "Deleted Employee succesfully."}})
       })
+
   })
 
+  reNewLicense.post('/update', (req, res, next) => {
+    console.log(req.body)
+    License.findByIdAndUpdate(req.body._id, req.body , (err, data) => {
+      console.log(data)
+    if (err) {
+      return res.status(500).send(err.message)
+    }
+    res.redirect('/renewlicense')
+  })
+})
+
+reNewLicense.get('/bill/:_id' , (req,res,next) => {
+  License.findById(req.params._id , (err , license) =>{
+    Customer.findOne({customer_citizen_id:license.customer_citizen_id} , (err , cus) =>{
+      res.render('billRenewLicense' , {license : license , customer : cus})
+    })
   
+  } )
+})
 
 
+
+reNewLicense.get('/bill2/:_id' , (req,res,next) => {
+  License.findById(req.params._id , (err , license) =>{
+    Customer.findOne({customer_citizen_id:license.customer_citizen_id} , (err , cus) =>{
+      res.render('bill2RenewLicense' , {license : license , customer : cus})
+    })
+  
+  } )
+})
+
+  
+  
 module.exports = reNewLicense;

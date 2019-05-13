@@ -17,6 +17,8 @@ const MangeBuyCarRouter = require ('./routes/MangeBuyCarRouter');
 const MangereNewLicense = require ('./routes/ManageReNewLicenseRouter')
 const ReportRouter = require ('./routes/ReportRouter')
 const RepairRouter = require('./routes/ManageRepairRouter')
+const DashboardRouter = require('./routes/dashboard')
+
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -24,6 +26,9 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
  
+
+app.use('/', LoginRouter);
+app.use('/dashboard', DashboardRouter);
 app.use('/mangeemployee', MangeEmpRouter);
 app.use ('/login', LoginRouter );
 app.use ('/mangecar', MangeCarRouter)
@@ -34,9 +39,7 @@ app.use ('/renewlicense', MangereNewLicense)
 app.use ('/report', ReportRouter)
 app.use('/manage-repair', RepairRouter)
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname,'public', 'index.html'));
-});
+
 
 app.get('*', function(req, res){
   res.sendFile(path.join(__dirname,'public', '404.html'));

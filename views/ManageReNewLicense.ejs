@@ -12,6 +12,7 @@
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 </head>
 
 <body class="app sidebar-mini rtl">
@@ -21,10 +22,7 @@
             aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
-            <li class="app-search">
-                <input class="app-search__input" type="search" placeholder="Search">
-                <button class="app-search__button"><i class="fa fa-search"></i></button>
-            </li>
+
 
             <!-- User Menu-->
             <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
@@ -41,13 +39,7 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar"
-                src="https://www.img.in.th/images/907a16df723b68dd9b01785c32ef6a28.jpg" alt="User Image" height="48px"
-                width="48">
-            <div>
-                <p class="app-sidebar__user-name">ภัทรดนัย ช่างเหลา</p>
-                <p class="app-sidebar__user-designation">สถานะ : Admin</p>
-            </div>
+        <div class="app-sidebar__user"><p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
         </div>
         <ul class="app-menu">
             <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
@@ -57,33 +49,32 @@
                     <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
                             สต็อครถ</a></li>
                     <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
-                            ซื้อรถเข้า</a></li>
-                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
-                </ul>
+                            ซื้อรถเข้า</a></li <li><a class="treeview-item" href="/sellcar"><i
+                            class="icon fa fa-circle-o"></i>จัดการขายรถ</a>
             </li>
-            <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">จัดการซ่อม</span></a></li>
-            <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
-            <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
-            <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">ดูรายงาน</span></a></li>
-            <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+        </ul>
+        </li>
+        <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
+                    class="app-menu__label">จัดการซ่อม</span></a></li>
+        <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-dashboard"></i><span
+                    class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+        <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                    class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+        <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                    class="app-menu__label">ดูรายงาน</span></a></li>
+        <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                    class="app-menu__label">จัดการพนักงาน</span></a></li>
         </ul>
     </aside>
     <main class="app-content">
         <div class="app-title">
             <div>
                 <h1><i class="fa fa-th-list"></i> จัดการการเดินทะเบียน</h1>
-
-                <p>เพิ่ม ลบ แก้ไข พนักงาน</p>
+                <p>เพิ่ม ลบ แก้ไข การเดินทะเบียน</p>
             </div>
             <ul class="app-breadcrumb breadcrumb side">
                 <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item">Tables</li>
-                <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
+                <li class="breadcrumb-item active"><a href="/renewlicense">จัดการการเดินทะเบียน</a></li>
 
             </ul>
         </div>
@@ -97,16 +88,19 @@
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                                 <tr align="center">
-                                    <th>รหัสการต่อทะเบียน</th>
+                                    <th>รหัสการเดินทะเบียน</th>
                                     <th>วันที่</th>
                                     <th>เลขทะเบียน</th>
-                                    <th>จำนวน</th>
-                                    <th>ราคารวม</th>
-                                    <th>รหัสลูกค้า</th>
-                                    <th>รหัสบิล</th>
+                                    <!--
+                                     <th>จำนวน</th>
+                                -->
+                                    <th>ราคา</th>
+                                    <th>หมายเลขบัตรประชาชนลูกค้า</th>
                                     <th>รหัสพนักงาน</th>
                                     <th>แก้ไข</th>
                                     <th>ลบ</th>
+                                    <th>ออกใบเสร็จ</th>
+                                    <th>ออกใบกำกับภาษี</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -119,33 +113,46 @@
                                         <%= license[i].renew_license_date %>
                                     </td>
                                     <td>
-                                            <%= license[i].car_license %>
-                                        </td>
-                                    <td>
+                                        <%= license[i].car_license %>
+                                    </td>
+                                    <!--
+<td>
                                         <%= license[i].renew_license_count %>
                                     </td>
+                                    -->
                                     <td>
                                         <%= license[i].renew_license_price %>
                                     </td>
                                     <td>
+                                        <%= license[i].customer_citizen_id %>
+                                    </td>
+                                    <td>
                                         <%= license[i].ID_MST_employeeId %>
                                     </td>
+
                                     <td>
-                                        <%= license[i].ID_TRN_bill %>
-                                    </td>
-                                    <td>
-                                        <%= license[i].ID_MST_customer %>
-                                    </td>
-                                 
-                                    <td>
-                                            <button type="submit" class="btn btn-outline-warning btn-block"
+                                        <button type="button" class="btn btn-outline-warning btn-block"
                                             style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
-                                            data-target=".AddModalCenter">แก้ไข</button>
+                                            data-target=".editModal"
+                                            onclick="feedLicense('<%= license[i]._id %>','<%= license[i].ID_TRN_renew_license %>','<%= license[i].renew_license_date %>','<%=license[i].renew_license_count%>','<%=license[i].renew_license_price%>','<%=license[i].car_license%>','<%=license[i].ID_MST_employeeId%>','<%=license[i].ID_TRN_bill%>','<%=license[i].ID_MST_customer%>')">แก้ไข</button>
                                     </td>
                                     <td>
-                                        <a class="btn btn-outline-danger btn-block" href="/manageReNewLicense/delete/<%= license[i]._id %>">ลบ</a>
+                                        <a class="btn btn-outline-danger btn-block"
+                                            href="/renewlicense/delete/<%= license[i]._id %>">ลบ</a>
                                     </td>
-                                 
+                                    <td>
+                                        <a class="btn btn-outline-primary  btn-block"
+                                            href="/renewlicense/bill/<%= license[i]._id%>">
+                                            ออกใบเสร็จ
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-outline-primary btn-block"
+                                            href="/renewlicense/bill2/<%=license[i]._id%>">
+                                            ออกใบกำกับภาษี
+                                        </a>
+                                    </td>
+
                                 </tr>
                                 <% } %>
                             </tbody>
@@ -155,198 +162,290 @@
             </div>
         </div>
 
-        <!-- Modal เพิ่ม -->
-        <div class="modal fade AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="AddModalCenter"
-            aria-hidden="true">
+        <!-- Modal  แก้ไข -->
+        <div class="modal fade editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
-                <form action="ManageReNewLicense/insert" method="post">
+                <form action="renewlicense/update" method="post">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="AddModalCenter">
-                                เพิ่มรายการเดินทะเบียน</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <h5 class="modal-title" id="editModal">
+                                แก้ไขรายการเดินทะเบียน</h5>
+                            <!--
+                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
+                           -->
                         </div>
                         <div class="modal-body">
-                                <h5>รายละเอียดลูกค้า</h5>
-                                
-                            <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">เลขประจำตัวประชาชนลูกค้า</span>
-                                    </div>
-                                    <input type="text" name="ID_MST_customer" id="ID_MST_customer" class="form-control"
-                                        aria-label="Sizing example input">
-                                </div>
-
-                                
-                            <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
-                                    </div>
-                                    <input type="text" name="customer_first_name" id="customer_first_name" class="form-control"
-                                        aria-label="Sizing example input">
-                                </div>
-
-                                
-                            <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
-                                    </div>
-                                    <input type="text" name="customer_last_name" id="customer_last_name" class="form-control"
-                                        aria-label="Sizing example input">
-                                </div>
-
-                                
-                            <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">บ้านเลขที่</span>
-                                    </div>
-                                    <input type="text" name="address_id" id="address_id" class="form-control"
-                                        aria-label="Sizing example input">
-                                </div>
-
-
-                                <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">หมู่</span>
-                                        </div>
-                                        <input type="text" name="bloc" id="bloc" class="form-control"
-                                            aria-label="Sizing example input">
-                                    </div>
-
-                                 
-                                    
-                                <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
-                                        </div>
-                                        <input type="text" name="district" id="district" class="form-control"
-                                            aria-label="Sizing example input">
-                                    </div>
-
-                                       
-                                <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
-                                        </div>
-                                        <input type="text" name="sub_district" id="sub_district" class="form-control"
-                                            aria-label="Sizing example input">
-                                    </div>
-
-                                    
-                                <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
-                                        </div>
-                                        <input type="text" name="province" id="province" class="form-control"
-                                            aria-label="Sizing example input">
-                                    </div>
-
-
-                                    
-                                <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
-                                        </div>
-                                        <input type="text" name="postcode" id="postcode" class="form-control"
-                                            aria-label="Sizing example input">
-                                    </div>
-
-                                    
-                                <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">อีเมล</span>
-                                        </div>
-                                        <input type="email" name="customer_email" id="customer_email" class="form-control"
-                                            aria-label="Sizing example input">
-                                    </div>
-
-                                    
-                                <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">ประเภท</span>
-                                        </div>
-                                        <input readonly type="email" name="customer_type" id="customer_type" class="form-control"
-                                            aria-label="Sizing example input" value="ต่อทะเบียน">
-                                    </div>
-
-                                    
-                                <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
-                                        </div>
-                                        <input type="text" name="customer_telephone" id="customer_telephone" class="form-control"
-                                            aria-label="Sizing example input">
-                                    </div>
-                                    
-
-
-                                <hr>
-                              <h5>
-                                    ข้อมูลการเดินทะเบียน
-                              </h5>  
+                            <h5>
+                                ข้อมูลการเดินทะเบียน
+                            </h5>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสการต่อทะเบียน</span>
+                                    <span class="input-group-text"
+                                        id="inputGroup-sizing-default">รหัสการเดินทะเบียน</span>
                                 </div>
-                                <input type="text" name="ID_TRN_renew_license" id="ID_TRN_renew_license" class="form-control"
-                                    aria-label="Sizing example input">
+                                <input type="text" name="_id" id="editid" style="display: none">
+                                <input type="text" name="ID_TRN_renew_license" id="edit_ID_TRN_renew_license"
+                                    class="form-control" aria-label="Sizing example input">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">วันที่</span>
                                 </div>
-                                <input type="text" name="renew_license_date" id="renew_license_date" class="form-control"
-                                    aria-label="Sizing example input">
+                                <input type="text" name="renew_license_date" id="edit_renew_license_date"
+                                    class="form-control" aria-label="Sizing example input">
                             </div>
-                           
-                            
+
+
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">รหัสพนักงาน</span>
                                 </div>
-                                <input type="text" name="ID_MST_employeeId" id="ID_MST_employeeId" class="form-control"
+                                <input type="text" name="ID_MST_employeeId" id="edit_ID_MST_employeeId"
+                                    class="form-control" aria-label="Sizing example input">
+                            </div>
+
+                            <!--
+                             <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">จำนวน</span>
+                                </div>
+                                <input type="text" name="renew_license_count" id="edit_renew_license_count"
+                                    class="form-control" aria-label="Sizing example input">
+                            </div>
+                        -->
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">ราคา</span>
+                                </div>
+                                <input type="text" name="renew_license_price" id="edit_renew_license_price"
+                                    class="form-control" aria-label="Sizing example input">
+                            </div>
+
+                            <!--
+                                <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสบิล</span>
+                                </div>
+                                <input type="text" name="ID_TRN_bill" id="edit_ID_TRN_bill" class="form-control"
                                     aria-label="Sizing example input">
                             </div>
+                          -->
 
                             <hr>
 
                             <h5 style="float: left">รายการทะเบียน </h5>
                             <span style="float: right ; ">
-                                    <button type="button" onclick="addList()"  class="btn btn-primary">เพิ่มรายการ</button>
-                                    <br>
-                                    <p></p>
+                                <!--
+ <button type="button" onclick="addList()" class="btn btn-primary">เพิ่มรายการ</button>
+                               -->
+                                <br>
+                                <p></p>
                             </span>
-                            
+
                             <div class="input-group mb-3" id="list">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">เลขทะเบียนรถ</span>
-                                    </div>
-                                    <input type="text" name="car_license" id="car_license" class="form-control"
-                                        aria-label="Sizing example input">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">เลขทะเบียนรถ</span>
                                 </div>
-                            
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                            <button type="submit" class="btn btn-primary">ยืนยัน</button>
-                        </div>
-                        
+                                <input type="text" name="car_license" id="edit_car_license" class="form-control"
+                                    aria-label="Sizing example input">
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                                <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                            </div>
+
 
                 </form>
             </div>
         </div>
-        <!-- Modal แก้ไข -->
-       
-<div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            ...
-          </div>
-        </div>
-      </div>
-        <!-- End Modal -->
     </main>
+
+
+
+    <!-- Modal เพิ่ม -->
+    <div class="modal fade AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="AddModalCenter"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <form action="renewlicense/insert" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="AddModalCenter">
+                            เพิ่มรายการเดินทะเบียน</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>รายละเอียดลูกค้า</h5>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"
+                                    id="inputGroup-sizing-default">เลขประจำตัวประชาชนลูกค้า</span>
+                            </div>
+                            <input required maxlength="13" type="text" name="customer_citizen_id"
+                                id="customer_citizen_id" class="form-control" aria-label="Sizing example input">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ชื่อ</span>
+                            </div>
+                            <input required type="text" name="customer_first_name" id="customer_first_name"
+                                class="form-control" aria-label="Sizing example input">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">นามสกุล</span>
+                            </div>
+                            <input required type="text" name="customer_last_name" id="customer_last_name"
+                                class="form-control" aria-label="Sizing example input">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">บ้านเลขที่</span>
+                            </div>
+                            <input required type="text" name="address_id" id="address_id" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">หมู่</span>
+                            </div>
+                            <input required type="text" name="bloc" id="bloc" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                            </div>
+                            <input required type="text" name="district" id="district" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                            </div>
+                            <input required type="text" name="sub_district" id="sub_district" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                            </div>
+                            <input required type="text" name="province" id="province" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                            </div>
+                            <input required type="text" name="postcode" id="postcode" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">อีเมล</span>
+                            </div>
+                            <input required type="email" name="customer_email" id="customer_email" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ประเภท</span>
+                            </div>
+                            <input required readonly type="email" name="customer_type" id="customer_type"
+                                class="form-control" aria-label="Sizing example input" value="ต่อทะเบียน">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
+                            </div>
+                            <input required type="text" name="customer_telephone" id="customer_telephone"
+                                class="form-control" aria-label="Sizing example input">
+                        </div>
+
+
+
+                        <hr>
+                        <h5>
+                            ข้อมูลการเดินทะเบียน
+                        </h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสการเดินทะเบียน</span>
+                            </div>
+                            <input required type="text" name="ID_TRN_renew_license" id="ID_TRN_renew_license"
+                                class="form-control" aria-label="Sizing example input">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">วันที่</span>
+                            </div>
+                            <input required type="date" name="renew_license_date" id="renew_license_date"
+                                class="form-control" aria-label="Sizing example input">
+                        </div>
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">รหัสพนักงาน</span>
+                            </div>
+                            <input required type="text" name="ID_MST_employeeId" id="ID_MST_employeeId"
+                                class="form-control" aria-label="Sizing example input">
+                        </div>
+
+                        <hr>
+
+                        <h5 style="float: left">รายการทะเบียน </h5>
+
+
+                        <div class="input-group mb-3" id="list">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">เลขทะเบียนรถ</span>
+                            </div>
+                            <input required type="text" name="car_license" id="car_license" class="form-control"
+                                aria-label="Sizing example input">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                        </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -358,12 +457,30 @@
     <!-- Data table plugin-->
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">
-        var showi = (i) => {
-            console.log(i);
-        }
+
+    <script>
         $('#sampleTable').DataTable();
+        $('#profilename').text("User : " + localStorage.getItem("name"));
+
+        //console.log($('#sampleTable').DataTable())
+        function feedLicense(_id, ID_TRN_renew_license, renew_license_date, renew_license_count, renew_license_price, car_license, ID_MST_employeeId, ID_TRN_bill, ID_MST_customer) {
+            // console.log(_id, ID_TRN_renew_license, renew_license_date, renew_license_count, renew_license_price, car_license, ID_MST_employeeId, ID_TRN_bill, ID_MST_customer)
+            editid: $('#editid').val(_id)
+            ID_TRN_renew_license: $('#edit_ID_TRN_renew_license').val(ID_TRN_renew_license)
+            renew_license_date: $('#edit_renew_license_date').val(renew_license_date)
+            ID_MST_employeeId: $('#edit_ID_MST_employeeId').val(ID_MST_employeeId)
+            car_license: $('#edit_car_license').val(car_license)
+            renew_license_price: $("#edit_renew_license_price").val(renew_license_price)
+            ID_TRN_bill: $("#edit_ID_TRN_bill").val(ID_TRN_bill)
+            //console.log($('#sampleTable').DataTable())
+        }
+
+        function feedBill() {
+
+        }
+
     </script>
+
 </body>
 
 </html>

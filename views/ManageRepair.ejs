@@ -8,15 +8,26 @@
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script>
+        function printContent(el) {
+            var printcontent = document.getElementById(el).innerHTML;
+            document.body.innerHTML = printcontent;
+            document.getElementById('buttonprint').style.display = 'none';
+            window.print();
+            location.reload();
+        }
+    </script>
 </head>
 
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.html">ASAP</a>
-        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+            aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
             <li class="app-search">
@@ -25,8 +36,8 @@
             </li>
 
             <!-- User Menu-->
-            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                        class="fa fa-user fa-lg"></i></a>
+            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
+                    aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
                     <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
                     <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
@@ -39,12 +50,9 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://www.img.in.th/images/907a16df723b68dd9b01785c32ef6a28.jpg"
-                alt="User Image" height="48px" width="48">
-            <div>
-                <p class="app-sidebar__user-name">ภัทรดนัย ช่างเหลา</p>
-                <p class="app-sidebar__user-designation">สถานะ : Admin</p>
-            </div>
+        <div class="app-sidebar__user">
+            <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
+
         </div>
         <ul class="app-menu">
             <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
@@ -96,10 +104,10 @@
                                     <th>รหัสการซ่อม</th>
                                     <th>รหัสรถ</th>
                                     <th>สถานะ</th>
+                                    <th>รายละเอียดการซ่อม</th>
                                     <th>วันที่รับเรื่อง</th>
                                     <th>กำหนดคืน</th>
-                                    <th>รายละเอียดการซ่อม</th>
-                                    <th>ออกบิล</th>
+                                    <th>ออกใบเสร็จ</th>
                                     <th>แก้ไข/ลบ</th>
                                 </tr>
                             </thead>
@@ -116,24 +124,33 @@
                                         <%= repair[i].repair_status %>
                                     </td>
                                     <td>
+                                        <%= repair[i].repair_detail %>
+                                    </td>
+                                    <td>
                                         <%= repair[i].repair_received_date %>
                                     </td>
                                     <td>
                                         <%= repair[i].repair_return_date %>
                                     </td>
                                     <td>
-                                        <a href="#" style="text-decoration: underline">รายละเอียดการซ่อม</a>
+                                        <button type="button" class="btn btn-outline-info btn-block"
+                                            style="font-size: 15px;" data-toggle="modal"
+                                            data-target="#exampleModalCenter" onclick="feedInvoice('<%= cus[i].customer_first_name %>',
+                                            '<%= cus[i].customer_last_name %>','<%= cus[i].address.address_id %>',
+                                            '<%= cus[i].address.bloc %>','<%= cus[i].address.district %>',
+                                            '<%= cus[i].address.sub_district %>','<%= cus[i].address.province %>',
+                                            '<%= cus[i].address.postcode %>','<%= repair[i].ID_TRN_repair_car %>'
+                                            ,'<%= repair[i].repair_detail %>')">ออกใบเสร็จ</button>
                                     </td>
-                                    <td>
-                                        <a href="#" style="text-decoration: underline">ออกบิล</a>
                                     </td>
                                     <td>
                                         <a href="manage-repair/delete/<%= repair[i]._id %>"><button type="submit"
                                                 class="btn btn-outline-danger btn-block"
                                                 style="font-size: 15px;">ลบ</button></a>
-                                        <button id="<%= i %>" type="submit" class="btn btn-outline-warning btn-block edit-btn"
-                                            style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
-                                            data-target=".EditModalCenter" onclick="edit('<%= repair[i]._id %>')">แก้ไข</button>
+                                        <button id="<%= i %>" type="submit"
+                                            class="btn btn-outline-warning btn-block edit-btn" style="font-size: 15px;"
+                                            data-toggle="modal" data-toggle="modal" data-target=".EditModalCenter"
+                                            onclick="edit('<%= repair[i]._id %>')">แก้ไข</button>
 
                                     </td>
                                 </tr>
@@ -144,6 +161,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Modal เพิ่ม -->
         <div class="modal fade AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="AddModalCenter"
             aria-hidden="true">
@@ -184,14 +202,23 @@
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">กำหนดคืน</span>
+                                    <span class="input-group-text"
+                                        id="inputGroup-sizing-default">รายละเอียดการซ่อม</span>
                                 </div>
-                                <input type="date" name="repair_return_date" id="repair_return_date" class="form-control"
+                                <input type="text" name="repair_detail" id="repair_detail" class="form-control"
                                     aria-label="Sizing example input" required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">พนักงานที่รับเรื่อง</span>
+                                    <span class="input-group-text" id="inputGroup-sizing-default">กำหนดคืน</span>
+                                </div>
+                                <input type="date" name="repair_return_date" id="repair_return_date"
+                                    class="form-control" aria-label="Sizing example input" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"
+                                        id="inputGroup-sizing-default">พนักงานที่รับเรื่อง</span>
                                 </div>
                                 <input type="text" name="ID_MST_employeeId" id="ID_MST_employeeId" class="form-control"
                                     aria-label="Sizing example input" required>
@@ -209,7 +236,139 @@
         <!-- End Modal -->
     </main>
 
-     <!-- Modal  แก้ไข -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="card" id="invoice">
+                            <div class="row">
+                                <div class="col">
+                                    <img class="text-left"
+                                        src="http://www.logospng.com/images/60/dragon-logo-png-clipart-best-60424.png"
+                                        width="150px" height="150px">
+                                </div>
+                                <div class="col">
+                                    <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบเสร็จรับเงิน
+                                    </h1>
+                                    <h2 class="text-right" style="margin-top: 3px;margin-right: 15px">Invoice</h2>
+                                </div>
+                            </div>
+                            <div class="card-header">
+                                Invoice
+                                <strong id="date">วันที่</strong>
+                                <span class="float-right">
+                                    <button type="button" class="btn btn-primary" onclick="printContent('invoice')"
+                                        id="buttonprint">Print</button>
+                                </span>
+
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-4">
+                                    <div class="col-sm-6">
+                                        <h6 class="mb-3">From:</h6>
+                                        <div>
+                                            <strong>โชคทวีออโต้เซลส์</strong>
+                                        </div>
+                                        <div>Email: choktwee@gmail.com</div>
+                                        <div>โทร : 028749177</div>
+                                        <div>
+                                            <p id="date2">วันที่ออกใบเสร็จ</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h6 class="mb-3">To:</h6>
+                                        <div>
+                                            <strong id="invcusname">Webz Poland</strong>
+                                        </div>
+                                        <div id="invcusadd">ที่อยู่ลูกค้า</div>
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="table-responsive-sm">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th class="center">ลำดับ</th>
+                                                <th>สินค้า</th>
+                                                <th>รายละเอียด</th>
+
+                                                <th class="right">จำนวน</th>
+                                                <th class="center">ราคาสินค้า</th>
+                                                <th class="right">จำนวนเงิน</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="center">1</td>
+                                                <td class="left strong">รถยนต์</td>
+                                                <td class="left" id="cardetail">Extended License</td>
+
+                                                <td class="right">1</td>
+                                                <td class="center" id="carcost">1</td>
+                                                <td class="right" id="cartotal">$999,00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-5">
+
+                                    </div>
+
+                                    <div class="col-lg-4 col-sm-5 ml-auto">
+                                        <table class="table table-clear">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="left">
+                                                        <strong>ราคารวม</strong>
+                                                    </td>
+                                                    <td class="right" id="invcost">ราคารวม</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left">
+                                                        <strong>ภาษีมูลค่าเพิ่ม (7%)</strong>
+                                                    </td>
+                                                    <td class="right" id="invvat">ภาษีมูลค่าเพิ่ม</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="left">
+                                                        <strong>ราคารวมสุทธิ</strong>
+                                                    </td>
+                                                    <td class="right">
+                                                        <strong id="invtotal">ราคารวมสุทธิ</strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal  แก้ไข -->
     <div class="modal fade EditModalCenter" tabindex="-1" role="dialog" aria-labelledby="EditModalCenter"
         aria-hidden="true">
         <div class="modal-dialog modal-s" role="document">
@@ -252,8 +411,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-default">กำหนดคืน</span>
                             </div>
-                            <input type="date" name="repair_return_date" id="edit_repair_return_date" class="form-control"
-                                aria-label="Sizing example input">
+                            <input type="date" name="repair_return_date" id="edit_repair_return_date"
+                                class="form-control" aria-label="Sizing example input">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -270,37 +429,57 @@
             </form>
         </div>
     </div>
-  <!-- Essential javascripts for application to work-->
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-  <!-- The javascript plugin to display page loading on top-->
-  <script src="js/plugins/pace.min.js"></script>
-  <!-- Page specific javascripts-->
-  <!-- Data table plugin-->
-  <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
-  <script type="text/javascript">
-      $('#sampleTable').DataTable();
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $('#sampleTable').DataTable();
+        $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
+        console.log("<%= repair[0].repair_received_date %>");
 
-      let edit = (i) => {
-        $.ajax({
-            type: "get",
-            url: `http://localhost:4000/manage-repair/get/${i}`,
-            success: res => {
-                console.log("this");
-                console.log(res);
-                $('#edit_id').val(res.repair._id)
-                $('#edit_ID_TRN_repair_car').val(res.repair.ID_TRN_repair_car)
-                $('#edit_car_license').val(res.repair.car_license)
-                $('#edit_repair_status').val(res.repair.repair_status)
-                $('#edit_repair_return_date').val(res.repair.repair_return_date)
-                $('#edit_ID_MST_employeeId').val(res.repair.ID_MST_employeeId)
-            }
-        })
-      }
-  </script>
+        var m = new Date();
+        var dateString =
+            m.getUTCFullYear() + "/" +
+            ("0" + (m.getUTCMonth() + 1)).slice(-2) + "/" +
+            ("0" + m.getUTCDate()).slice(-2) + " "
+
+        let edit = (i) => {
+            $.ajax({
+                type: "get",
+                url: `http://localhost:4000/manage-repair/get/${i}`,
+                success: res => {
+                    console.log("this");
+                    console.log(res);
+                    $('#edit_id').val(res.repair._id)
+                    $('#edit_ID_TRN_repair_car').val(res.repair.ID_TRN_repair_car)
+                    $('#edit_car_license').val(res.repair.car_license)
+                    $('#edit_repair_status').val(res.repair.repair_status)
+                    $('#edit_repair_return_date').val(res.repair.repair_return_date)
+                    $('#edit_ID_MST_employeeId').val(res.repair.ID_MST_employeeId)
+                }
+            })
+        }
+
+        var feedInvoice = (cusname, cuslname, cusaddid, bloc, district, sub_district, province, postcode, repair_id,
+            repair_detail) => {
+            console.log(cusname);
+
+            $('#invcusname').text(cusname + " " + cuslname)
+            $('#invcusadd').text(cusaddid + " " + bloc + " " + district + " " + sub_district + " " + province +
+                " " + postcode)
+            $('#date2').text("วันที่ออกใบเสร็จ : " + dateString)
+            $('#date').text(repair_id + dateString)
+            $('#cardetail').text(repair_detail)
+        }
+    </script>
 </body>
 
 </html>
