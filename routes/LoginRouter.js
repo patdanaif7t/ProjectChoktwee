@@ -28,7 +28,7 @@ LoginRouter.route('/').post((req, res) => {
     if(req.body.username && req.body.password) {
       Emp.findOne({username: req.body.username}).then(emps => {
         if (emps.password === req.body.password) {
-          res.redirect('/mangeemployee')
+          res.redirect('/dashboard')
         } else {
           res.render('login', { error: 'ไม่ถูก' })
         }

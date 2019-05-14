@@ -6,19 +6,21 @@ var TRN_repair_car_Schema = mongoose.Schema({
     repair_received_date : {type: String, default:Date.now()}, 
     repair_return_date : {type: String}, 
     repair_status : {type: String}, 
+    repairCost : {type: Number},
     car_license : {type: String}, 
     repair_car_price : {type: String},
     ID_MST_customer : {type: String},
     ID_TRN_bill : {type: String},
     ID_MST_employeeId : {type: String},
-    reapair_detail : [{
-        ID_MST_employeeId: {type: String},
-        replacement_parts : {type: String},
-        repair_problem : {type: String},
-        repair_date : {type: String}, 
-        repair_cost_technician : {type: String},
-        repair_cost_parts : {type: String}
-    }]
+
+    // reapair_detail : [{
+    //     ID_MST_employeeId: {type: String},
+    //     replacement_parts : {type: String},
+    //     repair_problem : {type: String},
+    //     repair_date : {type: String}, 
+    //     repair_cost_technician : {type: String},
+    //     repair_cost_parts : {type: String}
+    // }]
 }, {
     collection: 'TRN_repair_car'
 })

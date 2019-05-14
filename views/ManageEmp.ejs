@@ -16,7 +16,7 @@
 
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html">ASAP</a>
+    <header class="app-header"><a class="app-header__logo" href="/dashboard">ASAP</a>
         <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
             aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
@@ -46,28 +46,30 @@
             </div>
         </div>
         <ul class="app-menu">
-            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                        class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
-                        class="treeview-indicator fa fa-angle-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
-                            สต็อครถ</a></li>
-                    <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
-                            ซื้อรถเข้า</a></li>
-                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
-                </ul>
-            </li>
-            <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">จัดการซ่อม</span></a></li>
-            <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
-            <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
-            <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">ดูรายงาน</span></a></li>
-            <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                        class="app-menu__label">จัดการพนักงาน</span></a></li>
-        </ul>
+                <li><a class="app-menu__item" href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
+                            class="app-menu__label">แดชบอร์ด</span></a></li>
+                <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+                            class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
+                            class="treeview-indicator fa fa-angle-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
+                                สต็อครถ</a></li>
+                        <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
+                                ซื้อรถเข้า</a></li>
+                        <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
+                    </ul>
+                </li>
+                <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
+                            class="app-menu__label">จัดการซ่อม</span></a></li>
+                <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-cogs"></i><span
+                            class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+                <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-user-circle-o"></i><span
+                            class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+                <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                            class="app-menu__label">ดูรายงาน</span></a></li> -->
+                <li><a class="app-menu__item active" href="/mangeemployee"><i class="app-menu__icon fa fa-cogs"></i><span
+                            class="app-menu__label">จัดการพนักงาน</span></a></li>
+            </ul>
     </aside>
     <main class="app-content">
         <div class="app-title">
@@ -498,8 +500,7 @@
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
         $('#sampleTable').DataTable();
-        $('#profilename').text("User : " + localStorage.getItem("name"));
-
+        $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
         var feedEmp = (_id, ID_MST_employeeId, employee_type, employee_first_name, employee_last_name,
             employee_citizen_id, employee_birthday, employee_gender, employee_telephone, employee_salary, username,
