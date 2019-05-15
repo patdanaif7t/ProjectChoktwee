@@ -103,7 +103,7 @@
                 <div class="tile">
                     <div class="tile-body">
                         <button type="button" class="btn btn-outline-success btn-block"
-                            style="font-size: 15px; width: 10%; float: right;" data-toggle="modal"
+                            style="font-size: 15px; width: 6.3%; padding-top: 2px; float: right;" data-toggle="modal"
                             data-target="#BuyModal">ซื้อรถเข้า</button>
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
@@ -114,11 +114,11 @@
                                     <th>รุ่น</th>
                                     <th>ราคาขาย</th>
                                     <th>สถานะ</th>
-                                    <th>ออกใบเสร็จ</th>
-                                    <th>ออกใบกำกับภาษี</th>
+                                    <th style="width: 122px">ออกใบเสร็จ</th>
+                                    <th style="width: 122px">ออกใบกำกับภาษี</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
                                 <% for(var i=0; i < cars.length; i++) { %>
                                 <tr>
                                     <td>
@@ -139,7 +139,7 @@
                                     <td>
                                         <%= cars[i].car_status %>
                                     </td>
-                                    <td>
+                                    <td align="center">
                                         <button type="button" class="btn btn-outline-info btn-block"
                                             style="font-size: 15px;" data-toggle="modal"
                                             data-target="#exampleModalCenter"
@@ -152,7 +152,7 @@
                                             ,'<%= cars[i].car_year %>' ,'<%= cars[i].car_color %>'
                                             ,'<%= cars[i].car_license %>','<%= cars[i].car_cost %>')">ออกใบเสร็จ</button>
                                     </td>
-                                    <td>
+                                    <td align="center">
                                         <button type="button" class="btn btn-outline-danger btn-block"
                                             style="font-size: 15px;" data-toggle="modal" data-target="#invoiceModal"
                                             onclick="feedInvoice2('<%= cus[i].customer_first_name %>',

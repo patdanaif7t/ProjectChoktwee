@@ -108,9 +108,9 @@
                                     <th>รหัสรถที่ขาย</th>
                                     <th>รหัสลูกค้า</th>
                                     <th>หมายเลขบิล</th>
-                                    <th>แก้ไข</th>
-                                    <th>ลบ</th>
-                                    <th>ออกเอกสาร</th>
+                                    <th style="width: 122px">แก้ไข</th>
+                                    <th style="width: 122px">ลบ</th>
+                                    <th style="width: 122px">ออกเอกสาร</th>
                                 </tr>
                             </thead>
                             <tbody align="center">
@@ -140,7 +140,7 @@
                                     <td>
                                         <% for(var j=0; j < Cus.length; j++) { %>
                                         <%if(SellCar[i].ID_MST_customer === Cus[j].ID_MST_customer){%>
-                                        <a href="" class="btn btn-outline-warning btn-block" data-toggle="modal"
+                                        <a href="" class="btn btn-outline-warning btn-block" style="font-size: 15px;" data-toggle="modal"
                                             data-toggle="modal" data-target=".EditModalCenter" onclick="feedCar('<%= SellCar[i]._id  %>','<%= SellCar[i].ID_TRN_sellCar %>',
                                                 '<%= SellCar[i].sell_car_date %>','<%= SellCar[i].sell_car_price %>',
                                                 '<%= SellCar[i].ID_MST_employeeId %>','<%= SellCar[i].ID_MST_car %>','<%= SellCar[i].ID_MST_customer %>',
@@ -161,7 +161,7 @@
                                         <%if(SellCar[i].ID_MST_customer === Cus[k].ID_MST_customer){%>
                                         <div>
                                             <button type="button" class="btn btn-outline-info btn-block"
-                                                style="font-size: 15px; width: 100%" data-toggle="modal"
+                                                style="font-size: 15px;" data-toggle="modal"
                                                 data-target="#printModal" onclick="feedPrint('<%= SellCar[i]._id  %>','<%= SellCar[i].ID_TRN_sellCar %>',
                                                 '<%= SellCar[i].sell_car_date %>','<%= SellCar[i].sell_car_price %>',
                                                 '<%= SellCar[i].ID_MST_employeeId %>','<%= SellCar[i].ID_MST_car %>','<%= SellCar[i].ID_MST_customer %>',
