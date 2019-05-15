@@ -16,7 +16,7 @@
 
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="/dashboard">ASAP</a>
+    <header class="app-header"><a class="app-header__logo" href="/dashboard">Choktwee</a>
         <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
             aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
@@ -100,8 +100,8 @@
                                     <th>สี</th>
                                     <th>ราคาขาย</th>
                                     <th>สถานะ</th>
-                                    <th>ขาย</th>
-                                    <th>แก้ไข</th>
+                                    <th style="width: 138px">ขาย </th>
+                                    <th style="width: 136px">แก้ไข</th>
 
                                 </tr>
                             </thead>
@@ -131,13 +131,13 @@
                                     </td>
                                     <td align="center">
                                         <button type="button" class="btn btn-outline-danger btn-block"
-                                            style="font-size: 15px; padding: 6px 1px; width: 60%;" data-toggle="modal" data-toggle="modal"
+                                            style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
                                             data-target=".AddModalCenter"
                                             onclick="feedcar('<%= cars[i]._id  %>','<%= cars[i].car_price_sell  %>','<%= cars[i].car_ID_MST_car %>')">ขาย</button>
                                     </td>
                                     <td align="center">
                                         <button type="button" class="btn btn-outline-warning btn-block"
-                                            style="font-size: 15px; padding: 6px 1px; width: 52%;" data-toggle="modal" data-toggle="modal"
+                                            style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
                                             data-target=".EditModalCenter" onclick="feedcarToEdit('<%= cars[i]._id %>','<%= cars[i].ID_MST_car %>','<%= cars[i].car_company %>',
                                             '<%= cars[i].car_model %>','<%= cars[i].car_year %>','<%= cars[i].car_color %>',
                                             '<%= cars[i].car_license %>','<%= cars[i].car_repair_cost %>','<%= cars[i].car_status %>',
