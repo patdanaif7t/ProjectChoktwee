@@ -45,7 +45,7 @@ MangeCarRouter.post('/create', (req, res, next) => {
           return res.send(err.message)
         } else {
           console.log("เพิ่มลูกค้าสำเร็จ");
-          Car.findOneAndUpdate(req.body.ID_MST_car, {
+          Car.findOneAndUpdate(ID_MST_car = req.body.ID_MST_car, {
             car_status: 'ขายแล้ว'
           }, function (err) {
             if (err) {

@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var TRN_sell_car_Schema = mongoose.Schema({
     ID_TRN_sellCar : String,
+    customer_citizen_id : String,
     sell_car_date : String,
     sell_car_price : Number,
     ID_MST_employeeId : String,

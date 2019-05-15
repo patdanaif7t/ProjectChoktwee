@@ -106,7 +106,7 @@
                                     <th>ราคาขาย</th>
                                     <th>พนักงานที่ขาย</th>
                                     <th>รหัสรถที่ขาย</th>
-                                    <th>รหัสลูกค้า</th>
+                                    <!-- <th>รหัสลูกค้า</th> -->
                                     <th>หมายเลขบิล</th>
                                     <th style="width: 122px">แก้ไข</th>
                                     <th style="width: 122px">ลบ</th>
@@ -131,16 +131,16 @@
                                     <td>
                                         <%= SellCar[i].ID_MST_car %>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <%= SellCar[i].ID_MST_customer %>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <%= SellCar[i].ID_TRN_bill %>
                                     </td>
                                     <td>
                                         <% for(var j=0; j < Cus.length; j++) { %>
-                                        <%if(SellCar[i].ID_MST_customer === Cus[j].ID_MST_customer){%>
-                                        <a href="" class="btn btn-outline-warning btn-block" style="font-size: 15px;" data-toggle="modal"
+                                        <%if(SellCar[i].customer_citizen_id === Cus[j].customer_citizen_id){%>
+                                        <a href="" class="btn btn-outline-warning btn-block" data-toggle="modal"
                                             data-toggle="modal" data-target=".EditModalCenter" onclick="feedCar('<%= SellCar[i]._id  %>','<%= SellCar[i].ID_TRN_sellCar %>',
                                                 '<%= SellCar[i].sell_car_date %>','<%= SellCar[i].sell_car_price %>',
                                                 '<%= SellCar[i].ID_MST_employeeId %>','<%= SellCar[i].ID_MST_car %>','<%= SellCar[i].ID_MST_customer %>',
@@ -158,7 +158,7 @@
                                     </td>
                                     <td>
                                         <% for(var k=0; k < Cus.length; k++) { %>
-                                        <%if(SellCar[i].ID_MST_customer === Cus[k].ID_MST_customer){%>
+                                        <%if(SellCar[i].customer_citizen_id === Cus[k].customer_citizen_id){%>
                                         <div>
                                             <button type="button" class="btn btn-outline-info btn-block"
                                                 style="font-size: 15px;" data-toggle="modal"
@@ -230,7 +230,7 @@
                                                             id="editCus_type" class="form-control"
                                                             aria-label="Sizing example input" required>
                                                     </div>
-                                                    <div class="input-group mb-3">
+                                                    <!-- <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"
                                                                 id="inputGroup-sizing-default">รหัสลูกค้า</span>
@@ -238,7 +238,7 @@
                                                         <input type="text" name="customer_id" id="editCus_id"
                                                             class="form-control" aria-label="Sizing example input"
                                                             required>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"

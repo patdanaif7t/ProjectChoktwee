@@ -179,7 +179,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">รหัสรถ</span>
                                 </div>
-                                <input readonly type="text" name="ID_MST_car" class="form-control"
+                                <input readonly type="text" name="ID_MST_car" id="ID_MST_car" class="form-control"
                                     aria-label="Sizing example input" required>
                             </div>
                             <div class="input-group mb-3">
@@ -430,7 +430,6 @@
                 dataType: "json",
                 success: res => {
                     console.log(res);
-
                     $('#car_price_sell').val(res.car.car_price_sell)
                     $('#ID_MST_car').val(res.car.ID_MST_car)
                 }
