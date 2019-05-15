@@ -6,7 +6,6 @@ var TRN_sell_car_Schema = mongoose.Schema({
     sell_car_price : Number,
     ID_MST_employeeId : String,
     ID_MST_car : String,
-    ID_MST_customer : String,
     ID_TRN_bill : String
 }, {
     collection: 'TRN_sell_car'

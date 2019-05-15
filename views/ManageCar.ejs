@@ -105,7 +105,7 @@
 
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
                                 <% for(var i=0; i < cars.length; i++) { %>
                                 <tr>
                                     <td>
@@ -129,15 +129,15 @@
                                     <td>
                                         <%= cars[i].car_status %>
                                     </td>
-                                    <td>
+                                    <td align="center">
                                         <button type="button" class="btn btn-outline-danger btn-block"
-                                            style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
+                                            style="font-size: 15px; padding: 6px 1px; width: 60%;" data-toggle="modal" data-toggle="modal"
                                             data-target=".AddModalCenter"
                                             onclick="feedcar('<%= cars[i]._id  %>','<%= cars[i].car_price_sell  %>','<%= cars[i].car_ID_MST_car %>')">ขาย</button>
                                     </td>
-                                    <td>
+                                    <td align="center">
                                         <button type="button" class="btn btn-outline-warning btn-block"
-                                            style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
+                                            style="font-size: 15px; padding: 6px 1px; width: 52%;" data-toggle="modal" data-toggle="modal"
                                             data-target=".EditModalCenter" onclick="feedcarToEdit('<%= cars[i]._id %>','<%= cars[i].ID_MST_car %>','<%= cars[i].car_company %>',
                                             '<%= cars[i].car_model %>','<%= cars[i].car_year %>','<%= cars[i].car_color %>',
                                             '<%= cars[i].car_license %>','<%= cars[i].car_repair_cost %>','<%= cars[i].car_status %>',
@@ -179,14 +179,14 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">รหัสรถ</span>
                                 </div>
-                                <input readonly type="text" name="ID_MST_car" id="ID_MST_car" class="form-control"
+                                <input readonly type="text" name="ID_MST_car" class="form-control"
                                     aria-label="Sizing example input" required>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">ราคาขาย</span>
                                 </div>
-                                <input onkeypress="isInputNumber(event)" readonly type="text" name="car_price_sell"
+                                <input onkeypress="isInputNumber(event)" readonly type="text" name="sell_car_price"
                                     id="car_price_sell" class="form-control" aria-label="Sizing example input" required>
                             </div>
                             <hr>
@@ -201,7 +201,7 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"
-                                        id="inputGroup-sizing-default">หมายเลขประจำตัวผู้เสียภาษี</span>
+                                        id="inputGroup-sizing-default">หมายเลขประจำตัวประชาชน</span>
                                 </div>
                                 <input onkeypress="isInputNumber(event)" type="text" maxlength="13"
                                     name="customer_citizen_id" id="customer_citizen_id" class="form-control"
@@ -235,41 +235,49 @@
                             <hr>
                             <h5>รายละเอียดที่อยู่ลูกค้า</h5>
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">บ้านเลขที่</span>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">รหัสที่อยู่</span>
+                                    </div>
+                                    <input type="text" name="address.address_id" id="address_id"
+                                        class="form-control" aria-label="Sizing example input" maxlength="7">
                                 </div>
-                                <input type="text" name="address_id" id="address_id" class="form-control"
-                                    aria-label="Sizing example input" required>
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">ล็อค/ซอย</span>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
+                                    </div>
+                                    <input type="text" name="address.bloc" id="bloc" class="form-control"
+                                        aria-label="Sizing example input" maxlength="15">
                                 </div>
-                                <input type="text" name="bloc" id="bloc" class="form-control"
-                                    aria-label="Sizing example input" required>
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                                    </div>
+                                    <input type="text" name="address.district" id="district" class="form-control"
+                                        aria-label="Sizing example input" maxlength="15">
                                 </div>
-                                <input type="text" name="district" id="district" class="form-control"
-                                    aria-label="Sizing example input" required>
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
+                                    </div>
+                                    <input type="text" name="address.sub_district" id="sub_district"
+                                        class="form-control" aria-label="Sizing example input" maxlength="15">
                                 </div>
-                                <input type="text" name="sub_district" id="sub_district" class="form-control"
-                                    aria-label="Sizing example input" required>
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
+                                    </div>
+                                    <input type="text" name="address.province" id="province" class="form-control"
+                                        aria-label="Sizing example input" maxlength="15">
                                 </div>
-                                <input type="text" name="province" id="province" class="form-control"
-                                    aria-label="Sizing example input" required>
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
+                                    </div>
+                                    <input type="text" name="address.postcode" id="postcode" class="form-control"
+                                        aria-label="Sizing example input" maxlength="5">
                                 </div>
-                                <input onkeypress="isInputNumber(event)" type="text" maxlength="5" name="postcode"
-                                    id="postcode" class="form-control" aria-label="Sizing example input" required>
-                            </div>
                             <hr>
                             <h5>รายละเอียดการขาย</h5>
                             <div class="input-group mb-3">
@@ -388,14 +396,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-default">ราคาขาย</span>
                             </div>
-                            <input type="text" name="car_price_sell" id="editcar_price_sell" class="form-control"
+                            <input type="text" name="sell_car_price" id="editcar_price_sell" class="form-control"
                                 aria-label="Sizing example input" required>
                         </div>
 
 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
                         <button type="submit" class="btn btn-primary">ยืนยัน</button>
                     </div>
             </form>
