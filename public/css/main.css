@@ -4959,7 +4959,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #009688;
+  color: #000000 !important;
   background-color: #FFF;
   border: 1px solid #dee2e6;
 }
@@ -4997,8 +4997,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 1;
   color: #FFF;
-  background-color: #009688;
-  border-color: #009688;
+  background-color: #009688 !important; 
+  border-color: #009688 !important;
 }
 
 .page-item.disabled .page-link {
@@ -9518,7 +9518,8 @@ div.dataTables_wrapper div.dataTables_filter label {
 div.dataTables_wrapper div.dataTables_filter input {
   margin-left: 0.5em;
   display: inline-block;
-  width: auto;
+  width: 140px;
+  height: 36px;
 }
 
 div.dataTables_wrapper div.dataTables_info {

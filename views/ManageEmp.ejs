@@ -25,9 +25,9 @@
             <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
                     aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-                    <li><a class="dropdown-item" href="login"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
+                    <!-- <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li> -->
+                    <li><a class="dropdown-item" href="login"><i class="fa fa-sign-out fa-lg"></i> ออกจากระบบ</a>
                     </li>
                 </ul>
             </li>
@@ -46,51 +46,52 @@
             </div>
         </div>
         <ul class="app-menu">
-                <li><a class="app-menu__item" href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                            class="app-menu__label">แดชบอร์ด</span></a></li>
-                <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                            class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
-                            class="treeview-indicator fa fa-angle-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
-                                สต็อครถ</a></li>
-                        <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
-                                ซื้อรถเข้า</a></li>
-                        <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
-                    </ul>
-                </li>
-                <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
-                            class="app-menu__label">จัดการซ่อม</span></a></li>
-                <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-cogs"></i><span
-                            class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
-                <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-user-circle-o"></i><span
-                            class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
-                <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                            class="app-menu__label">ดูรายงาน</span></a></li> -->
-                <li><a class="app-menu__item active" href="/mangeemployee"><i class="app-menu__icon fa fa-cogs"></i><span
-                            class="app-menu__label">จัดการพนักงาน</span></a></li>
-            </ul>
+
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+                  class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
+                  class="treeview-indicator fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
+                    สต็อกรถ</a></li>
+                <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
+                    ซื้อรถเข้า</a></li>
+                <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
+              </ul>
+            </li>
+            <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-wrench"></i><span
+                  class="app-menu__label">จัดการซ่อม</span></a></li>
+            <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-file-pdf-o"></i><span
+                  class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+            <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-handshake-o"></i><span
+                  class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+            <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                              class="app-menu__label">ดูรายงาน</span></a></li> -->
+            <li><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
+                  class="app-menu__label">ดูรายงาน</span></a></li>
+            <li><a class="app-menu__item active" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
+                  class="app-menu__label">จัดการพนักงาน</span></a></li>
+          </ul>
     </aside>
     <main class="app-content">
         <div class="app-title">
             <div>
                 <h1><i class="fa fa-th-list"></i> จัดการพนักงาน</h1>
 
-                <p>เพิ่ม ลบ แก้ไข พนักงาน</p>
+                <p>จัดการพนักงานในระบบ</p>
             </div>
-            <ul class="app-breadcrumb breadcrumb side">
+            <!-- <ul class="app-breadcrumb breadcrumb side">
                 <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
                 <li class="breadcrumb-item ">จัดการพนักงาน</li>
 
-            </ul>
+            </ul> -->
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="tile">
                     <div class="tile-body">
                         <button type="button" class="btn btn-outline-success btn-block"
-                            style="font-size: 15px; width: 5%; float: right;" data-toggle="modal" data-toggle="modal"
-                            data-target=".AddModalCenter">เพิ่ม</button>
+                            style="font-size: 15px;  width: 160px; float: right;" data-toggle="modal" data-toggle="modal"
+                            data-target=".AddModalCenter">เพิ่มพนักงาน</button>
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                                 <tr align="center">
@@ -101,8 +102,8 @@
                                     <th>เพศ</th>
                                     <th>เบอร์โทรศัพท์</th>
                                     <th>เงินเดือน</th>
-                                    <th style="width: 122px">ลบ</th>
                                     <th style="width: 122px">แก้ไข</th>
+                                    <th style="width: 122px">ลบ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -129,11 +130,7 @@
                                     <td>
                                         <%= emps[i].employee_salary %>
                                     </td>
-                                    <td>
-                                        <a href="mangeemployee/delete/<%= emps[i]._id %>"><button type="submit"
-                                                class="btn btn-outline-danger btn-block"
-                                                style="font-size: 15px;">ลบ</button></a>
-                                    </td>
+                                    
                                     <td>
                                         <button type="submit" class="btn btn-outline-warning btn-block"
                                             style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
@@ -145,6 +142,11 @@
                                         '<%= emps[i].employee_salary %>','<%= emps[i].username %>','<%= emps[i].password %>','<%= emps[i].address.address_id %>',
                                         '<%= emps[i].address.bloc %>','<%= emps[i].address.district %>','<%= emps[i].address.sub_district %>',
                                         '<%= emps[i].address.province %>','<%= emps[i].address.postcode %>')">แก้ไข</button>
+                                    </td>
+                                    <td>
+                                        <a href="mangeemployee/delete/<%= emps[i]._id %>"><button type="submit"
+                                                class="btn btn-outline-danger btn-block"
+                                                style="font-size: 15px;">ลบ</button></a>
                                     </td>
                                 </tr>
                                 <% } %>
@@ -316,7 +318,7 @@
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                            <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                            <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
                         </div>
                 </form>
             </div>
@@ -482,7 +484,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                        <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                        <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
                     </div>
             </form>
         </div>

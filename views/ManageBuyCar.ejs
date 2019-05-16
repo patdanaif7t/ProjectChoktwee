@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>จัดการขายรถ</title>
+    <title>ซื้อรถเข้า</title>
     <link rel="shortcut icon" type="image/png" href="http://www.bhwelder.com.my/img/hotproduct.png" />
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -43,9 +43,9 @@
             <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
                     aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-                    <li><a class="dropdown-item" href="login"><i class="fa fa-sign-out fa-lg"></i> Logout</a>
+                    <!-- <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li> -->
+                    <li><a class="dropdown-item" href="login"><i class="fa fa-sign-out fa-lg"></i>ออกจากระบบ</a>
                     </li>
                 </ul>
             </li>
@@ -60,50 +60,51 @@
         </div>
         </div>
         <ul class="app-menu">
-                <li><a class="app-menu__item" href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                            class="app-menu__label">แดชบอร์ด</span></a></li>
-                <li class="treeview is-expanded"><a class="app-menu__item " href="#" data-toggle="treeview"><i
-                            class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
-                            class="treeview-indicator fa fa-angle-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
-                                สต็อครถ</a></li>
-                        <li><a class="treeview-item active" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
-                                ซื้อรถเข้า</a></li>
-                        <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
-                    </ul>
-                </li>
-                <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
-                            class="app-menu__label">จัดการซ่อม</span></a></li>
-                <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-cogs"></i><span
-                            class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
-                <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-user-circle-o"></i><span
-                            class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
-                <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
-                            class="app-menu__label">ดูรายงาน</span></a></li> -->
-                <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-cogs"></i><span
-                            class="app-menu__label">จัดการพนักงาน</span></a></li>
-            </ul>
+
+            <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
+                  class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
+                  class="treeview-indicator fa fa-angle-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
+                    สต็อกรถ</a></li>
+                <li><a class="treeview-item active" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
+                    ซื้อรถเข้า</a></li>
+                <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
+              </ul>
+            </li>
+            <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-wrench"></i><span
+                  class="app-menu__label">จัดการซ่อม</span></a></li>
+            <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-file-pdf-o"></i><span
+                  class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+            <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-handshake-o"></i><span
+                  class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+            <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                              class="app-menu__label">ดูรายงาน</span></a></li> -->
+            <li><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
+                  class="app-menu__label">ดูรายงาน</span></a></li>
+            <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
+                  class="app-menu__label">จัดการพนักงาน</span></a></li>
+          </ul>
     </aside>
     <main class="app-content">
         <div class="app-title">
             <div>
-                <h1><i class="fa fa-th-list"></i> จัดการซื้อรถ</h1>
+                <h1><i class="fa fa-th-list"></i> ซื้อรถเข้า</h1>
 
                 <p>จัดการซื้อรถเข้า และออกเอกสารต่างๆ </p>
             </div>
-            <ul class="app-breadcrumb breadcrumb side">
+            <!-- <ul class="app-breadcrumb breadcrumb side">
                 <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
                 <li class="breadcrumb-item">ซื้อรถเข้า</li>
 
-            </ul>
+            </ul> -->
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="tile">
                     <div class="tile-body">
                         <button type="button" class="btn btn-outline-success btn-block"
-                            style="font-size: 15px; width: 6.3%; padding-top: 2px; float: right;" data-toggle="modal"
+                            style="font-size: 15px; width: 7%; float: right;" data-toggle="modal"
                             data-target="#BuyModal">ซื้อรถเข้า</button>
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
@@ -379,7 +380,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                            <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                            <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
                         </div>
                     </div>
                 </div>
@@ -404,20 +405,20 @@
                                 <div class="row">
                                         <div class="col">
                                             <img class="text-left"
-                                                src="http://www.logospng.com/images/60/dragon-logo-png-clipart-best-60424.png"
-                                                width="150px" height="150px">
+                                        src="image/logobill.png"
+                                        width="500px" height="150px">
                                         </div>
                                         <div class="col">
                                             <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบเสร็จรับเงิน</h1>
-                                            <h2 class="text-right" style="margin-top: 3px;margin-right: 15px">Invoice</h2>
+                                            <h2 class="text-right" style="margin-top: 3px;margin-right: 15px">Receipt</h2>
                                         </div>
                                     </div>
                             <div class="card-header">
                                 Invoice
                                 <strong id="date">วันที่</strong>
                                 <span class="float-right">
-                                    <button type="button" class="btn btn-primary" onclick="printContent('invoice')"
-                                        id="buttonprint">Print</button>
+                                    <button type="button" class="btn btn-primary" style="background:#009688; border:#009688" onclick="printContent('invoice')"
+                                        id="buttonprint">พิมพ์</button>
                                 </span>
 
 
@@ -534,8 +535,8 @@
                             <div class="row">
                                 <div class="col">
                                     <img class="text-left"
-                                        src="http://www.logospng.com/images/60/dragon-logo-png-clipart-best-60424.png"
-                                        width="150px" height="150px">
+                                        src="image/logobill.png"
+                                        width="500px" height="150px">
                                 </div>
                                 <div class="col">
                                     <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบกำกับภาษี</h1>
@@ -547,8 +548,8 @@
                                 Invoice
                                 <strong id="edate">วันที่</strong>
                                 <span class="float-right">
-                                    <button type="button" class="btn btn-primary" onclick="printContent2('einvoice')"
-                                        id="buttonprint">Print</button>
+                                    <button type="button" class="btn btn-primary" style="background:#009688; border:#009688"  onclick="printContent2('einvoice')"
+                                        id="buttonprint">พิมพ์</button>
                                 </span>
 
 

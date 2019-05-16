@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>แดชบอร์ด</title>
+  <title>ดูรายงาน</title>
   <link rel="shortcut icon" type="image/png" href="http://www.bhwelder.com.my/img/hotproduct.png" />
   <!-- Main CSS-->
   <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -15,14 +15,14 @@
 </head>
 
 
-  <body class="app sidebar-mini rtl">
-    <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo"  href="/dashboard">Choktwee</a>
-        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
-            aria-label="Hide Sidebar"></a>
-        <!-- Navbar Right Menu-->
-        <ul class="app-nav">
-            <!-- <li class="app-search">
+<body class="app sidebar-mini rtl">
+  <!-- Navbar-->
+  <header class="app-header"><a class="app-header__logo" href="/dashboard">Choktwee</a>
+    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+      aria-label="Hide Sidebar"></a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+      <!-- <li class="app-search">
                 <input class="app-search__input" type="search" placeholder="Search">
                 <button class="app-search__button"><i class="fa fa-search"></i></button>
             </li> -->
@@ -47,41 +47,42 @@
 
     </div>
     <ul class="app-menu">
-      <li><a class="app-menu__item active" href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-            class="app-menu__label">แดชบอร์ด</span></a></li>
+
       <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-            class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อครถ</span><i
+            class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
             class="treeview-indicator fa fa-angle-right"></i></a>
         <ul class="treeview-menu">
           <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-circle-o"></i>
-              สต็อครถ</a></li>
+              สต็อกรถ</a></li>
           <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-circle-o"></i>
               ซื้อรถเข้า</a></li>
-          <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>จัดการขายรถ</a></li>
+          <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-circle-o"></i>ขายรถ</a></li>
         </ul>
       </li>
-      <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-dashboard"></i><span
+      <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-wrench"></i><span
             class="app-menu__label">จัดการซ่อม</span></a></li>
-      <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-cogs"></i><span
+      <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-file-pdf-o"></i><span
             class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
-      <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-user-circle-o"></i><span
+      <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-handshake-o"></i><span
             class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
       <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
                         class="app-menu__label">ดูรายงาน</span></a></li> -->
-      <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-cogs"></i><span
+      <li><a class="app-menu__item active" href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
+            class="app-menu__label">ดูรายงาน</span></a></li>
+      <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
             class="app-menu__label">จัดการพนักงาน</span></a></li>
     </ul>
   </aside>
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="fa fa-dashboard"></i> แดชบอร์ด</h1>
-        <p>แดชบอร์ดแสดงภาพรวมต่างๆของระบบ</p>
+        <h1><i class="fa fa-dashboard"></i> ดูรายงาน</h1>
+        <p>รายงานแสดงรายได้และภาพรวมต่างๆในระบบ</p>
       </div>
-      <ul class="app-breadcrumb breadcrumb">
+      <!-- <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-      </ul>
+      </ul> -->
     </div>
     <div class="row">
       <div class="col-md-6 col-lg-3">
@@ -112,97 +113,95 @@
         <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
           <div class="info">
             <h4>ยอดขายรวม</h4>
-            <p ><b id="sum">จำนวนยอดขาย</b></p>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Monthly Sales</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title">Support Requests</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
+            <p><b id="sum">จำนวนยอดขาย</b></p>
 
-    </main>
-    <!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="js/plugins/pace.min.js"></script>
-    <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/chart.js"></script>
-    <script type="text/javascript">
-        $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
-      var data = {
-      	labels: ["January", "February", "March", "April", "May"],
-      	datasets: [
-      		{
-      			label: "My First dataset",
-      			fillColor: "rgba(220,220,220,0.2)",
-      			strokeColor: "rgba(220,220,220,1)",
-      			pointColor: "rgba(220,220,220,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(220,220,220,1)",
-      			data: [65, 59, 80, 81, 56]
-      		},
-      		{
-      			label: "My Second dataset",
-      			fillColor: "rgba(151,187,205,0.2)",
-      			strokeColor: "rgba(151,187,205,1)",
-      			pointColor: "rgba(151,187,205,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(151,187,205,1)",
-      			data: [28, 48, 40, 19, 86]
-      		}
-      	]
-      };
-      var pdata = [
-      	{
-      		value: 300,
-      		color: "#46BFBD",
-      		highlight: "#5AD3D1",
-      		label: "Complete"
-      	},
-      	{
-      		value: 50,
-      		color:"#F7464A",
-      		highlight: "#FF5A5E",
-      		label: "In-Progress"
-      	}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="tile">
+          <h3 class="tile-title">Monthly Sales</h3>
+          <div class="embed-responsive embed-responsive-16by9">
+            <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="tile">
+          <h3 class="tile-title">Support Requests</h3>
+          <div class="embed-responsive embed-responsive-16by9">
+            <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <!-- Essential javascripts for application to work-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- The javascript plugin to display page loading on top-->
+  <script src="js/plugins/pace.min.js"></script>
+  <!-- Page specific javascripts-->
+  <script type="text/javascript" src="js/plugins/chart.js"></script>
+  <script type="text/javascript">
+    $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
+    var data = {
+      labels: ["January", "February", "March", "April", "May"],
+      datasets: [{
+          label: "My First dataset",
+          fillColor: "rgba(220,220,220,0.2)",
+          strokeColor: "rgba(220,220,220,1)",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: [65, 59, 80, 81, 56]
+        },
+        {
+          label: "My Second dataset",
+          fillColor: "rgba(151,187,205,0.2)",
+          strokeColor: "rgba(151,187,205,1)",
+          pointColor: "rgba(151,187,205,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(151,187,205,1)",
+          data: [28, 48, 40, 19, 86]
+        }
       ]
-      
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
+    };
+    var pdata = [{
+        value: 300,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Complete"
+      },
+      {
+        value: 50,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "In-Progress"
+      }
+    ]
 
-      var sum = 0
-      <% for(var i=0; i < sellCars.length; i++) { %>
+    var ctxl = $("#lineChartDemo").get(0).getContext("2d");
+    var lineChart = new Chart(ctxl).Line(data);
+
+    var ctxp = $("#pieChartDemo").get(0).getContext("2d");
+    var pieChart = new Chart(ctxp).Pie(pdata);
+
+    var sum = 0 
+     <% for(var i=0; i < sellCars.length; i++) { %>
         sum+= <%= sellCars[i].sell_car_price %>
       <%}%>
       $('#sum').text(sum.toLocaleString('en'))
       console.log(sum);
-      
-    </script>
-   
-  </body>
+  </script>
+
+</body>
+
 </html>
