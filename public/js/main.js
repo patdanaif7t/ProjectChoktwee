@@ -49,3 +49,7 @@ var feedName = (name) => {
 	localStorage.setItem("name", name)
 	// localStorage.setItem("status", status)
 }
+
+var feedstatus = (status) => {
+	localStorage.setItem("status", status)
+}

@@ -49,29 +49,29 @@
         <ul class="app-menu">
 
             <li class="treeview is-expanded"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
-                  class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
-                  class="treeview-indicator fa fa-angle-right"></i></a>
-              <ul class="treeview-menu ">
-                <li><a class="treeview-item active" href="/mangecar"><i class="icon fa fa-inbox"></i>
-                    สต็อกรถ</a></li>
-                <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
-                    ซื้อรถเข้า</a></li>
-                <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
-              </ul>
+                        class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu ">
+                    <li><a class="treeview-item active" href="/mangecar"><i class="icon fa fa-inbox"></i>
+                            สต็อกรถ</a></li>
+                    <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
+                            ซื้อรถเข้า</a></li>
+                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
+                </ul>
             </li>
             <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-wrench"></i><span
-                  class="app-menu__label">จัดการซ่อม</span></a></li>
+                        class="app-menu__label">จัดการซ่อม</span></a></li>
             <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa fa-file-pdf-o"></i><span
-                  class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
             <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-handshake-o"></i><span
-                  class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
             <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
                               class="app-menu__label">ดูรายงาน</span></a></li> -->
-            <li><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                  class="app-menu__label">ดูรายงาน</span></a></li>
-            <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
-                  class="app-menu__label">จัดการพนักงาน</span></a></li>
-          </ul>
+            <li id="dash"><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">ดูรายงาน</span></a></li>
+            <li id="manemp"><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
+                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+        </ul>
     </aside>
     <main class="app-content">
         <div class="app-title">
@@ -81,7 +81,7 @@
                 <p>จัดการข้อมูลรถที่พร้อมขาย</p>
             </div>
             <!-- <ul class="app-breadcrumb breadcrumb side"> -->
-                <!-- <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <!-- <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
                 <li class="breadcrumb-item">Tables</li>
                 <li class="breadcrumb-item active"><a href="#">Data Table</a></li> -->
 
@@ -237,48 +237,46 @@
                             <h5>รายละเอียดที่อยู่ลูกค้า</h5>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"
-                                        id="inputGroup-sizing-default">บ้านเลขที่</span>
+                                    <span class="input-group-text" id="inputGroup-sizing-default">บ้านเลขที่</span>
                                 </div>
-                                <input type="text" name="address.address_id" id="address_id"
-                                    class="form-control" aria-label="Sizing example input" maxlength="7">
+                                <input type="text" name="address.address_id" id="address_id" class="form-control"
+                                    aria-label="Sizing example input" maxlength="7">
                             </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
-                                    </div>
-                                    <input type="text" name="address.bloc" id="bloc" class="form-control"
-                                        aria-label="Sizing example input" maxlength="15">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
                                 </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
-                                    </div>
-                                    <input type="text" name="address.district" id="district" class="form-control"
-                                        aria-label="Sizing example input" maxlength="15">
+                                <input type="text" name="address.bloc" id="bloc" class="form-control"
+                                    aria-label="Sizing example input" maxlength="15">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
                                 </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
-                                    </div>
-                                    <input type="text" name="address.sub_district" id="sub_district"
-                                        class="form-control" aria-label="Sizing example input" maxlength="15">
+                                <input type="text" name="address.district" id="district" class="form-control"
+                                    aria-label="Sizing example input" maxlength="15">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
                                 </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
-                                    </div>
-                                    <input type="text" name="address.province" id="province" class="form-control"
-                                        aria-label="Sizing example input" maxlength="15">
+                                <input type="text" name="address.sub_district" id="sub_district" class="form-control"
+                                    aria-label="Sizing example input" maxlength="15">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
                                 </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"
-                                            id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
-                                    </div>
-                                    <input type="text" name="address.postcode" id="postcode" class="form-control"
-                                        aria-label="Sizing example input" maxlength="5">
+                                <input type="text" name="address.province" id="province" class="form-control"
+                                    aria-label="Sizing example input" maxlength="15">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
                                 </div>
+                                <input type="text" name="address.postcode" id="postcode" class="form-control"
+                                    aria-label="Sizing example input" maxlength="5">
+                            </div>
                             <hr>
                             <h5>รายละเอียดการขาย</h5>
                             <div class="input-group mb-3">
@@ -305,7 +303,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                            <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
+                            <button type="submit" class="btn btn-primary"
+                                style="background:#009688; border:#009688 ">ยืนยัน</button>
                         </div>
                 </form>
             </div>
@@ -405,7 +404,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                        <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
+                        <button type="submit" class="btn btn-primary"
+                            style="background:#009688; border:#009688 ">ยืนยัน</button>
                     </div>
             </form>
         </div>
@@ -424,6 +424,17 @@
     <script type="text/javascript">
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
+
+        var userstatus = localStorage.getItem("status")
+        if (userstatus === "แอดมิน") {
+            console.log('เข้าแอดมิน');
+        } else {
+            document.getElementById("manemp").children[0].style.display = "none"
+            document.getElementById("dash").children[0].style.display = "none"
+            console.log('ไม่เข้าแอดมิน');
+        }
+
+
         var feedcar = (_id, car_price_sell, car_ID_MST_car) => {
             $.ajax({
                 type: "get",

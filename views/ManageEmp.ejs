@@ -48,29 +48,29 @@
         <ul class="app-menu">
 
             <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                  class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
-                  class="treeview-indicator fa fa-angle-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
-                    สต็อกรถ</a></li>
-                <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
-                    ซื้อรถเข้า</a></li>
-                <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
-              </ul>
+                        class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
+                            สต็อกรถ</a></li>
+                    <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
+                            ซื้อรถเข้า</a></li>
+                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
+                </ul>
             </li>
             <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-wrench"></i><span
-                  class="app-menu__label">จัดการซ่อม</span></a></li>
+                        class="app-menu__label">จัดการซ่อม</span></a></li>
             <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-file-pdf-o"></i><span
-                  class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
             <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-handshake-o"></i><span
-                  class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
             <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
                               class="app-menu__label">ดูรายงาน</span></a></li> -->
-            <li><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                  class="app-menu__label">ดูรายงาน</span></a></li>
-            <li><a class="app-menu__item active" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
-                  class="app-menu__label">จัดการพนักงาน</span></a></li>
-          </ul>
+            <li id="dash"><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">ดูรายงาน</span></a></li>
+            <li id="manemp"><a class="app-menu__item active" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
+                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+        </ul>
     </aside>
     <main class="app-content">
         <div class="app-title">
@@ -90,8 +90,8 @@
                 <div class="tile">
                     <div class="tile-body">
                         <button type="button" class="btn btn-outline-success btn-block"
-                            style="font-size: 15px;  width: 160px; float: right;" data-toggle="modal" data-toggle="modal"
-                            data-target=".AddModalCenter">เพิ่มพนักงาน</button>
+                            style="font-size: 15px;  width: 160px; float: right;" data-toggle="modal"
+                            data-toggle="modal" data-target=".AddModalCenter">เพิ่มพนักงาน</button>
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
                                 <tr align="center">
@@ -130,7 +130,7 @@
                                     <td>
                                         <%= emps[i].employee_salary %>
                                     </td>
-                                    
+
                                     <td>
                                         <button type="submit" class="btn btn-outline-warning btn-block"
                                             style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
@@ -183,13 +183,13 @@
                                         <div class="input-group-prepend">
                                             <label class="input-group-text">ประเภทพนักงาน</label>
                                         </div>
-                                        <select class="custom-select"  name="employee_type">
+                                        <select class="custom-select" name="employee_type">
                                             <option selected>โปรดเลือก...</option>
                                             <option value="พนักงานขาย">พนักงานขาย</option>
                                             <option value="หนักงานเช่า">หนักงานเช่า</option>
                                             <option value="หนักงานเดินทะเบียน">หนักงานเดินทะเบียน</option>
                                             <option value="แอดมิน">แอดมิน</option>
-    
+
                                         </select>
                                     </div>
                                     <div class="input-group mb-3">
@@ -323,7 +323,8 @@
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                            <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
+                            <button type="submit" class="btn btn-primary"
+                                style="background:#009688; border:#009688 ">ยืนยัน</button>
                         </div>
                 </form>
             </div>
@@ -490,7 +491,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                        <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
+                        <button type="submit" class="btn btn-primary"
+                            style="background:#009688; border:#009688 ">ยืนยัน</button>
                     </div>
             </form>
         </div>
@@ -509,6 +511,15 @@
     <script type="text/javascript">
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
+
+        var userstatus = localStorage.getItem("status")
+        if (userstatus === "แอดมิน") {
+            console.log('เข้าแอดมิน');
+        } else {
+            document.getElementById("manemp").children[0].style.display = "none"
+            document.getElementById("dash").children[0].style.display = "none"
+            console.log('ไม่เข้าแอดมิน');
+        }
 
         var feedEmp = (_id, ID_MST_employeeId, employee_type, employee_first_name, employee_last_name,
             employee_citizen_id, employee_birthday, employee_gender, employee_telephone, employee_salary, username,

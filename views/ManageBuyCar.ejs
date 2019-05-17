@@ -62,29 +62,30 @@
         <ul class="app-menu">
 
             <li class="treeview is-expanded"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
-                  class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
-                  class="treeview-indicator fa fa-angle-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
-                    สต็อกรถ</a></li>
-                <li><a class="treeview-item active" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
-                    ซื้อรถเข้า</a></li>
-                <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
-              </ul>
+                        class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
+                            สต็อกรถ</a></li>
+                    <li><a class="treeview-item active" href="/buycar" rel="noopener"><i
+                                class="icon fa fa-level-down"></i>
+                            ซื้อรถเข้า</a></li>
+                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
+                </ul>
             </li>
             <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-wrench"></i><span
-                  class="app-menu__label">จัดการซ่อม</span></a></li>
+                        class="app-menu__label">จัดการซ่อม</span></a></li>
             <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-file-pdf-o"></i><span
-                  class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
             <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-handshake-o"></i><span
-                  class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
             <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
                               class="app-menu__label">ดูรายงาน</span></a></li> -->
-            <li><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                  class="app-menu__label">ดูรายงาน</span></a></li>
-            <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
-                  class="app-menu__label">จัดการพนักงาน</span></a></li>
-          </ul>
+            <li id="dash"><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">ดูรายงาน</span></a></li>
+            <li id="manemp"><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
+                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+        </ul>
     </aside>
     <main class="app-content">
         <div class="app-title">
@@ -380,7 +381,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                            <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
+                            <button type="submit" class="btn btn-primary"
+                                style="background:#009688; border:#009688 ">ยืนยัน</button>
                         </div>
                     </div>
                 </div>
@@ -402,22 +404,22 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="card" id="invoice">
-                                <div class="row">
-                                        <div class="col">
-                                            <img class="text-left"
-                                        src="image/logobill.png"
-                                        width="500px" height="150px">
-                                        </div>
-                                        <div class="col">
-                                            <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบเสร็จรับเงิน</h1>
-                                            <h2 class="text-right" style="margin-top: 3px;margin-right: 15px">Receipt</h2>
-                                        </div>
-                                    </div>
+                            <div class="row">
+                                <div class="col">
+                                    <img class="text-left" src="image/logobill.png" width="500px" height="150px">
+                                </div>
+                                <div class="col">
+                                    <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบเสร็จรับเงิน
+                                    </h1>
+                                    <h2 class="text-right" style="margin-top: 3px;margin-right: 15px">Receipt</h2>
+                                </div>
+                            </div>
                             <div class="card-header">
                                 Invoice
                                 <strong id="date">วันที่</strong>
                                 <span class="float-right">
-                                    <button type="button" class="btn btn-primary" style="background:#009688; border:#009688" onclick="printContent('invoice')"
+                                    <button type="button" class="btn btn-primary"
+                                        style="background:#009688; border:#009688" onclick="printContent('invoice')"
                                         id="buttonprint">พิมพ์</button>
                                 </span>
 
@@ -534,9 +536,7 @@
                         <div class="card" id="einvoice">
                             <div class="row">
                                 <div class="col">
-                                    <img class="text-left"
-                                        src="image/logobill.png"
-                                        width="500px" height="150px">
+                                    <img class="text-left" src="image/logobill.png" width="500px" height="150px">
                                 </div>
                                 <div class="col">
                                     <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบกำกับภาษี</h1>
@@ -548,7 +548,8 @@
                                 Invoice
                                 <strong id="edate">วันที่</strong>
                                 <span class="float-right">
-                                    <button type="button" class="btn btn-primary" style="background:#009688; border:#009688"  onclick="printContent2('einvoice')"
+                                    <button type="button" class="btn btn-primary"
+                                        style="background:#009688; border:#009688" onclick="printContent2('einvoice')"
                                         id="buttonprint">พิมพ์</button>
                                 </span>
 
@@ -643,7 +644,7 @@
                                             <p>ผู้มีอำนาจลงนาม</p>
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/%E0%B8%A5%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B9%8C_%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%AD%E0%B8%8A%E0%B8%B2_%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B8%AD%E0%B8%B1%E0%B8%87%E0%B8%81%E0%B8%A4%E0%B8%A9.png"
                                                 alt="signature" width="250px" height="100px" />
-                                                <br>
+                                            <br>
                                             <h6>นายโชคทวี รักชาติไทย</h6>
                                             <p class="text-muted">CEO บริษัทโชคทวีออโต้เซลส์</p>
                                             <p class="text-muted">บริษัทโชคทวีออโต้เซลส์ บริษัทเช่ารถอันดับ 1
@@ -676,6 +677,15 @@
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
+        var userstatus = localStorage.getItem("status")
+        if (userstatus === "แอดมิน") {
+            console.log('เข้าแอดมิน');
+        } else {
+            document.getElementById("manemp").children[0].style.display = "none"
+            document.getElementById("dash").children[0].style.display = "none"
+            console.log('ไม่เข้าแอดมิน');
+        }
+
         var m = new Date();
         var dateString =
             m.getUTCFullYear() + "/" +
@@ -695,11 +705,11 @@
                 " " + postcode)
             $('#date2').text("วันที่ออกใบเสร็จ : " + dateString)
             $('#date').text(ID_MST_car + dateString)
-            $('#carcost').text(cacost.toLocaleString()+ ".00")
-            $('#cartotal').text(cacost.toLocaleString()+ ".00")
-            $('#invcost').text(cacost.toLocaleString()+ ".00")
-            $('#invvat').text(vat.toLocaleString()+ ".00")
-            $('#invtotal').text(total.toLocaleString()+ ".00")
+            $('#carcost').text(cacost.toLocaleString() + ".00")
+            $('#cartotal').text(cacost.toLocaleString() + ".00")
+            $('#invcost').text(cacost.toLocaleString() + ".00")
+            $('#invvat').text(vat.toLocaleString() + ".00")
+            $('#invtotal').text(total.toLocaleString() + ".00")
             $('#cardetail').text(car_company + " " + car_model + " ปี " + car_year + " สี " + car_color +
                 " เลขทะเบียนรถ " + car_license)
 
@@ -717,11 +727,11 @@
                 " " + postcode)
             $('#edate2').text("วันที่ออกใบเสร็จ : " + dateString)
             $('#edate').text(ID_MST_car + dateString)
-            $('#ecarcost').text(cacost.toLocaleString()+ ".00")
-            $('#ecartotal').text(cacost.toLocaleString()+ ".00")
-            $('#einvcost').text(cacost.toLocaleString()+ ".00")
-            $('#einvvat').text(vat.toLocaleString()+ ".00")
-            $('#einvtotal').text(total.toLocaleString()+ ".00")
+            $('#ecarcost').text(cacost.toLocaleString() + ".00")
+            $('#ecartotal').text(cacost.toLocaleString() + ".00")
+            $('#einvcost').text(cacost.toLocaleString() + ".00")
+            $('#einvvat').text(vat.toLocaleString() + ".00")
+            $('#einvtotal').text(total.toLocaleString() + ".00")
             $('#ecardetail').text(car_company + " " + car_model + " ปี " + car_year + " สี " + car_color +
                 " เลขทะเบียนรถ " + car_license)
 

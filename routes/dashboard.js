@@ -8,6 +8,7 @@ const SellCar = require('../models/TRN_sell_car.model');
 const Repair = require('../models/TRN_repair_car.model');
 const License = require('../models/License.model');
 
+
 DashboardRouter.route('/').get(function (req, res) {
    Emp.find(function (err, emps) {
       if (err) {
@@ -24,7 +25,8 @@ DashboardRouter.route('/').get(function (req, res) {
                            cars: cars,
                            sellCars : sellCars,
                            repairs : repairs,
-                           licenses: licenses
+                           licenses: licenses,
+                           status: 'แอดมิน'
                         });
                      })
                   })

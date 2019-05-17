@@ -48,29 +48,29 @@
         <ul class="app-menu">
 
             <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                  class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
-                  class="treeview-indicator fa fa-angle-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
-                    สต็อกรถ</a></li>
-                <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
-                    ซื้อรถเข้า</a></li>
-                <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
-              </ul>
+                        class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
+                            สต็อกรถ</a></li>
+                    <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
+                            ซื้อรถเข้า</a></li>
+                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
+                </ul>
             </li>
             <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-wrench"></i><span
-                  class="app-menu__label">จัดการซ่อม</span></a></li>
+                        class="app-menu__label">จัดการซ่อม</span></a></li>
             <li><a class="app-menu__item" href="/renewlicense"><i class="app-menu__icon fa fa-file-pdf-o"></i><span
-                  class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
             <li><a class="app-menu__item active" href="/customer"><i class="app-menu__icon fa fa-handshake-o"></i><span
-                  class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
             <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
                               class="app-menu__label">ดูรายงาน</span></a></li> -->
-            <li><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                  class="app-menu__label">ดูรายงาน</span></a></li>
-            <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
-                  class="app-menu__label">จัดการพนักงาน</span></a></li>
-          </ul>
+            <li id="dash"><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">ดูรายงาน</span></a></li>
+            <li id="manemp"><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
+                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+        </ul>
     </aside>
     <main class="app-content">
         <div class="app-title">
@@ -280,7 +280,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                        <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
+                        <button type="submit" class="btn btn-primary"
+                            style="background:#009688; border:#009688 ">ยืนยัน</button>
                     </div>
             </form>
         </div>
@@ -299,6 +300,16 @@
     <script type="text/javascript">
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
+
+        
+        var userstatus = localStorage.getItem("status")
+        if (userstatus === "แอดมิน") {
+            console.log('เข้าแอดมิน');
+        } else {
+            document.getElementById("manemp").children[0].style.display = "none"
+            document.getElementById("dash").children[0].style.display = "none"
+            console.log('ไม่เข้าแอดมิน');
+        }
     </script>
 </body>
 
