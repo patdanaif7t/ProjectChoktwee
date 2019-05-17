@@ -5,6 +5,8 @@ const Emp = require('../models/Emp.model');
 const Customer = require('../models/Customer.model');
 const Car = require('../models/Car.model');
 const SellCar = require('../models/TRN_sell_car.model');
+const Repair = require('../models/TRN_repair_car.model');
+const License = require('../models/License.model');
 
 DashboardRouter.route('/').get(function (req, res) {
    Emp.find(function (err, emps) {
@@ -14,12 +16,18 @@ DashboardRouter.route('/').get(function (req, res) {
          Customer.find(function (err, cus) {
             Car.find(function (err, cars) {
                SellCar.find(function (err, sellCars) {
-                  res.render('dashboard', {
-                     emps: emps,
-                     cus: cus,
-                     cars: cars,
-                     sellCars : sellCars
-                  });
+                  Repair.find(function (err, repairs) {
+                     License.find(function (err, licenses) {
+                        res.render('dashboard', {
+                           emps: emps,
+                           cus: cus,
+                           cars: cars,
+                           sellCars : sellCars,
+                           repairs : repairs,
+                           licenses: licenses
+                        });
+                     })
+                  })
                })
             })
          })

@@ -29,6 +29,10 @@ LoginRouter.route('/').post((req, res) => {
       Emp.findOne({username: req.body.username}).then(emps => {
         if (emps.password === req.body.password) {
           res.redirect('/dashboard')
+          console.log(emps.employee_type);
+          window.localStorage.setItem("status", emps.employee_type)
+          
+
         } else {
           res.render('login', { error: 'ไม่ถูก' })
         }

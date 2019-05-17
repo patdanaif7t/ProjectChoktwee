@@ -61,7 +61,7 @@
         </div>
         <ul class="app-menu">
 
-            <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
+            <li class="treeview is-expanded"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
                   class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
                   class="treeview-indicator fa fa-angle-right"></i></a>
               <ul class="treeview-menu">
@@ -104,7 +104,7 @@
                 <div class="tile">
                     <div class="tile-body">
                         <button type="button" class="btn btn-outline-success btn-block"
-                            style="font-size: 15px; width: 7%; float: right;" data-toggle="modal"
+                            style="font-size: 15px; width: 160px; float: right;" data-toggle="modal"
                             data-target="#BuyModal">ซื้อรถเข้า</button>
                         <table class="table table-hover table-bordered" id="sampleTable">
                             <thead>
@@ -154,7 +154,7 @@
                                             ,'<%= cars[i].car_license %>','<%= cars[i].car_cost %>')">ออกใบเสร็จ</button>
                                     </td>
                                     <td align="center">
-                                        <button type="button" class="btn btn-outline-danger btn-block"
+                                        <button type="button" class="btn btn-outline-info btn-block"
                                             style="font-size: 15px;" data-toggle="modal" data-target="#invoiceModal"
                                             onclick="feedInvoice2('<%= cus[i].customer_first_name %>',
                                             '<%= cus[i].customer_last_name %>','<%= cus[i].address.address_id %>',
@@ -309,7 +309,7 @@
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"
-                                                id="inputGroup-sizing-default">รหัสที่อยู่</span>
+                                                id="inputGroup-sizing-default">บ้านเลขที่</span>
                                         </div>
                                         <input type="text" name="address.address_id" id="address_id"
                                             class="form-control" aria-label="Sizing example input" maxlength="7">
@@ -691,7 +691,7 @@
             var cacost = parseInt(car_cost)
 
             $('#invcusname').text(cusname + " " + cuslname)
-            $('#invcusadd').text(cusaddid + " " + bloc + " " + district + " " + sub_district + " " + province +
+            $('#invcusadd').text(bloc + " " + district + " " + sub_district + " " + province +
                 " " + postcode)
             $('#date2').text("วันที่ออกใบเสร็จ : " + dateString)
             $('#date').text(ID_MST_car + dateString)
@@ -713,7 +713,7 @@
             var total = parseInt(car_cost) + parseInt(vat)
             var cacost = parseInt(car_cost)
             $('#einvcusname').text(cusname + " " + cuslname)
-            $('#einvcusadd').text(cusaddid + " " + bloc + " " + district + " " + sub_district + " " + province +
+            $('#einvcusadd').text(bloc + " " + district + " " + sub_district + " " + province +
                 " " + postcode)
             $('#edate2').text("วันที่ออกใบเสร็จ : " + dateString)
             $('#edate').text(ID_MST_car + dateString)

@@ -3,6 +3,7 @@ const app = express();
 const MangeSellCarRouter = express.Router();
 const SellCar = require('../models/TRN_sell_car.model');
 const Cus = require('../models/Customer.model');
+const Car = require('../models/Car.model');
 
 MangeSellCarRouter.route('/').get(function (req, res) {
   SellCar.find(function (err, SellCar) {
@@ -19,12 +20,22 @@ MangeSellCarRouter.route('/').get(function (req, res) {
 });
 
 // ---------------------------delete-----------------------------------
-MangeSellCarRouter.route("/delete/:id").get(function (req, res) {
-  SellCar.findByIdAndRemove({ _id: req.params.id }, function (err, SellCar) {
-    if (err) res.json(err);
-    else res.redirect("/sellcar");
-  });
-});
+// MangeSellCarRouter.route("/delete/:id").get(function (req, res) {
+//   SellCar.findByIdAndRemove({ _id: req.params.id }, function (err, SellCar) {
+//     if (err) res.json(err);
+//     else {
+//       Car.findOneAndUpdate({ID_MST_car : req.body.params.id}, {
+//         car_status: 'มีในสต็อค'
+//       }, function (err) {
+//         if (err) {
+//           return res.send(err.message)
+//         } else {
+//           res.redirect("/sellcar");
+//         }
+//       })
+//     }
+//   });
+// });
 
 // ---------------------------update-----------------------------------
 MangeSellCarRouter.post('/update', (req, res, next) => {

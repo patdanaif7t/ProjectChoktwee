@@ -12,7 +12,15 @@
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <script>
+        function printContent(el) {
+            var printcontent = document.getElementById(el).innerHTML;
+            document.body.innerHTML = printcontent;
+            document.getElementById('buttonprint').style.display = 'none';
+            window.print();
+            location.reload();
+        }
+    </script>
 </head>
 
 <body class="app sidebar-mini rtl">
@@ -39,34 +47,36 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-        <div class="app-sidebar__user"><p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
+        <div class="app-sidebar__user">
+            <p class="app-sidebar__user-name" id="profilename">ภัทรดนัย ช่างเหลา</p>
         </div>
         <ul class="app-menu">
 
             <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                  class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
-                  class="treeview-indicator fa fa-angle-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
-                    สต็อกรถ</a></li>
-                <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
-                    ซื้อรถเข้า</a></li>
-                <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
-              </ul>
+                        class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item" href="/mangecar"><i class="icon fa fa-inbox"></i>
+                            สต็อกรถ</a></li>
+                    <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
+                            ซื้อรถเข้า</a></li>
+                    <li><a class="treeview-item" href="/sellcar"><i class="icon fa fa-level-up"></i>ขายรถ</a></li>
+                </ul>
             </li>
             <li><a class="app-menu__item" href="/manage-repair"><i class="app-menu__icon fa fa-wrench"></i><span
-                  class="app-menu__label">จัดการซ่อม</span></a></li>
-            <li><a class="app-menu__item active" href="/renewlicense"><i class="app-menu__icon fa fa-file-pdf-o"></i><span
-                  class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
+                        class="app-menu__label">จัดการซ่อม</span></a></li>
+            <li><a class="app-menu__item active" href="/renewlicense"><i
+                        class="app-menu__icon fa fa-file-pdf-o"></i><span
+                        class="app-menu__label">จัดการเดินทะเบียน</span></a></li>
             <li><a class="app-menu__item" href="/customer"><i class="app-menu__icon fa fa-handshake-o"></i><span
-                  class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
+                        class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
             <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
                               class="app-menu__label">ดูรายงาน</span></a></li> -->
             <li><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                  class="app-menu__label">ดูรายงาน</span></a></li>
+                        class="app-menu__label">ดูรายงาน</span></a></li>
             <li><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
-                  class="app-menu__label">จัดการพนักงาน</span></a></li>
-          </ul>
+                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+        </ul>
     </aside>
     <main class="app-content">
         <div class="app-title">
@@ -74,11 +84,6 @@
                 <h1><i class="fa fa-th-list"></i> จัดการเดินทะเบียน</h1>
                 <p>จัดการและรับเรื่องการเดินทะเบียน</p>
             </div>
-            <!-- <ul class="app-breadcrumb breadcrumb side">
-                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-                <li class="breadcrumb-item active">จัดการการเดินทะเบียน</li>
-
-            </ul> -->
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -91,7 +96,7 @@
                             <thead>
                                 <tr align="center">
                                     <th>รหัสการเดินทะเบียน</th>
-                                    <th>วันที่</th>
+                                    <th style="width: 90px">วันที่</th>
                                     <th>เลขทะเบียน</th>
                                     <!--
                                      <th>จำนวน</th>
@@ -99,10 +104,10 @@
                                     <th>ราคา</th>
                                     <th>หมายเลขบัตรประชาชนลูกค้า</th>
                                     <th>รหัสพนักงาน</th>
-                                    <th style="width: 138.8px">แก้ไข</th>
-                                    <th style="width: 141px">ลบ</th>
-                                    <th style="width: 130px">ออกใบเสร็จ</th>
-                                    <th style="width: 122px">ออกใบกำกับภาษี</th>
+                                    <th style="width: 90px">แก้ไข</th>
+                                    <th style="width: 90px">ลบ</th>
+                                    <th style="width: 90px">ออกใบเสร็จ</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,11 +122,6 @@
                                     <td>
                                         <%= license[i].car_license %>
                                     </td>
-                                    <!--
-<td>
-                                        <%= license[i].renew_license_count %>
-                                    </td>
-                                    -->
                                     <td>
                                         <%= license[i].renew_license_price %>
                                     </td>
@@ -143,26 +143,163 @@
                                             href="/renewlicense/delete/<%= license[i]._id %>">ลบ</a>
                                     </td>
                                     <td>
-                                        <a class="btn btn-outline-primary  btn-block"
-                                            href="/renewlicense/bill/<%= license[i]._id%>">
-                                            ออกใบเสร็จ
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-outline-primary btn-block"
-                                            href="/renewlicense/bill2/<%=license[i]._id%>">
-                                            ออกใบกำกับภาษี
-                                        </a>
-                                    </td>
+                                        <button type="button" class="btn btn-outline-info btn-block"
+                                            style="font-size: 15px;" data-toggle="modal"
+                                            data-target="#invoiceModal" onclick="feedInvoice('<%= license[i].ID_TRN_renew_license %>','<%= cus[i].customer_first_name %>',
+                                            '<%= cus[i].customer_last_name %>','<%= cus[i].address.address_id %>',
+                                            '<%= cus[i].address.bloc %>','<%= cus[i].address.district %>',
+                                            '<%= cus[i].address.sub_district %>','<%= cus[i].address.province %>',
+                                            '<%= cus[i].address.postcode %>','<%= license[i].renew_license_price %>')">ออกใบเสร็จ</button>
+                    
+                    </td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
 
-                                </tr>
-                                <% } %>
-                            </tbody>
-                        </table>
+        <!-- Modal -->
+    <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="card" id="einvoice">
+                        <div class="row">
+                            <div class="col">
+                                <img class="text-left" src="image/logobill.png" width="500px" height="150px">
+                            </div>
+                            <div class="col">
+                                <h1 class="text-right" style="margin-top: 20px;margin-right: 15px">ใบเสร็จรับงิน</h1>
+                                <h2 class="text-right" style="margin-top: 3px;margin-right: 15px">Invoice</h2>
+                            </div>
+                        </div>
+
+                        <div class="card-header">
+                            Invoice
+                            <strong id="invoiceId">วันที่</strong>
+                            <span class="float-right">
+                                <button type="button" class="btn btn-primary"
+                                    style="background:#009688; border:#009688" onclick="printContent2('einvoice')"
+                                    id="buttonprint">พิมพ์</button>
+                            </span>
+
+
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-sm-6">
+                                    <h6 class="mb-3">From:</h6>
+                                    <div>
+                                        <strong>โชคทวีออโต้เซลส์</strong>
+                                    </div>
+                                    <div>Email: choktwee@gmail.com</div>
+                                    <div>โทร : 028749177</div>
+                                    <div>เลขประจำตัวผู้เสียภาษีอากร : 1653472936510</div>
+                                    <div>
+                                        <p id="date2">วันที่ออกใบเสร็จ</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <h6 class="mb-3">To:</h6>
+                                    <div>
+                                        <strong id="einvcusname">Webz Poland</strong>
+                                    </div>
+                                    <div id="einvcusadd">ที่อยู่ลูกค้า</div>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="table-responsive-sm">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="center">ลำดับ</th>
+                                            <th>รายละเอียด</th>
+
+                                            <th class="right">จำนวน</th>
+                                            <th class="right">จำนวนเงิน</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="center">1</td>
+                                            <td class="left" id="detail">เดินทะเบียน</td>
+                                            <td class="right">1</td>
+                                            <td class="right" id="total">$999,00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-5">
+
+                                </div>
+
+                                <div class="col-lg-4 col-sm-5 ml-auto">
+                                    <table class="table table-clear">
+                                        <tbody>
+                                            <tr>
+                                                <td class="left">
+                                                    <strong>ราคารวม</strong>
+                                                </td>
+                                                <td class="right" id="invcost">ราคารวม</td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td class="left">
+                                                    <strong>ภาษีมูลค่าเพิ่ม (7%)</strong>
+                                                </td>
+                                                <td class="right" id="einvvat">ภาษีมูลค่าเพิ่ม</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="left">
+                                                    <strong>ราคารวมสุทธิ</strong>
+                                                </td>
+                                                <td class="right">
+                                                    <strong id="einvtotal">ราคารวมสุทธิ</strong>
+                                                </td>
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="row">
+                                    <div class="col">
+                                        <p>ผู้มีอำนาจลงนาม</p>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/%E0%B8%A5%E0%B8%B2%E0%B8%A2%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A2%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B9%8C_%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%AD%E0%B8%8A%E0%B8%B2_%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B8%AD%E0%B8%B1%E0%B8%87%E0%B8%81%E0%B8%A4%E0%B8%A9.png"
+                                            alt="signature" width="250px" height="100px" />
+                                        <br>
+                                        <h6>นายโชคทวี รักชาติไทย</h6>
+                                        <p class="text-muted">CEO บริษัทโชคทวีออโต้เซลส์</p>
+                                        <p class="text-muted">บริษัทโชคทวีออโต้เซลส์ บริษัทเช่ารถอันดับ 1
+                                            แห่งประเทศไทย
+                                            ครบวงจร</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
 
         <!-- Modal  แก้ไข -->
         <div class="modal fade editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
@@ -257,13 +394,16 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                                <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
+                                <button type="submit" class="btn btn-primary"
+                                    style="background:#009688; border:#009688 ">ยืนยัน</button>
                             </div>
 
 
                 </form>
             </div>
         </div>
+
+
     </main>
 
 
@@ -424,6 +564,14 @@
                                 class="form-control" aria-label="Sizing example input">
                         </div>
 
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ราคา</span>
+                            </div>
+                            <input required type="text" readonly  name="renew_license_price" id="renew_license_price"
+                                class="form-control" aria-label="Sizing example input" value="500">
+                        </div>
+
                         <hr>
 
                         <h5 style="float: left">รายการทะเบียน </h5>
@@ -439,14 +587,14 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-                            <button type="submit" class="btn btn-primary" style="background:#009688; border:#009688 ">ยืนยัน</button>
+                            <button type="submit" class="btn btn-primary"
+                                style="background:#009688; border:#009688 ">ยืนยัน</button>
                         </div>
 
 
             </form>
         </div>
     </div>
-
 
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -464,7 +612,8 @@
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
         //console.log($('#sampleTable').DataTable())
-        function feedLicense(_id, ID_TRN_renew_license, renew_license_date, renew_license_count, renew_license_price, car_license, ID_MST_employeeId, ID_TRN_bill, ID_MST_customer) {
+        function feedLicense(_id, ID_TRN_renew_license, renew_license_date, renew_license_count, renew_license_price,
+            car_license, ID_MST_employeeId, ID_TRN_bill, ID_MST_customer) {
             // console.log(_id, ID_TRN_renew_license, renew_license_date, renew_license_count, renew_license_price, car_license, ID_MST_employeeId, ID_TRN_bill, ID_MST_customer)
             editid: $('#editid').val(_id)
             ID_TRN_renew_license: $('#edit_ID_TRN_renew_license').val(ID_TRN_renew_license)
@@ -475,9 +624,27 @@
             ID_TRN_bill: $("#edit_ID_TRN_bill").val(ID_TRN_bill)
             //console.log($('#sampleTable').DataTable())
         }
+        var m = new Date();
+        var dateString =
+            m.getUTCFullYear() + "/" +
+            ("0" + (m.getUTCMonth() + 1)).slice(-2) + "/" +
+            ("0" + m.getUTCDate()).slice(-2) + " "
 
-        function feedBill() {
-
+        var feedInvoice = (ID_TRN_renew_license,cusname, cuslname, cusaddid, bloc, district, sub_district, province, postcode, renew_license_price) => {
+            console.log(cusname);
+           
+            console.log(cusaddid + " " + bloc + " " + district + " " + sub_district + " " + province +
+                " " + postcode);
+            
+            $('#einvcusname').text(cusname + " " + cuslname)
+            $('#einvcusadd').text(cusaddid + " " + bloc + " " + district + " " + sub_district + " " + province +
+                " " + postcode)
+            $('#date2').text("วันที่ออกใบเสร็จ : " + dateString)
+            $('#invoiceId').text(ID_TRN_renew_license + dateString)
+            $('#total').text(renew_license_price)
+            $('#invcost').text(renew_license_price)
+            
+            
         }
 
     </script>

@@ -45,7 +45,9 @@ MangeCarRouter.post('/create', (req, res, next) => {
           return res.send(err.message)
         } else {
           console.log("เพิ่มลูกค้าสำเร็จ");
-          Car.findOneAndUpdate(ID_MST_car = req.body.ID_MST_car, {
+          console.log(req.body.ID_MST_car);
+
+          Car.findOneAndUpdate({ID_MST_car : req.body.ID_MST_car}, {
             car_status: 'ขายแล้ว'
           }, function (err) {
             if (err) {
@@ -63,7 +65,7 @@ MangeCarRouter.post('/create', (req, res, next) => {
 
 // MangeCarRouter.post('/create', (req, res, next) => {
 //   var sell = new SellCar(req.body);
-//   var cus = new Cus(req.body);
+//   var cus = new Customer(req.body);
 //   sell.ID_TRN_sellCar = req.body.ID_TRN_sellCar
 //   sell.sell_car_date = req.body.sell_car_date
 //   sell.sell_car_price = req.body.sell_car_price
@@ -95,7 +97,7 @@ MangeCarRouter.post('/create', (req, res, next) => {
 //     if (err)
 //       return res.send(err.message)
 //   })
-//   Car.findOneAndUpdate(req.body.ID_MST_car, { car_status: 'ขายแล้ว' }, function (err, car) {
+//   Car.findOneAndUpdate(ID_MST_car = req.body.ID_MST_car, { car_status: 'ขายแล้ว' }, function (err, car) {
 //     if (err)
 //       return res.send(err.message)
 //   })

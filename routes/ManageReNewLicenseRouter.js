@@ -11,11 +11,11 @@ reNewLicense.get('/' , (req , res , next) => {
             console.log(err)
         }else {
            // console.log(license)
-           Customer.find( (err , customer) =>{
+           Customer.find( (err , cus) =>{
              if(err){
                console.log(err)
              }else {
-              res.render('ManageReNewLicense' , { license : license , customer : customer})
+              res.render('ManageReNewLicense' , { license : license , cus : cus})
              }
            })
         }
@@ -101,26 +101,5 @@ reNewLicense.get('/delete/:id', (req, res, next) => {
   })
 })
 
-reNewLicense.get('/bill/:_id' , (req,res,next) => {
-  License.findById(req.params._id , (err , license) =>{
-    Customer.findOne({customer_citizen_id:license.customer_citizen_id} , (err , cus) =>{
-      res.render('billRenewLicense' , {license : license , customer : cus})
-    })
-  
-  } )
-})
-
-
-
-reNewLicense.get('/bill2/:_id' , (req,res,next) => {
-  License.findById(req.params._id , (err , license) =>{
-    Customer.findOne({customer_citizen_id:license.customer_citizen_id} , (err , cus) =>{
-      res.render('bill2RenewLicense' , {license : license , customer : cus})
-    })
-  
-  } )
-})
-
-  
   
 module.exports = reNewLicense;

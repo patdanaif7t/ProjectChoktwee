@@ -181,11 +181,16 @@
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"
-                                                id="inputGroup-sizing-default">ประเภทพนักงาน</span>
+                                            <label class="input-group-text">ประเภทพนักงาน</label>
                                         </div>
-                                        <input type="text" name="employee_type" id="employee_type" class="form-control"
-                                            aria-label="Sizing example input">
+                                        <select class="custom-select"  name="employee_type">
+                                            <option selected>โปรดเลือก...</option>
+                                            <option value="พนักงานขาย">พนักงานขาย</option>
+                                            <option value="หนักงานเช่า">หนักงานเช่า</option>
+                                            <option value="หนักงานเดินทะเบียน">หนักงานเดินทะเบียน</option>
+                                            <option value="แอดมิน">แอดมิน</option>
+    
+                                        </select>
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
@@ -356,11 +361,12 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text">ประเภทพนักงาน</label>
                                     </div>
-                                    <select class="custom-select" id="editemployee_type">
+                                    <select class="custom-select" id="editemployee_type" name="employee_type">
                                         <option selected>โปรดเลือก...</option>
                                         <option value="พนักงานขาย">พนักงานขาย</option>
                                         <option value="หนักงานเช่า">หนักงานเช่า</option>
                                         <option value="หนักงานเดินทะเบียน">หนักงานเดินทะเบียน</option>
+                                        <option value="แอดมิน">แอดมิน</option>
 
                                     </select>
                                 </div>

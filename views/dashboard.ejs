@@ -112,31 +112,35 @@
       <div class="col-md-6 col-lg-3">
         <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
           <div class="info">
-            <h4>ยอดขายรวม</h4>
-            <p><b id="sum">จำนวนยอดขาย</b></p>
+            <h4>รายได้ขายรถ</h4>
+            <p><b id="sumsellcar">จำนวนยอดขาย</b></p>
 
           </div>
         </div>
       </div>
     </div>
+
+
     <div class="row">
-      <div class="col-md-6">
-        <div class="tile">
-          <h3 class="tile-title">Monthly Sales</h3>
-          <div class="embed-responsive embed-responsive-16by9">
-            <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
+          <div class="info">
+            <h4>รายได้ซ่อมรถ</h4>
+            <p><b id="sumrepair">จำนวนรายได้ซ่อมรถ</b></p>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="tile">
-          <h3 class="tile-title">Support Requests</h3>
-          <div class="embed-responsive embed-responsive-16by9">
-            <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
+      <div class="col-md-6 col-lg-3">
+        <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-5x"></i>
+          <div class="info">
+            <h4>รายได้เดินทะเบียน</h4>
+            <p><b id="sumlicense">จำนวนรายได้เดินทะเบียน</b></p>
           </div>
         </div>
       </div>
     </div>
+
+
 
   </main>
   <!-- Essential javascripts for application to work-->
@@ -149,57 +153,29 @@
   <!-- Page specific javascripts-->
   <script type="text/javascript" src="js/plugins/chart.js"></script>
   <script type="text/javascript">
-    $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
-    var data = {
-      labels: ["January", "February", "March", "April", "May"],
-      datasets: [{
-          label: "My First dataset",
-          fillColor: "rgba(220,220,220,0.2)",
-          strokeColor: "rgba(220,220,220,1)",
-          pointColor: "rgba(220,220,220,1)",
-          pointStrokeColor: "#fff",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(220,220,220,1)",
-          data: [65, 59, 80, 81, 56]
-        },
-        {
-          label: "My Second dataset",
-          fillColor: "rgba(151,187,205,0.2)",
-          strokeColor: "rgba(151,187,205,1)",
-          pointColor: "rgba(151,187,205,1)",
-          pointStrokeColor: "#fff",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(151,187,205,1)",
-          data: [28, 48, 40, 19, 86]
-        }
-      ]
-    };
-    var pdata = [{
-        value: 300,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Complete"
-      },
-      {
-        value: 50,
-        color: "#F7464A",
-        highlight: "#FF5A5E",
-        label: "In-Progress"
-      }
-    ]
+    $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("status"));
 
-    var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-    var lineChart = new Chart(ctxl).Line(data);
+ 
+    var sumsellcar = 0 
+    var sumrepair = 0
+    var sumlicense = 0
 
-    var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-    var pieChart = new Chart(ctxp).Pie(pdata);
-
-    var sum = 0 
      <% for(var i=0; i < sellCars.length; i++) { %>
-        sum+= <%= sellCars[i].sell_car_price %>
+      sumsellcar+= <%= sellCars[i].sell_car_price %>
       <%}%>
-      $('#sum').text(sum.toLocaleString('en'))
-      console.log(sum);
+
+      <% for(var i=0; i < repairs.length; i++) { %>
+        sumrepair+= <%= repairs[i].repairCost %>
+      <%}%>
+
+      <% for(var i=0; i < licenses.length; i++) { %>
+        sumlicense+= <%= licenses[i].renew_license_price %>
+      <%}%>
+
+      $('#sumsellcar').text(sumsellcar.toLocaleString('en'))
+      $('#sumrepair').text(sumrepair.toLocaleString('en'))
+      $('#sumlicense').text(sumlicense.toLocaleString('en'))
+      // console.log(sum);
   </script>
 
 </body>

@@ -48,10 +48,10 @@
         </div>
         <ul class="app-menu">
 
-            <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
+            <li class="treeview is-expanded"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
                   class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
                   class="treeview-indicator fa fa-angle-right"></i></a>
-              <ul class="treeview-menu">
+              <ul class="treeview-menu ">
                 <li><a class="treeview-item active" href="/mangecar"><i class="icon fa fa-inbox"></i>
                     สต็อกรถ</a></li>
                 <li><a class="treeview-item" href="/buycar" rel="noopener"><i class="icon fa fa-level-down"></i>
@@ -131,13 +131,13 @@
                                         <%= cars[i].car_status %>
                                     </td>
                                     <td align="center">
-                                        <button type="button" class="btn btn-outline-danger btn-block"
+                                        <button type="button" class="btn btn-outline-success btn-block"
                                             style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
                                             data-target=".AddModalCenter"
                                             onclick="feedcar('<%= cars[i]._id  %>','<%= cars[i].car_price_sell  %>','<%= cars[i].car_ID_MST_car %>')">ขาย</button>
                                     </td>
                                     <td align="center">
-                                        <button type="button" class="btn btn-outline-warning btn-block"
+                                        <button type="button" class="btn btn-outline-warning btn-block "
                                             style="font-size: 15px;" data-toggle="modal" data-toggle="modal"
                                             data-target=".EditModalCenter" onclick="feedcarToEdit('<%= cars[i]._id %>','<%= cars[i].ID_MST_car %>','<%= cars[i].car_company %>',
                                             '<%= cars[i].car_model %>','<%= cars[i].car_year %>','<%= cars[i].car_color %>',
@@ -236,13 +236,13 @@
                             <hr>
                             <h5>รายละเอียดที่อยู่ลูกค้า</h5>
                             <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"
-                                            id="inputGroup-sizing-default">รหัสที่อยู่</span>
-                                    </div>
-                                    <input type="text" name="address.address_id" id="address_id"
-                                        class="form-control" aria-label="Sizing example input" maxlength="7">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"
+                                        id="inputGroup-sizing-default">บ้านเลขที่</span>
                                 </div>
+                                <input type="text" name="address.address_id" id="address_id"
+                                    class="form-control" aria-label="Sizing example input" maxlength="7">
+                            </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>

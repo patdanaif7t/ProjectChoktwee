@@ -56,7 +56,7 @@
         </div>
         <ul class="app-menu">
 
-            <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
+            <li class="treeview is-expanded"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
                   class="app-menu__icon fa fa-car"></i><span class="app-menu__label">จัดการสต็อกรถ</span><i
                   class="treeview-indicator fa fa-angle-right"></i></a>
               <ul class="treeview-menu">
@@ -110,7 +110,7 @@
                                     <!-- <th>รหัสลูกค้า</th> -->
                                     <th>หมายเลขบิล</th>
                                     <th style="width: 122px">แก้ไข</th>
-                                    <th style="width: 122px">ลบ</th>
+                                    <!-- <th style="width: 122px">ลบ</th> -->
                                     <th style="width: 122px">ออกเอกสาร</th>
                                 </tr>
                             </thead>
@@ -153,10 +153,11 @@
                                         <%}%>
                                         <%}%>
                                     </td>
-                                    <td>
+                            
+                                    <!-- <td>
                                         <a href="/sellcar/delete/<%= SellCar[i]._id %>"
                                             class="btn btn-outline-danger btn-block">ลบ</a>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <% for(var k=0; k < Cus.length; k++) { %>
                                         <%if(SellCar[i].customer_citizen_id === Cus[k].customer_citizen_id){%>
@@ -568,20 +569,20 @@
             ID_MST_car, ID_MST_customer, ID_TRN_bill, customer_type, customer_citizen_id, customer_first_name, customer_last_name
             , customer_telephone, customer_email, address_id, bloc, district, sub_district, province, postcode) => {
             console.log(customer_first_name);
-            // var vat = sell_car_price * 0.07
-            // var total = parseInt(sell_car_price) + parseInt(vat)
+            var vat = sell_car_price * 0.07
+            var total = parseInt(sell_car_price) + parseInt(vat)
             $('#cusname').text(customer_first_name + " " + customer_last_name)
             $('#cusaddress').text(address_id + " หมู่ " + bloc + " " + district + " " + sub_district + " " + province +
                 " " + postcode)
             $('#edate2').text("วันที่ออกเอกสาร : " + dateString)
-            $('#edate').text(ID_TRN_sellCar + " " + dateString)
+            $('#edate').text(ID_TRN_sellCar + dateString)
             $('#idBill').text(ID_TRN_bill)
             $('#idProduct').text(ID_MST_car)
             $('#idEmp').text(ID_MST_employeeId)
             $('#price').text(sell_car_price)
             $('#invcost').text(sell_car_price + ".00")
-            // $('#invvat').text(vat.toFixed(2))
-            // $('#einvtotal').text(total.toFixed(2))
+            $('#invvat').text(vat.toFixed(2))
+            $('#einvtotal').text(total.toFixed(2))
         }
     </script>
 </body>
