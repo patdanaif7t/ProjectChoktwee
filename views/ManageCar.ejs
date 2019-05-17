@@ -16,7 +16,7 @@
 
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="/dashboard">Choktwee</a>
+    <header class="app-header"><a class="app-header__logo" href="#">Choktwee</a>
         <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
             aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
@@ -422,10 +422,12 @@
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
+        feedstatus('<%= status %>')
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
         var userstatus = localStorage.getItem("status")
+
         if (userstatus === "แอดมิน") {
             console.log('เข้าแอดมิน');
         } else {
