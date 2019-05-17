@@ -110,7 +110,7 @@
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
+        <div class="widget-small primary coloured-icon"><i class="icon fa fa-line-chart fa-3x"></i>
           <div class="info">
             <h4>รายได้ขายรถ</h4>
             <p><b id="sumsellcar">จำนวนยอดขาย</b></p>
@@ -123,7 +123,7 @@
 
     <div class="row">
       <div class="col-md-6 col-lg-3">
-        <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
+        <div class="widget-small warning coloured-icon"><i class="icon fa fa-line-chart fa-3x"></i>
           <div class="info">
             <h4>รายได้ซ่อมรถ</h4>
             <p><b id="sumrepair">จำนวนรายได้ซ่อมรถ</b></p>
@@ -131,7 +131,7 @@
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
-        <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-5x"></i>
+        <div class="widget-small danger coloured-icon"><i class="icon fa fa-line-chart fa-3x"></i>
           <div class="info">
             <h4>รายได้เดินทะเบียน</h4>
             <p><b id="sumlicense">จำนวนรายได้เดินทะเบียน</b></p>
@@ -153,19 +153,19 @@
   <!-- Page specific javascripts-->
   <script type="text/javascript" src="js/plugins/chart.js"></script>
   <script type="text/javascript">
-   feedstatus('<%= status %>')
+  //  feedstatus('<%= status %>')
 
-    $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
+     $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
-    var userstatus = localStorage.getItem("status")
+  //   var userstatus = localStorage.getItem("status")
 
-    if (userstatus === "แอดมิน") {
-      console.log('เข้าแอดมิน');
-    } else {
-      document.getElementById("manemp").children[0].style.display = "none"
-      document.getElementById("dash").children[0].style.display = "none"
-      console.log('ไม่เข้าแอดมิน');
-    }
+  //   if (userstatus === "แอดมิน") {
+  //     console.log('เข้าแอดมิน');
+  //   } else {
+  //     document.getElementById("manemp").children[0].style.display = "none"
+  //     document.getElementById("dash").children[0].style.display = "none"
+  //     console.log('ไม่เข้าแอดมิน');
+  //   }
 
     var sumsellcar = 0
     var sumrepair = 0

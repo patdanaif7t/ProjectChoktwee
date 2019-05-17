@@ -102,7 +102,7 @@
                                     <!-- <th>แก้ไข</th> -->
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
                                 <% for(var i=0; i < cus.length; i++) { %>
                                 <tr>
                                     <td><%= cus[i].customer_citizen_id %></td>
@@ -302,14 +302,14 @@
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
         
-        var userstatus = localStorage.getItem("status")
-        if (userstatus === "แอดมิน") {
-            console.log('เข้าแอดมิน');
-        } else {
-            document.getElementById("manemp").children[0].style.display = "none"
-            document.getElementById("dash").children[0].style.display = "none"
-            console.log('ไม่เข้าแอดมิน');
-        }
+        // var userstatus = localStorage.getItem("status")
+        // if (userstatus === "แอดมิน") {
+        //     console.log('เข้าแอดมิน');
+        // } else {
+        //     document.getElementById("manemp").children[0].style.display = "none"
+        //     document.getElementById("dash").children[0].style.display = "none"
+        //     console.log('ไม่เข้าแอดมิน');
+        // }
     </script>
 </body>
 

@@ -66,10 +66,12 @@
                         class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
             <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
                               class="app-menu__label">ดูรายงาน</span></a></li> -->
-            <li id="dash"><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">ดูรายงาน</span></a></li>
-            <li id="manemp"><a class="app-menu__item active" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
-                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+            <li id="dash"><a class="app-menu__item " href="/dashboard"><i
+                        class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">ดูรายงาน</span></a>
+            </li>
+            <li id="manemp"><a class="app-menu__item active" href="/mangeemployee"><i
+                        class="app-menu__icon fa fa-users"></i><span class="app-menu__label">จัดการพนักงาน</span></a>
+            </li>
         </ul>
     </aside>
     <main class="app-content">
@@ -106,7 +108,7 @@
                                     <th style="width: 122px">ลบ</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
                                 <% for(var i= 0; i < emps.length; i++) { %>
                                 <tr>
                                     <td>
@@ -144,9 +146,15 @@
                                         '<%= emps[i].address.province %>','<%= emps[i].address.postcode %>')">แก้ไข</button>
                                     </td>
                                     <td>
-                                        <a href="mangeemployee/delete/<%= emps[i]._id %>"><button type="submit"
+                                        <form action="mangeemployee/delete/<%= emps[i]._id %>">
+                                            <button type="submit" class="btn btn-outline-danger btn-block"
+                                                style="font-size: 15px;"
+                                                onclick="return confirm('คุณต้องการลบข้อมูลใช่หรือไม่')">ลบ</button>
+
+                                        </form>
+                                        <!-- <a href="mangeemployee/delete/<%= emps[i]._id %>"><button type="submit"
                                                 class="btn btn-outline-danger btn-block"
-                                                style="font-size: 15px;">ลบ</button></a>
+                                                style="font-size: 15px;">ลบ</button></a> -->
                                     </td>
                                 </tr>
                                 <% } %>
@@ -184,7 +192,7 @@
                                             <label class="input-group-text">ประเภทพนักงาน</label>
                                         </div>
                                         <select class="custom-select" name="employee_type">
-                                            <option selected>โปรดเลือก...</option>
+
                                             <option value="พนักงานขาย">พนักงานขาย</option>
                                             <option value="หนักงานเช่า">หนักงานเช่า</option>
                                             <option value="หนักงานเดินทะเบียน">หนักงานเดินทะเบียน</option>
@@ -247,7 +255,7 @@
                                             <label class="input-group-text" for="status">เพศ</label>
                                         </div>
                                         <select class="custom-select" name="employee_gender" id="status">
-                                            <option selected>โปรดเลือก...</option>
+                                         
                                             <option value="ชาย">ชาย</option>
                                             <option value="หญิง">หญิง</option>
 
@@ -322,7 +330,7 @@
 
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
                             <button type="submit" class="btn btn-primary"
                                 style="background:#009688; border:#009688 ">ยืนยัน</button>
                         </div>
@@ -490,7 +498,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
                         <button type="submit" class="btn btn-primary"
                             style="background:#009688; border:#009688 ">ยืนยัน</button>
                     </div>
@@ -512,14 +520,14 @@
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
-        var userstatus = localStorage.getItem("status")
-        if (userstatus === "แอดมิน") {
-            console.log('เข้าแอดมิน');
-        } else {
-            document.getElementById("manemp").children[0].style.display = "none"
-            document.getElementById("dash").children[0].style.display = "none"
-            console.log('ไม่เข้าแอดมิน');
-        }
+        // var userstatus = localStorage.getItem("status")
+        // if (userstatus === "แอดมิน") {
+        //     console.log('เข้าแอดมิน');
+        // } else {
+        //     document.getElementById("manemp").children[0].style.display = "none"
+        //     document.getElementById("dash").children[0].style.display = "none"
+        //     console.log('ไม่เข้าแอดมิน');
+        // }
 
         var feedEmp = (_id, ID_MST_employeeId, employee_type, employee_first_name, employee_last_name,
             employee_citizen_id, employee_birthday, employee_gender, employee_telephone, employee_salary, username,

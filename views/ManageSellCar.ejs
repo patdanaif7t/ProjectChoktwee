@@ -536,14 +536,14 @@
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
-        var userstatus = localStorage.getItem("status")
-        if (userstatus === "แอดมิน") {
-            console.log('เข้าแอดมิน');
-        } else {
-            document.getElementById("manemp").children[0].style.display = "none"
-            document.getElementById("dash").children[0].style.display = "none"
-            console.log('ไม่เข้าแอดมิน');
-        }
+        // var userstatus = localStorage.getItem("status")
+        // if (userstatus === "แอดมิน") {
+        //     console.log('เข้าแอดมิน');
+        // } else {
+        //     document.getElementById("manemp").children[0].style.display = "none"
+        //     document.getElementById("dash").children[0].style.display = "none"
+        //     console.log('ไม่เข้าแอดมิน');
+        // }
 
         var m = new Date();
         var dateString =

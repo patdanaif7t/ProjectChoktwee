@@ -23,7 +23,7 @@
     </script>
 </head>
 
-<body class="app sidebar-mini rtl" onload="checkuserstatus()">
+<body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="#">Choktwee</a>
         <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
@@ -72,8 +72,9 @@
                         class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
             <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
                               class="app-menu__label">ดูรายงาน</span></a></li> -->
-            <li id="dash"><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">ดูรายงาน</span></a></li>
+            <li id="dash"><a class="app-menu__item " href="/dashboard"><i
+                        class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">ดูรายงาน</span></a>
+            </li>
             <li id="manemp"><a class="app-menu__item" href="/mangeemployee"><i
                         class="app-menu__icon fa fa-users"></i><span class="app-menu__label">จัดการพนักงาน</span></a>
             </li>
@@ -111,7 +112,7 @@
 
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
                                 <% for(var i= 0; i < license.length; i++) { %>
                                 <tr>
                                     <td>
@@ -140,8 +141,12 @@
                                             onclick="feedLicense('<%= license[i]._id %>','<%= license[i].ID_TRN_renew_license %>','<%= license[i].renew_license_date %>','<%=license[i].renew_license_count%>','<%=license[i].renew_license_price%>','<%=license[i].car_license%>','<%=license[i].ID_MST_employeeId%>','<%=license[i].ID_TRN_bill%>','<%=license[i].ID_MST_customer%>')">แก้ไข</button>
                                     </td>
                                     <td>
-                                        <a class="btn btn-outline-danger btn-block"
-                                            href="/renewlicense/delete/<%= license[i]._id %>">ลบ</a>
+                                        <form action="/renewlicense/delete/<%= license[i]._id %>">
+                                            <button type="submit" class="btn btn-outline-danger btn-block"
+                                                style="font-size: 15px;"
+                                                onclick="return confirm('คุณต้องการลบข้อมูลใช่หรือไม่')">ลบ</button>
+
+                                        </form>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-outline-info btn-block"
@@ -399,7 +404,7 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                                    <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
                                     <button type="submit" class="btn btn-primary"
                                         style="background:#009688; border:#009688 ">ยืนยัน</button>
                                 </div>
@@ -592,7 +597,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
                             <button type="submit" class="btn btn-primary"
                                 style="background:#009688; border:#009688 ">ยืนยัน</button>
                         </div>
@@ -618,17 +623,17 @@
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
-        var checkuserstatus = () => {
-            var userstatus = localStorage.getItem("status")
-            if (userstatus === "แอดมิน") {
-                console.log('เข้าแอดมิน');
-            } else {
-                document.getElementById("manemp").children[0].style.display = "none"
-                document.getElementById("dash").children[0].style.display = "none"
-                console.log('ไม่เข้าแอดมิน');
-            }
-        }
-       
+        // var checkuserstatus = () => {
+        //     var userstatus = localStorage.getItem("status")
+        //     if (userstatus === "แอดมิน") {
+        //         console.log('เข้าแอดมิน');
+        //     } else {
+        //         document.getElementById("manemp").children[0].style.display = "none"
+        //         document.getElementById("dash").children[0].style.display = "none"
+        //         console.log('ไม่เข้าแอดมิน');
+        //     }
+        // }
+
         function feedLicense(_id, ID_TRN_renew_license, renew_license_date, renew_license_count, renew_license_price,
             car_license, ID_MST_employeeId, ID_TRN_bill, ID_MST_customer) {
             // console.log(_id, ID_TRN_renew_license, renew_license_date, renew_license_count, renew_license_price, car_license, ID_MST_employeeId, ID_TRN_bill, ID_MST_customer)

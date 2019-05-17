@@ -422,19 +422,19 @@
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
-        feedstatus('<%= status %>')
+        
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
-        var userstatus = localStorage.getItem("status")
+        // var userstatus = localStorage.getItem("status")
 
-        if (userstatus === "แอดมิน") {
-            console.log('เข้าแอดมิน');
-        } else {
-            document.getElementById("manemp").children[0].style.display = "none"
-            document.getElementById("dash").children[0].style.display = "none"
-            console.log('ไม่เข้าแอดมิน');
-        }
+        // if (userstatus === "แอดมิน") {
+        //     console.log('เข้าแอดมิน');
+        // } else {
+        //     document.getElementById("manemp").children[0].style.display = "none"
+        //     document.getElementById("dash").children[0].style.display = "none"
+        //     console.log('ไม่เข้าแอดมิน');
+        // }
 
 
         var feedcar = (_id, car_price_sell, car_ID_MST_car) => {

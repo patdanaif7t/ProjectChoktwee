@@ -81,7 +81,7 @@ LoginRouter.route('/').post((req, res) => {
                         if (err) {
                           console.log(err);
                         } else {
-                          res.render('ManageCar', {
+                          res.render('dashboard', {
                             emps: emps,
                             cus: cus,
                             cars: cars,
