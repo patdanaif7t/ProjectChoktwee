@@ -81,10 +81,12 @@
                         class="app-menu__label">ดูข้อมูลลูกค้า</span></a></li>
             <!-- <li><a class="app-menu__item" href="/report"><i class="app-menu__icon fa fa-pie-chart"></i><span
                               class="app-menu__label">ดูรายงาน</span></a></li> -->
-            <li id="dash"><a class="app-menu__item " href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span
-                        class="app-menu__label">ดูรายงาน</span></a></li>
-            <li id="manemp"><a class="app-menu__item" href="/mangeemployee"><i class="app-menu__icon fa fa-users"></i><span
-                        class="app-menu__label">จัดการพนักงาน</span></a></li>
+            <li id="dash"><a class="app-menu__item " href="/dashboard"><i
+                        class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">ดูรายงาน</span></a>
+            </li>
+            <li id="manemp"><a class="app-menu__item" href="/mangeemployee"><i
+                        class="app-menu__icon fa fa-users"></i><span class="app-menu__label">จัดการพนักงาน</span></a>
+            </li>
         </ul>
     </aside>
     <main class="app-content">
@@ -197,47 +199,52 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">รหัสรถ</span>
                                         </div>
-                                        <input type="text" class="form-control" id="ID_MST_car" name="ID_MST_car">
+                                        <input required type="text" class="form-control" id="ID_MST_car"
+                                            name="ID_MST_car">
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">ยี่ห้อ</span>
                                         </div>
-                                        <input type="text" class="form-control" id="car_company" name="car_company">
+                                        <input required type="text" class="form-control" id="car_company"
+                                            name="car_company">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">รุ่น</span>
                                         </div>
-                                        <input type="text" class="form-control" id="car_model" name="car_model">
+                                        <input required type="text" class="form-control" id="car_model"
+                                            name="car_model">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">ราคาซื้อ</span>
                                         </div>
-                                        <input type="text" onkeypress="isInputNumber(event)" class="form-control"
-                                            id="car_cost" name="car_cost">
+                                        <input required type="text" onkeypress="isInputNumber(event)"
+                                            class="form-control" id="car_cost" name="car_cost">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">ปี</span>
                                         </div>
-                                        <input type="text" onkeypress="isInputNumber(event)" class="form-control"
-                                            id="car_year" name="car_year">
+                                        <input required type="text" onkeypress="isInputNumber(event)"
+                                            class="form-control" id="car_year" name="car_year">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">สี</span>
                                         </div>
-                                        <input type="text" class="form-control" id="car_color" name="car_color">
+                                        <input required type="text" class="form-control" id="car_color"
+                                            name="car_color">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">ทะเบียน</span>
                                         </div>
-                                        <input type="text" class="form-control" id="car_license" name="car_license">
+                                        <input required type="text" class="form-control" id="car_license"
+                                            name="car_license">
                                     </div>
 
                                     <div class="input-group mb-3">
@@ -245,8 +252,8 @@
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">ราคาซ่อม</span>
                                         </div>
-                                        <input type="text" onkeypress="isInputNumber(event)" class="form-control"
-                                            id="car_repair_cost" name="car_repair_cost">
+                                        <input required type="text" onkeypress="isInputNumber(event)"
+                                            class="form-control" id="car_repair_cost" name="car_repair_cost">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
@@ -260,8 +267,8 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">ราคาขาย</span>
                                         </div>
-                                        <input type="text" onkeypress="isInputNumber(event)" class="form-control"
-                                            id="car_price_sell" name="car_price_sell">
+                                        <input required type="text" onkeypress="isInputNumber(event)"
+                                            class="form-control" id="car_price_sell" name="car_price_sell">
                                     </div>
 
                                     <div class="input-group mb-3">
@@ -269,7 +276,8 @@
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">วันที่ซื้อ</span>
                                         </div>
-                                        <input type="date" class="form-control" id="purchase_date" name="purchase_date">
+                                        <input required type="date" class="form-control" id="purchase_date"
+                                            name="purchase_date">
                                     </div>
 
                                 </div>
@@ -287,7 +295,7 @@
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">ชื่อผู้ขาย</span>
                                         </div>
-                                        <input type="text" class="form-control" id="customer_first_name"
+                                        <input required type="text" class="form-control" id="customer_first_name"
                                             name="customer_first_name">
                                     </div>
                                     <div class="input-group mb-3">
@@ -295,7 +303,7 @@
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">นามสกุลผู้ขาย</span>
                                         </div>
-                                        <input type="text" class="form-control" id="customer_last_name"
+                                        <input required type="text" class="form-control" id="customer_last_name"
                                             name="customer_last_name">
                                     </div>
 
@@ -304,7 +312,7 @@
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">เลขบัตรประชาชน</span>
                                         </div>
-                                        <input type="text" class="form-control" id="customer_citizen_id"
+                                        <input required type="text" class="form-control" id="customer_citizen_id"
                                             name="customer_citizen_id" maxlength="13" onkeypress="isInputNumber(event)">
                                     </div>
                                     <div class="input-group mb-3">
@@ -312,51 +320,131 @@
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">บ้านเลขที่</span>
                                         </div>
-                                        <input type="text" name="address.address_id" id="address_id"
+                                        <input required type="text" name="address.address_id" id="address_id"
                                             class="form-control" aria-label="Sizing example input" maxlength="7">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">ถนน</span>
                                         </div>
-                                        <input type="text" name="address.bloc" id="bloc" class="form-control"
+                                        <input required type="text" name="address.bloc" id="bloc" class="form-control"
                                             aria-label="Sizing example input" maxlength="15">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">ตำบล</span>
                                         </div>
-                                        <input type="text" name="address.district" id="district" class="form-control"
-                                            aria-label="Sizing example input" maxlength="15">
+                                        <input required type="text" name="address.district" id="district"
+                                            class="form-control" aria-label="Sizing example input" maxlength="15">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">อำเภอ</span>
                                         </div>
-                                        <input type="text" name="address.sub_district" id="sub_district"
+                                        <input required type="text" name="address.sub_district" id="sub_district"
                                             class="form-control" aria-label="Sizing example input" maxlength="15">
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">จังหวัด</span>
                                         </div>
-                                        <input type="text" name="address.province" id="province" class="form-control"
-                                            aria-label="Sizing example input" maxlength="15">
+                                        <select class="custom-select" name="address.province" id="province">
+                                            <!-- <option selected value="มีในสต็อค">มีในสต็อค</option> -->
+                                            <option selected value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                            <option value="กระบี่">กระบี่ </option>
+                                            <option value="กาญจนบุรี">กาญจนบุรี </option>
+                                            <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
+                                            <option value="กำแพงเพชร">กำแพงเพชร </option>
+                                            <option value="ขอนแก่น">ขอนแก่น</option>
+                                            <option value="จันทบุรี">จันทบุรี</option>
+                                            <option value="ฉะเชิงเทรา">ฉะเชิงเทรา </option>
+                                            <option value="ชัยนาท">ชัยนาท </option>
+                                            <option value="ชัยภูมิ">ชัยภูมิ </option>
+                                            <option value="ชุมพร">ชุมพร </option>
+                                            <option value="ชลบุรี">ชลบุรี </option>
+                                            <option value="เชียงใหม่">เชียงใหม่ </option>
+                                            <option value="เชียงราย">เชียงราย </option>
+                                            <option value="ตรัง">ตรัง </option>
+                                            <option value="ตราด">ตราด </option>
+                                            <option value="ตาก">ตาก </option>
+                                            <option value="นครนายก">นครนายก </option>
+                                            <option value="นครปฐม">นครปฐม </option>
+                                            <option value="นครพนม">นครพนม </option>
+                                            <option value="นครราชสีมา">นครราชสีมา </option>
+                                            <option value="นครศรีธรรมราช">นครศรีธรรมราช </option>
+                                            <option value="นครสวรรค์">นครสวรรค์ </option>
+                                            <option value="นราธิวาส">นราธิวาส </option>
+                                            <option value="น่าน">น่าน </option>
+                                            <option value="นนทบุรี">นนทบุรี </option>
+                                            <option value="บึงกาฬ">บึงกาฬ</option>
+                                            <option value="บุรีรัมย์">บุรีรัมย์</option>
+                                            <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </option>
+                                            <option value="ปทุมธานี">ปทุมธานี </option>
+                                            <option value="ปราจีนบุรี">ปราจีนบุรี </option>
+                                            <option value="ปัตตานี">ปัตตานี </option>
+                                            <option value="พะเยา">พะเยา </option>
+                                            <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </option>
+                                            <option value="พังงา">พังงา </option>
+                                            <option value="พิจิตร">พิจิตร </option>
+                                            <option value="พิษณุโลก">พิษณุโลก </option>
+                                            <option value="เพชรบุรี">เพชรบุรี </option>
+                                            <option value="เพชรบูรณ์">เพชรบูรณ์ </option>
+                                            <option value="แพร่">แพร่ </option>
+                                            <option value="พัทลุง">พัทลุง </option>
+                                            <option value="ภูเก็ต">ภูเก็ต </option>
+                                            <option value="มหาสารคาม">มหาสารคาม </option>
+                                            <option value="มุกดาหาร">มุกดาหาร </option>
+                                            <option value="แม่ฮ่องสอน">แม่ฮ่องสอน </option>
+                                            <option value="ยโสธร">ยโสธร </option>
+                                            <option value="ยะลา">ยะลา </option>
+                                            <option value="ร้อยเอ็ด">ร้อยเอ็ด </option>
+                                            <option value="ระนอง">ระนอง </option>
+                                            <option value="ระยอง">ระยอง </option>
+                                            <option value="ราชบุรี">ราชบุรี</option>
+                                            <option value="ลพบุรี">ลพบุรี </option>
+                                            <option value="ลำปาง">ลำปาง </option>
+                                            <option value="ลำพูน">ลำพูน </option>
+                                            <option value="เลย">เลย </option>
+                                            <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                                            <option value="สกลนคร">สกลนคร</option>
+                                            <option value="สงขลา">สงขลา </option>
+                                            <option value="สมุทรสาคร">สมุทรสาคร </option>
+                                            <option value="สมุทรปราการ">สมุทรปราการ </option>
+                                            <option value="สมุทรสงคราม">สมุทรสงคราม </option>
+                                            <option value="สระแก้ว">สระแก้ว </option>
+                                            <option value="สระบุรี">สระบุรี </option>
+                                            <option value="สิงห์บุรี">สิงห์บุรี </option>
+                                            <option value="สุโขทัย">สุโขทัย </option>
+                                            <option value="สุพรรณบุรี">สุพรรณบุรี </option>
+                                            <option value="สุราษฎร์ธานี">สุราษฎร์ธานี </option>
+                                            <option value="สุรินทร์">สุรินทร์ </option>
+                                            <option value="สตูล">สตูล </option>
+                                            <option value="หนองคาย">หนองคาย </option>
+                                            <option value="หนองบัวลำภู">หนองบัวลำภู </option>
+                                            <option value="อำนาจเจริญ">อำนาจเจริญ </option>
+                                            <option value="อุดรธานี">อุดรธานี </option>
+                                            <option value="อุตรดิตถ์">อุตรดิตถ์ </option>
+                                            <option value="อุทัยธานี">อุทัยธานี </option>
+                                            <option value="อุบลราชธานี">อุบลราชธานี</option>
+                                            <option value="อ่างทอง">อ่างทอง </option>
+                                        </select>
+                                        <!-- <input required type="text" name="address.province" id="province" class="form-control"
+                                            aria-label="Sizing example input" maxlength="15"> -->
                                     </div>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">รหัสไปรษณีย์</span>
                                         </div>
-                                        <input type="text" name="address.postcode" id="postcode" class="form-control"
-                                            aria-label="Sizing example input" maxlength="5">
+                                        <input required type="text" name="address.postcode" id="postcode"
+                                            class="form-control" aria-label="Sizing example input" maxlength="5">
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">อีเมลล์</span>
                                         </div>
-                                        <input type="text" class="form-control" name="customer_email"
+                                        <input required type="text" class="form-control" name="customer_email"
                                             id="customer_email">
                                     </div>
                                     <div class="input-group mb-3">
@@ -364,7 +452,7 @@
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">เบอร์โทรศัพท์</span>
                                         </div>
-                                        <input type="text" class="form-control" name="customer_telephone"
+                                        <input required type="text" class="form-control" name="customer_telephone"
                                             id="customer_telephone" maxlength="10" onkeypress="isInputNumber(event)">
                                     </div>
                                     <div class="input-group mb-3">
@@ -372,7 +460,7 @@
                                             <span class="input-group-text"
                                                 id="inputGroup-sizing-default">พนักงานซื้อ</span>
                                         </div>
-                                        <input type="text" class="form-control" id="ID_MST_employeeId"
+                                        <input required type="text" class="form-control" id="ID_MST_employeeId"
                                             name="ID_MST_employeeId">
                                     </div>
 
@@ -380,7 +468,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
                             <button type="submit" class="btn btn-primary"
                                 style="background:#009688; border:#009688 ">ยืนยัน</button>
                         </div>
@@ -673,10 +761,13 @@
     <!-- Data table plugin-->
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
-    <script language="javascript" type="text/javascript">
+    
+   <script language="javascript" type="text/javascript">
         $('#sampleTable').DataTable();
         $('#profilename').text("ยินดีต้อนรับคุณ : " + localStorage.getItem("name"));
 
+        
+       
         // var userstatus = localStorage.getItem("status")
         // if (userstatus === "แอดมิน") {
         //     console.log('เข้าแอดมิน');
@@ -700,6 +791,7 @@
             var total = parseInt(car_cost) + parseInt(vat)
             var cacost = parseInt(car_cost)
 
+
             $('#invcusname').text(cusname + " " + cuslname)
             $('#invcusadd').text(bloc + " " + district + " " + sub_district + " " + province +
                 " " + postcode)
@@ -708,7 +800,7 @@
             $('#carcost').text(cacost.toLocaleString("en") + ".00")
             $('#cartotal').text(cacost.toLocaleString("en") + ".00")
             $('#invcost').text(cacost.toLocaleString("en") + ".00")
-            $('#invvat').text(vat.toLocaleString("en")+ ".00")
+            $('#invvat').text(vat.toLocaleString("en") + ".00")
             $('#invtotal').text(total.toLocaleString("en") + ".00")
             $('#cardetail').text(car_company + " " + car_model + " ปี " + car_year + " สี " + car_color +
                 " เลขทะเบียนรถ " + car_license)

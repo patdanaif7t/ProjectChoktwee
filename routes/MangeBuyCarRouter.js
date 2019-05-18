@@ -15,16 +15,20 @@ MangeBuyCarRouter.route('/').get(function (req, res) {
         if (err) {
           console.log(err);
         } else {
-          Employee.find(function (err, emps){
-            if(err) {
+          Employee.find(function (err, emps) {
+            if (err) {
               console.log(err);
             } else {
-              Customer.find(function (err, cus){
-                if(err){
-                  console.log(err);                  
+              Customer.find(function (err, cus) {
+                if (err) {
+                  console.log(err);
                 } else {
-                  res.render('ManageBuyCar', {cars : cars,
-                     purchases : purchases, emps : emps,cus : cus})
+                  res.render('ManageBuyCar', {
+                    cars: cars,
+                    purchases: purchases,
+                    emps: emps,
+                    cus: cus
+                  })
                 }
               })
             }
@@ -36,7 +40,7 @@ MangeBuyCarRouter.route('/').get(function (req, res) {
 });
 
 MangeBuyCarRouter.post('/create', (req, res, next) => {
-  var car = new BuyCar (req.body)
+  var car = new BuyCar(req.body)
   var cus = new Customer(req.body)
   var purchase = new Purchase(req.body)
   purchase.save((err, data) => {
@@ -44,20 +48,21 @@ MangeBuyCarRouter.post('/create', (req, res, next) => {
       return res.send(err.message)
     } else {
       car.save((err, data) => {
-        if(err) {
-          return res.send(err.message)
+        if (err) {
+          // return res.send(err.message)
+          res.redirect('/buycar')
         } else {
           cus.save((err, data) => {
-            if(err) {
+            if (err) {
               return res.send(err.message)
-            }else {
+            } else {
               // res.status(200).send({success : {message : "ซื้อรถเข้าสำเร็จ."}})
               res.redirect('/buycar')
             }
           })
         }
       })
-    } 
+    }
   })
 })
 
